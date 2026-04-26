@@ -37,7 +37,7 @@ function Home() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 pt-16 md:pt-24 pb-24 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 pt-8 md:pt-24 pb-12 md:pb-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <Eyebrow>Natural fertility, guided</Eyebrow>
             <h1 className="mt-5 font-serif text-5xl md:text-7xl leading-[1.05] text-balance text-ink">
