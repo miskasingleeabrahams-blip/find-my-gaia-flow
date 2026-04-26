@@ -59,12 +59,20 @@ export function HealingStandard({
               journey with more personalised support. Book a consultation to review your results
               and receive guidance tailored to your next phase.
             </p>
-            <Link
-              to="/consultation"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 hover:opacity-90 transition shadow-[var(--shadow-soft)]"
-            >
-              Book Your 3-Month Check-In →
-            </Link>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Link
+                to="/remedy-finder"
+                className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+              >
+                Find My Remedy →
+              </Link>
+              <Link
+                to="/consultation"
+                className="inline-flex items-center gap-2 rounded-full border border-sage-deep/30 bg-cream/70 text-sage-deep px-8 py-4 hover:bg-sage/10 transition"
+              >
+                Book Your 3-Month Check-In →
+              </Link>
+            </div>
           </div>
         </>
       )}
