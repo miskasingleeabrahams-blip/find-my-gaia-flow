@@ -69,7 +69,10 @@
   --secondary-foreground: oklch(0.35 0.04 25);
 
   --muted: oklch(0.95 0.012 80);
-  --muted-foreground: oklch(0.5 0.02 140);
+  --muted-foreground: oklch(0.46 0.018 145);
+
+  /* Soft body text color — muted sage-grey for elegant readability */
+  --body: oklch(0.42 0.022 150);
 
   --accent: oklch(0.92 0.03 20);
   --accent-foreground: oklch(0.35 0.04 25);
@@ -95,22 +98,57 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     background-color: var(--color-background);
-    color: var(--color-foreground);
+    color: var(--body);
     font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.75;
+    letter-spacing: 0.005em;
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4 {
+  p {
+    line-height: 1.8;
+    letter-spacing: 0.005em;
+    font-weight: 300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
     color: var(--ink);
   }
+
+  h1 { font-weight: 400; }
+  h2 { font-weight: 400; }
+  h3 { font-weight: 500; letter-spacing: -0.01em; }
+
+  /* Subheadings: refined sans option */
+  .subheading {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--sage-deep);
+  }
+
+  strong, b {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  small { font-size: 0.85rem; }
 }
 
 @utility font-serif {
@@ -120,3 +158,11 @@
 @utility text-balance {
   text-wrap: balance;
 }
+
+/* Soft sage highlight for key phrases */
+@utility text-highlight {
+  color: var(--sage-deep);
+  font-weight: 400;
+  font-style: italic;
+}
+
