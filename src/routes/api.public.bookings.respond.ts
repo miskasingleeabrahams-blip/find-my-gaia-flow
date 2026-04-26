@@ -148,10 +148,10 @@ export const Route = createFileRoute('/api/public/bookings/respond')({
         if (!token) return Response.json({ error: 'Token required' }, { status: 400 })
 
         const supabase = createClient(supabaseUrl, serviceKey)
-        const { data: booking } = await supabase
-          .from('consultation_bookings')
+        const { data: booking } = await (supabase
+          .from('consultation_bookings') as any)
           .select('id, customer_name, customer_email, customer_phone, booking_date, booking_time, session_length, preferred_consultant, notes, status, price_cents')
-          .eq('approval_token' as any, token)
+          .eq('approval_token', token)
           .maybeSingle()
 
         if (!booking) return Response.json({ error: 'Not found' }, { status: 404 })

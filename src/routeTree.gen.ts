@@ -22,6 +22,8 @@ import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/em
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
+import { Route as ApiPublicBookingsRespondRouteImport } from './routes/api.public.bookings.respond'
+import { Route as ApiPublicBookingsCreateRouteImport } from './routes/api.public.bookings.create'
 
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
@@ -91,6 +93,17 @@ const LovableEmailQueueProcessRoute =
     path: '/lovable/email/queue/process',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicBookingsRespondRoute =
+  ApiPublicBookingsRespondRouteImport.update({
+    id: '/api/public/bookings/respond',
+    path: '/api/public/bookings/respond',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicBookingsCreateRoute = ApiPublicBookingsCreateRouteImport.update({
+  id: '/api/public/bookings/create',
+  path: '/api/public/bookings/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -103,6 +116,8 @@ export interface FileRoutesByFullPath {
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
+  '/api/public/bookings/respond': typeof ApiPublicBookingsRespondRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -118,6 +133,8 @@ export interface FileRoutesByTo {
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
+  '/api/public/bookings/respond': typeof ApiPublicBookingsRespondRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -134,6 +151,8 @@ export interface FileRoutesById {
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
+  '/api/public/bookings/respond': typeof ApiPublicBookingsRespondRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -151,6 +170,8 @@ export interface FileRouteTypes {
     | '/email/unsubscribe'
     | '/product/$handle'
     | '/lovable/email/suppression'
+    | '/api/public/bookings/create'
+    | '/api/public/bookings/respond'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -166,6 +187,8 @@ export interface FileRouteTypes {
     | '/email/unsubscribe'
     | '/product/$handle'
     | '/lovable/email/suppression'
+    | '/api/public/bookings/create'
+    | '/api/public/bookings/respond'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -181,6 +204,8 @@ export interface FileRouteTypes {
     | '/email/unsubscribe'
     | '/product/$handle'
     | '/lovable/email/suppression'
+    | '/api/public/bookings/create'
+    | '/api/public/bookings/respond'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -197,6 +222,8 @@ export interface RootRouteChildren {
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   ProductHandleRoute: typeof ProductHandleRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
+  ApiPublicBookingsCreateRoute: typeof ApiPublicBookingsCreateRoute
+  ApiPublicBookingsRespondRoute: typeof ApiPublicBookingsRespondRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
   LovableEmailTransactionalSendRoute: typeof LovableEmailTransactionalSendRoute
@@ -295,6 +322,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/bookings/respond': {
+      id: '/api/public/bookings/respond'
+      path: '/api/public/bookings/respond'
+      fullPath: '/api/public/bookings/respond'
+      preLoaderRoute: typeof ApiPublicBookingsRespondRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/bookings/create': {
+      id: '/api/public/bookings/create'
+      path: '/api/public/bookings/create'
+      fullPath: '/api/public/bookings/create'
+      preLoaderRoute: typeof ApiPublicBookingsCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -309,6 +350,8 @@ const rootRouteChildren: RootRouteChildren = {
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   ProductHandleRoute: ProductHandleRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
+  ApiPublicBookingsCreateRoute: ApiPublicBookingsCreateRoute,
+  ApiPublicBookingsRespondRoute: ApiPublicBookingsRespondRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
   LovableEmailTransactionalSendRoute: LovableEmailTransactionalSendRoute,
