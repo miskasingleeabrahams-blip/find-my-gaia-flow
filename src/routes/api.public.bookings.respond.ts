@@ -52,10 +52,10 @@ export const Route = createFileRoute('/api/public/bookings/respond')({
         }
 
         const supabase = createClient(supabaseUrl, serviceKey)
-        const { data: booking, error } = await supabase
-          .from('consultation_bookings')
+        const { data: booking, error } = await (supabase
+          .from('consultation_bookings') as any)
           .select('*')
-          .eq('approval_token' as any, token)
+          .eq('approval_token', token)
           .maybeSingle()
 
         if (error || !booking) {
