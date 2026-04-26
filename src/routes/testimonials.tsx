@@ -81,6 +81,35 @@ function Testimonials() {
           </p>
         </div>
 
+        {/* Google reviews trust strip */}
+        <div className="mt-10 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 rounded-2xl border border-sage/25 bg-sage/5 px-5 py-4">
+          <div className="flex items-center gap-3">
+            <span className="font-serif text-3xl text-sage-deep leading-none">4.9</span>
+            <div className="flex flex-col items-start">
+              <span className="text-base tracking-widest text-[#f59e0b] leading-none">★★★★★</span>
+              <span className="text-xs text-muted-foreground mt-1">Based on 34 verified Google reviews</span>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <a
+              href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-sage-deep/30 text-sage-deep px-5 py-2 text-sm hover:bg-sage/10 transition"
+            >
+              Read on Google
+            </a>
+            <a
+              href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+            >
+              Leave a review →
+            </a>
+          </div>
+        </div>
+
         <div className="mt-14 columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
           {screenshots.map((s, i) => (
             <figure
