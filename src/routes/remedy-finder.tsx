@@ -175,11 +175,12 @@ function getRecommendation(a: Answers): Recommendation {
       if (a.endoHasPcos === "Yes") {
         return {
           name: "Endo & PCOS Protocol",
-          price: "R970",
+          price: "R620",
           image: kitDeepCleanse,
           productHandle: "endo-kit-deep-fertility-cleanse",
-          description: "Deep Fertility Cleanse paired with Milk Thistle to address Endo and PCOS together.",
-          addOns: [ADDONS.chasteBerry, ADDONS.milkThistle],
+          description: "Deep Fertility Cleanse — your base for Endo and PCOS together. Add Milk Thistle and/or Chaste Berry below for fuller hormonal and liver support.",
+          addOns: [ADDONS.milkThistle, ADDONS.chasteBerry],
+          addOnIntro: "Choose to add Milk Thistle, Chaste Berry, or both — based on what your body needs most.",
         };
       }
       return {
