@@ -114,7 +114,7 @@ function ProductPage() {
                 to="/consultation"
                 className="inline-flex items-center rounded-full border border-sage-deep/30 text-sage-deep px-6 py-4 text-sm hover:bg-sage/10 transition"
               >
-                Book 3-Month Check-In
+                Book Your 3-Month Check-In
               </Link>
             </div>
           </div>
