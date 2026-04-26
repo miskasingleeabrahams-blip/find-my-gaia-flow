@@ -86,6 +86,7 @@ type Recommendation = {
   price: string;
   description: string;
   image?: string;
+  productHandle?: string;
   addOns?: AddOn[];
   addOnHeading?: string;
   addOnIntro?: string;
