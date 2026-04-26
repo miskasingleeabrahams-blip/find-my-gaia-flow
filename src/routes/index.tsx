@@ -123,17 +123,24 @@ function Home() {
             className="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-soft-light pointer-events-none"
           />
           <div className="absolute inset-0 bg-[var(--gradient-sage)] opacity-70 pointer-events-none" />
+          {/* Magnolia accent — bottom-left, soft */}
+          <img
+            src={magnoliaBranch}
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute -bottom-12 -left-12 w-[220px] md:w-[360px] opacity-40 mix-blend-screen rotate-[200deg] select-none"
+          />
           <div className="relative mx-auto max-w-5xl grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="relative">
-              <div className="rotate-[-3deg] hover:rotate-0 transition-transform duration-700">
-                <div className="bg-cream p-3 pb-10 shadow-[var(--shadow-petal)] rounded-sm">
+              <div className="rotate-[-3deg] hover:rotate-0 transition-transform duration-700 max-w-md mx-auto md:max-w-none">
+                <div className="bg-cream p-4 md:p-5 pb-12 md:pb-14 shadow-[var(--shadow-petal)] rounded-sm">
                   <img
                     src={firstBaby}
                     alt="Ultrasound of the first GaiaBerry baby — a gift after years of trying"
                     loading="lazy"
                     className="w-full aspect-[4/5] object-cover"
                   />
-                  <p className="mt-3 text-center font-serif italic text-ink/70 text-sm">
+                  <p className="mt-4 text-center font-serif italic text-ink/70 text-base md:text-lg">
                     Our very first GaiaBerry baby 🌿
                   </p>
                 </div>
