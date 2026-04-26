@@ -83,6 +83,11 @@ function Home() {
         </div>
       </section>
 
+      {/* CALLOUT — guide to Remedy Finder */}
+      <Section className="pt-0 pb-6 md:pb-10">
+        <RemedyFinderCallout />
+      </Section>
+
       {/* HEALING STANDARD — directly under hero */}
       <Section className="pt-0 pb-8 md:pb-16">
         <HealingStandard />
