@@ -104,46 +104,69 @@ function Home() {
       {/* REMEDY FINDER FEATURE */}
       <Section className="py-10 md:py-24">
         <div className="rounded-[2.5rem] bg-[var(--gradient-sage)] text-cream px-8 md:px-16 py-12 md:py-24 text-center relative overflow-hidden">
-          <Eyebrow>
-            <span className="text-cream/80">The GaiaBerry Method</span>
-          </Eyebrow>
-          <h2 className="mt-4 font-serif text-4xl md:text-6xl text-cream max-w-3xl mx-auto text-balance">
-            A 2-minute ritual to find the remedy made for you.
-          </h2>
-          <p className="mt-6 max-w-xl mx-auto text-cream/85 leading-relaxed">
-            Answer a few thoughtful questions about your cycle, symptoms and goals. We'll match you with a personalised herbal protocol — and the women who've walked your path.
-          </p>
-          <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto text-left">
-            {[
-              { n: "01", t: "Tell us your story", d: "Cycle, symptoms, season of life." },
-              { n: "02", t: "We listen", d: "Matched to a tradition-rooted protocol." },
-              { n: "03", t: "Begin gently", d: "Daily rituals delivered to your door." },
-            ].map((s) => (
-              <div key={s.n} className="rounded-2xl bg-cream/10 backdrop-blur-sm p-5 border border-cream/15">
-                <div className="font-serif text-2xl text-cream/90">{s.n}</div>
-                <div className="mt-2 font-medium">{s.t}</div>
-                <div className="text-sm text-cream/75 mt-1">{s.d}</div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 flex flex-col items-center gap-4">
-            <Link
-              to="/remedy-finder"
-              className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-8 py-4 hover:bg-blush transition shadow-[var(--shadow-soft)]"
-            >
-              Begin the Remedy Finder →
-            </Link>
-            <p className="text-xs uppercase tracking-[0.25em] text-cream/70">
-              Free · 2 minutes · No sign-up
+          {/* subtle lifestyle backdrop */}
+          <img
+            src={lifestyleFlatlay}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-soft-light pointer-events-none"
+          />
+          <div className="absolute inset-0 bg-[var(--gradient-sage)] opacity-70 pointer-events-none" />
+          <div className="relative">
+            <Eyebrow>
+              <span className="text-cream/80">The GaiaBerry Method</span>
+            </Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl md:text-6xl text-cream max-w-3xl mx-auto text-balance">
+              A 2-minute ritual to find the remedy made for you.
+            </h2>
+            <p className="mt-6 max-w-xl mx-auto text-cream/85 leading-relaxed">
+              Answer a few thoughtful questions about your cycle, symptoms and goals. We'll match you with a personalised herbal protocol — and the women who've walked your path.
             </p>
-            <div className="mt-2 flex items-center gap-3 text-cream/70">
-              <span className="h-px w-10 bg-cream/30" />
-              <span className="font-serif italic text-sm">held by nature, guided by women</span>
-              <span className="h-px w-10 bg-cream/30" />
+            <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto text-left">
+              {[
+                { n: "01", t: "Tell us your story", d: "Cycle, symptoms, season of life." },
+                { n: "02", t: "We listen", d: "Matched to a tradition-rooted protocol." },
+                { n: "03", t: "Begin gently", d: "Daily rituals delivered to your door." },
+              ].map((s) => (
+                <div key={s.n} className="rounded-2xl bg-cream/10 backdrop-blur-sm p-5 border border-cream/15">
+                  <div className="font-serif text-2xl text-cream/90">{s.n}</div>
+                  <div className="mt-2 font-medium">{s.t}</div>
+                  <div className="text-sm text-cream/75 mt-1">{s.d}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 flex flex-col items-center gap-4">
+              <Link
+                to="/remedy-finder"
+                className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-8 py-4 hover:bg-blush transition shadow-[var(--shadow-soft)]"
+              >
+                Begin the Remedy Finder →
+              </Link>
+              <p className="text-xs uppercase tracking-[0.25em] text-cream/70">
+                Free · 2 minutes · No sign-up
+              </p>
+              <div className="mt-2 flex items-center gap-3 text-cream/70">
+                <span className="h-px w-10 bg-cream/30" />
+                <span className="font-serif italic text-sm">held by nature, guided by women</span>
+                <span className="h-px w-10 bg-cream/30" />
+              </div>
             </div>
           </div>
         </div>
       </Section>
+
+      {/* DIVIDER — soft lifestyle flatlay */}
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="relative rounded-[2rem] overflow-hidden h-32 md:h-48">
+          <img
+            src={lifestyleTrioFront}
+            alt="GaiaBerry trio of natural remedies"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.97_0.018_25/0.25)_0%,oklch(0.97_0.018_25/0.55)_100%)]" />
+        </div>
+      </div>
 
       {/* BEST SELLERS */}
       <Section>
