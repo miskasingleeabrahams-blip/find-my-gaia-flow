@@ -106,7 +106,7 @@ function Home() {
       </Section>
 
       {/* OUR STORY — first GaiaBerry baby */}
-      <Section className="py-10 md:py-24">
+      <Section className="pt-10 md:pt-24 pb-6 md:pb-10">
         <div className="rounded-[2.5rem] bg-[var(--gradient-sage)] text-cream px-6 md:px-16 py-12 md:py-20 relative overflow-hidden">
           <img
             src={lifestyleFlatlay}
@@ -156,16 +156,28 @@ function Home() {
         </div>
       </Section>
 
-      {/* DIVIDER — soft lifestyle flatlay */}
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="relative rounded-[2rem] overflow-hidden h-32 md:h-48">
+      {/* MILESTONES — celebrating the women & babies */}
+      <div className="mx-auto max-w-7xl px-6 md:px-10 mt-2 md:mt-4">
+        <div className="relative rounded-[2rem] overflow-hidden">
           <img
             src={lifestyleTrioFront}
             alt="GaiaBerry trio of natural remedies"
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.97_0.018_25/0.25)_0%,oklch(0.97_0.018_25/0.55)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.35_0.04_150/0.55)_0%,oklch(0.35_0.04_150/0.75)_100%)]" />
+          <div className="relative px-6 md:px-12 py-10 md:py-14 grid grid-cols-3 gap-4 md:gap-8 text-center text-cream">
+            {[
+              { n: "1000+", t: "Babies conceived" },
+              { n: "5 yrs", t: "Of plant-rooted care" },
+              { n: "SA + 🌍", t: "Women supported" },
+            ].map((m) => (
+              <div key={m.t}>
+                <div className="font-serif text-3xl md:text-5xl text-cream">{m.n}</div>
+                <div className="mt-2 text-xs md:text-sm uppercase tracking-[0.2em] text-cream/80">{m.t}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
