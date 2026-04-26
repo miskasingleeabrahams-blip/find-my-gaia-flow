@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
@@ -10,6 +10,8 @@ import kitBlockedTubes from "@/assets/kit-blocked-tubes.png";
 import kitAnaemia from "@/assets/kit-anaemia-fertility.png";
 import kitProgesterone from "@/assets/kit-progesterone.png";
 import kitManOfSteel from "@/assets/kit-man-of-steel.png";
+import { AddToCartButton } from "@/components/AddToCartButton";
+import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
 export const Route = createFileRoute("/remedy-finder")({
   head: () => ({
@@ -18,6 +20,33 @@ export const Route = createFileRoute("/remedy-finder")({
       { name: "description", content: "Answer a few questions to discover your personalised GaiaBerry remedy." },
     ],
   }),
+  loader: async (): Promise<{ products: ShopifyProduct[] }> => {
+    const data = await storefrontApiRequest(STOREFRONT_QUERY, { first: 50, query: null });
+    const products: ShopifyProduct[] = data?.data?.products?.edges ?? [];
+    return { products };
+  },
+  errorComponent: ({ error, reset }) => {
+    const router = useRouter();
+    return (
+      <div className="min-h-screen bg-cream">
+        <SiteHeader />
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <h1 className="font-serif text-3xl">Something went wrong loading your remedies.</h1>
+          <p className="mt-4 text-muted-foreground text-sm">{error.message}</p>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="mt-8 rounded-full bg-primary text-primary-foreground px-6 py-3"
+          >
+            Try again
+          </button>
+        </div>
+        <SiteFooter />
+      </div>
+    );
+  },
   component: RemedyFinder,
 });
 
