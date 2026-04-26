@@ -4,7 +4,7 @@ import logo from "@/assets/gaiaberry-logo.png";
 export function SiteFooter() {
   return (
     <footer className="mt-32 bg-[var(--gradient-warm)] border-t border-border/60">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 py-16 grid gap-10 md:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 py-16 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <div className="flex items-center">
             <img src={logo} alt="GaiaBerry" className="h-20 w-auto object-contain" />
@@ -18,15 +18,24 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link to="/remedy-finder" className="hover:text-sage-deep">Remedy Finder</Link></li>
             <li><Link to="/shop" className="hover:text-sage-deep">Shop Kits</Link></li>
-            <li><Link to="/testimonials" className="hover:text-sage-deep">Customer Stories</Link></li>
+            <li><Link to="/testimonials" className="hover:text-sage-deep">Testimonials</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="font-serif text-lg mb-4">Support</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/consultation" className="hover:text-sage-deep">Book Your 3-Month Follow-Up</Link></li>
+            <li><Link to="/consultation" className="hover:text-sage-deep">3-Month Follow-Up</Link></li>
             <li><Link to="/agent" className="hover:text-sage-deep">Become an Agent</Link></li>
             <li><a href="mailto:info@gaiaberry.co.za" className="hover:text-sage-deep">info@gaiaberry.co.za</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-serif text-lg mb-4">Legal</h4>
+          <ul className="space-y-2 text-sm text-muted-foreground">
+            <li><Link to="/legal/privacy" className="hover:text-sage-deep">Privacy Policy</Link></li>
+            <li><Link to="/legal/terms" className="hover:text-sage-deep">Terms of Service</Link></li>
+            <li><Link to="/legal/shipping" className="hover:text-sage-deep">Shipping & Returns</Link></li>
+            <li><Link to="/legal/disclaimer" className="hover:text-sage-deep">Medical Disclaimer</Link></li>
           </ul>
         </div>
       </div>
