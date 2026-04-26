@@ -6,6 +6,7 @@ import { AddToCartButton } from "@/components/AddToCartButton";
 import { HealingStandard, HealingReminder } from "@/components/HealingStandard";
 import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
+import shopBanner from "@/assets/lifestyle-three-jars.jpg";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
