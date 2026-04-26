@@ -470,7 +470,16 @@ function ResultStep({
     <div>
       <div className="text-center">
         <Eyebrow>Your remedy</Eyebrow>
-        <h2 className="mt-3 font-serif text-4xl md:text-5xl text-sage-deep">{result.name}</h2>
+        {result.image && (
+          <div className="mt-6 mx-auto max-w-xs rounded-3xl bg-blush/30 p-6 flex items-center justify-center">
+            <img
+              src={result.image}
+              alt={result.name}
+              className="w-full aspect-square object-contain"
+            />
+          </div>
+        )}
+        <h2 className="mt-6 font-serif text-4xl md:text-5xl text-sage-deep">{result.name}</h2>
         {result.price !== "—" && (
           <div className="mt-3 inline-flex items-baseline gap-2">
             <span className="font-serif text-2xl text-ink">{result.price}</span>
