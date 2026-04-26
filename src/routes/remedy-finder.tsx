@@ -92,12 +92,14 @@ function getRecommendation(a: Answers): Recommendation {
         return {
           name: "PCOS Kit 1",
           price: "R845",
+          image: kitPcos1,
           description: "Crafted for PCOS with weight gain, bloating or ovarian cysts — to gently restore metabolic and hormonal harmony.",
         };
       }
       return {
         name: "PCOS Kit 2",
         price: "R845",
+        image: kitPcos2,
         description: "Crafted for PCOS with fatigue, hirsutism and stress-driven imbalance — to nourish the adrenals and rebalance hormones.",
       };
     }
@@ -108,12 +110,14 @@ function getRecommendation(a: Answers): Recommendation {
         return {
           name: "Endo & PCOS Protocol",
           price: "R970",
+          image: kitDeepCleanse,
           description: "Deep Fertility Cleanse paired with Milk Thistle to address Endo and PCOS together.",
         };
       }
       return {
         name: "Endo Kit (Deep Fertility Cleanse)",
         price: "R620 + add-on",
+        image: kitDeepCleanse,
         description: "A deep cleanse to support Endo or Fibroids. Pair with Milk Thistle and/or Chaste Berry drops for fuller support.",
         addOns: endoAddOns,
       };
@@ -123,6 +127,7 @@ function getRecommendation(a: Answers): Recommendation {
       return {
         name: "Blocked Tubes Kit",
         price: "R920",
+        image: kitBlockedTubes,
         description: "A focused herbal protocol to support tubal health and reproductive flow.",
       };
 
@@ -131,12 +136,14 @@ function getRecommendation(a: Answers): Recommendation {
         return {
           name: "Anaemia & Fertility Kit",
           price: "R820",
+          image: kitAnaemia,
           description: "Iron-rich, blood-building herbs to nourish the womb and support a thriving pregnancy.",
         };
       }
       return {
         name: "Anaemia & Fertility Kit",
         price: "R820",
+        image: kitAnaemia,
         description: "Even without confirmed anaemia, this nourishing kit supports recurring loss recovery and womb strengthening.",
       };
 
@@ -145,6 +152,7 @@ function getRecommendation(a: Answers): Recommendation {
       return {
         name: "Progesterone Kit",
         price: "R720",
+        image: kitProgesterone,
         description: "Designed to lift progesterone gently, ease spotting and lengthen short luteal phases.",
       };
 
@@ -152,6 +160,7 @@ function getRecommendation(a: Answers): Recommendation {
       return {
         name: "Pregnancy Care — Womb Nourishment Tea",
         price: "R220",
+        image: kitAnaemia,
         description: "A daily nourishing tea to support a healthy, thriving pregnancy.",
       };
 
@@ -159,6 +168,7 @@ function getRecommendation(a: Answers): Recommendation {
       return {
         name: "Postpartum & New Mum Care",
         price: "R440",
+        image: kitAnaemia,
         description: "Replenishing herbs for the fourth trimester — to restore, soothe and support breastfeeding.",
       };
 
@@ -166,6 +176,7 @@ function getRecommendation(a: Answers): Recommendation {
       return {
         name: "Man of Steel Kit",
         price: "R1,350",
+        image: kitManOfSteel,
         description: "A potent kit to support male fertility, vitality and sperm health.",
       };
 
