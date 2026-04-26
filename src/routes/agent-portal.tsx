@@ -188,7 +188,7 @@ function AgentPortal() {
           </div>
         ) : (
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {agentProducts.map(({ p, agentPrice }) => {
+            {agentProducts.map(({ p, agentPrice }: { p: ShopifyProduct; agentPrice: number }) => {
               const img = p.node.images.edges[0]?.node;
               const retail = p.node.priceRange.minVariantPrice;
               const retailAmount = parseFloat(retail.amount);
