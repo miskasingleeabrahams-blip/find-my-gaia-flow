@@ -76,6 +76,9 @@ function Testimonials() {
           <p className="mt-5 text-muted-foreground">
             Real messages from women across South Africa and abroad. Shared with permission, held with care.
           </p>
+          <p className="mt-4 text-sage-deep font-medium">
+            GaiaBerry has helped thousands of women across South Africa conceive naturally. 🌿
+          </p>
         </div>
 
         <div className="mt-14 columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
