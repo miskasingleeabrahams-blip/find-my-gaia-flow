@@ -52,6 +52,15 @@ function Shop() {
     <div className="min-h-screen bg-cream">
       <SiteHeader />
       <div className="mx-auto max-w-7xl px-6 md:px-10 py-20">
+        {/* soft lifestyle banner */}
+        <div className="relative rounded-[2rem] overflow-hidden mb-14 h-44 md:h-64">
+          <img
+            src={shopBanner}
+            alt="GaiaBerry remedies arranged with fresh berries"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.97_0.018_25/0.2)_0%,oklch(0.97_0.018_25/0.55)_100%)]" />
+        </div>
         <div className="text-center max-w-2xl mx-auto">
           <Eyebrow>The Apothecary</Eyebrow>
           <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">
