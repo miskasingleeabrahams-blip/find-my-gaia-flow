@@ -64,8 +64,8 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-            <div className="shrink-0 h-14 w-14 rounded-full bg-sage-deep text-cream flex items-center justify-center font-serif text-xl shadow-[var(--shadow-soft)]" aria-hidden>
-              ﷲ
+            <div className="shrink-0 h-14 px-5 rounded-full bg-sage-deep text-cream flex items-center justify-center font-serif text-sm tracking-[0.2em] shadow-[var(--shadow-soft)]" aria-hidden>
+              SANHA
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               <span className="font-medium text-sage-deep">Certified Halaal.</span>{" "}
