@@ -13,9 +13,25 @@ export const AGENTS: Agent[] = [
   { id: 'nafeesah', name: 'Nafeesah', email: 'glowwithnafeesahmo@gmail.com', location: 'CPT' },
 ]
 
+// Shopify ProductVariant GIDs — used to build a real Shopify cart checkout
+// so Payflex (and other Shopify-enabled payment methods) work automatically.
 export const SESSION_OPTIONS = [
-  { id: '15min', label: '15 minutes', priceCents: 10000, priceFormatted: 'R100' },
-  { id: '30min', label: '30 minutes', priceCents: 20000, priceFormatted: 'R200' },
+  {
+    id: '15min',
+    label: '15 minutes',
+    priceCents: 10000,
+    priceFormatted: 'R100',
+    shopifyVariantId: 'gid://shopify/ProductVariant/45494375907382',
+    shopifyVariantNumericId: '45494375907382',
+  },
+  {
+    id: '30min',
+    label: '30 minutes',
+    priceCents: 20000,
+    priceFormatted: 'R200',
+    shopifyVariantId: 'gid://shopify/ProductVariant/45494376136758',
+    shopifyVariantNumericId: '45494376136758',
+  },
 ] as const
 
 export type SessionId = typeof SESSION_OPTIONS[number]['id']

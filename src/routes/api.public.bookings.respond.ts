@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { createClient } from '@supabase/supabase-js'
+import { getSession } from '@/lib/booking-config'
+import { createConsultationCheckout } from '@/lib/shopify-checkout.server'
 
 async function enqueueEmail(params: {
   origin: string
@@ -71,8 +73,25 @@ export const Route = createFileRoute('/api/public/bookings/respond')({
         const priceFormatted = b.price_cents ? `R${(b.price_cents / 100).toFixed(0)}` : ''
 
         if (action === 'approve') {
-          // Placeholder payment URL — wire up real Stripe when account is connected.
-          const paymentUrl = `${origin}/pay/${b.id}`
+          // Build a real Shopify checkout URL for the matching consultation
+          // product variant. Payflex (and other Shopify-enabled payment
+          // methods) appear automatically on Shopify's hosted checkout.
+          const session = getSession(b.session_length)
+          let paymentUrl = `${origin}/pay/${b.id}` // safe fallback
+
+          if (session?.shopifyVariantId) {
+            const checkout = await createConsultationCheckout({
+              variantId: session.shopifyVariantId,
+              quantity: 1,
+              buyerEmail: b.customer_email,
+              bookingId: b.id,
+            })
+            if (checkout?.checkoutUrl) {
+              paymentUrl = checkout.checkoutUrl
+            } else {
+              console.error('Falling back to placeholder pay link for booking', b.id)
+            }
+          }
 
           const { error: upErr } = await (supabase
             .from('consultation_bookings') as any)
