@@ -14,6 +14,7 @@ import kit1 from "@/assets/kit-pcos-1.png";
 import kit2 from "@/assets/kit-pcos-2.png";
 import kit3 from "@/assets/kit-progesterone.png";
 import firstBaby from "@/assets/first-gaiaberry-baby.jpg";
+import magnoliaBranch from "@/assets/magnolia-branch.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,7 +45,14 @@ function Home() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 pt-8 md:pt-24 pb-12 md:pb-24 grid lg:grid-cols-2 gap-12 items-center">
+        {/* Decorative magnolia branch — top-left flourish */}
+        <img
+          src={magnoliaBranch}
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute -top-10 -left-16 w-[280px] md:w-[420px] opacity-80 -rotate-12 select-none z-0"
+        />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-10 pt-8 md:pt-24 pb-12 md:pb-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <Eyebrow>Natural fertility, guided</Eyebrow>
             <h1 className="mt-5 font-serif text-5xl md:text-7xl leading-[1.05] text-balance text-ink">
@@ -246,6 +254,13 @@ function Home() {
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover opacity-[0.07] pointer-events-none"
+        />
+        {/* Magnolia accent — mirrored, top-right */}
+        <img
+          src={magnoliaBranch}
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute -top-12 -right-16 w-[260px] md:w-[380px] opacity-70 rotate-[160deg] scale-x-[-1] select-none"
         />
         <div className="relative mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-14 items-start">

@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/gaiaberry-logo.png";
+import iaothBadge from "@/assets/iaoth-badge.png";
 
 export function SiteFooter() {
   return (
@@ -37,6 +38,30 @@ export function SiteFooter() {
             <li><Link to="/legal/shipping" className="hover:text-sage-deep">Shipping & Returns</Link></li>
             <li><Link to="/legal/disclaimer" className="hover:text-sage-deep">Medical Disclaimer</Link></li>
           </ul>
+        </div>
+      </div>
+      {/* Credentials — qualified & recognised */}
+      <div className="border-t border-border/60">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-center sm:text-left">
+          <a
+            href="https://www.iaoth.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0"
+            aria-label="International Association of Therapists"
+          >
+            <img
+              src={iaothBadge}
+              alt="International Association of Therapists — IAOTH member"
+              loading="lazy"
+              className="h-14 w-auto object-contain"
+            />
+          </a>
+          <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
+            <span className="font-medium text-sage-deep">Qualified & recognised herbalist.</span>{" "}
+            Accredited member of the International Association of Therapists (IAOTH) — practising in
+            line with international herbal and holistic standards.
+          </p>
         </div>
       </div>
       <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
