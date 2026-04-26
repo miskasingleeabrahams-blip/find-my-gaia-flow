@@ -13,12 +13,17 @@ import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as RemedyFinderRouteImport } from './routes/remedy-finder'
+import { Route as LegalRouteImport } from './routes/legal'
 import { Route as ConsultationRouteImport } from './routes/consultation'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as AgentPortalRouteImport } from './routes/agent-portal'
 import { Route as AgentRouteImport } from './routes/agent'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
+import { Route as LegalTermsRouteImport } from './routes/legal.terms'
+import { Route as LegalShippingRouteImport } from './routes/legal.shipping'
+import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
+import { Route as LegalDisclaimerRouteImport } from './routes/legal.disclaimer'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as AgentRespondRouteImport } from './routes/agent.respond'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
@@ -46,6 +51,11 @@ const ShopRoute = ShopRouteImport.update({
 const RemedyFinderRoute = RemedyFinderRouteImport.update({
   id: '/remedy-finder',
   path: '/remedy-finder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalRoute = LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConsultationRoute = ConsultationRouteImport.update({
@@ -77,6 +87,26 @@ const ProductHandleRoute = ProductHandleRouteImport.update({
   id: '/product/$handle',
   path: '/product/$handle',
   getParentRoute: () => rootRouteImport,
+} as any)
+const LegalTermsRoute = LegalTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => LegalRoute,
+} as any)
+const LegalShippingRoute = LegalShippingRouteImport.update({
+  id: '/shipping',
+  path: '/shipping',
+  getParentRoute: () => LegalRoute,
+} as any)
+const LegalPrivacyRoute = LegalPrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => LegalRoute,
+} as any)
+const LegalDisclaimerRoute = LegalDisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => LegalRoute,
 } as any)
 const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
   id: '/email/unsubscribe',
@@ -129,12 +159,17 @@ export interface FileRoutesByFullPath {
   '/agent-portal': typeof AgentPortalRoute
   '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
+  '/legal': typeof LegalRouteWithChildren
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/agent/respond': typeof AgentRespondRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/shipping': typeof LegalShippingRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
@@ -149,12 +184,17 @@ export interface FileRoutesByTo {
   '/agent-portal': typeof AgentPortalRoute
   '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
+  '/legal': typeof LegalRouteWithChildren
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/agent/respond': typeof AgentRespondRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/shipping': typeof LegalShippingRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
@@ -170,12 +210,17 @@ export interface FileRoutesById {
   '/agent-portal': typeof AgentPortalRoute
   '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
+  '/legal': typeof LegalRouteWithChildren
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/agent/respond': typeof AgentRespondRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/shipping': typeof LegalShippingRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
@@ -192,12 +237,17 @@ export interface FileRouteTypes {
     | '/agent-portal'
     | '/book'
     | '/consultation'
+    | '/legal'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
     | '/unsubscribe'
     | '/agent/respond'
     | '/email/unsubscribe'
+    | '/legal/disclaimer'
+    | '/legal/privacy'
+    | '/legal/shipping'
+    | '/legal/terms'
     | '/product/$handle'
     | '/lovable/email/suppression'
     | '/api/public/bookings/create'
@@ -212,12 +262,17 @@ export interface FileRouteTypes {
     | '/agent-portal'
     | '/book'
     | '/consultation'
+    | '/legal'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
     | '/unsubscribe'
     | '/agent/respond'
     | '/email/unsubscribe'
+    | '/legal/disclaimer'
+    | '/legal/privacy'
+    | '/legal/shipping'
+    | '/legal/terms'
     | '/product/$handle'
     | '/lovable/email/suppression'
     | '/api/public/bookings/create'
@@ -232,12 +287,17 @@ export interface FileRouteTypes {
     | '/agent-portal'
     | '/book'
     | '/consultation'
+    | '/legal'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
     | '/unsubscribe'
     | '/agent/respond'
     | '/email/unsubscribe'
+    | '/legal/disclaimer'
+    | '/legal/privacy'
+    | '/legal/shipping'
+    | '/legal/terms'
     | '/product/$handle'
     | '/lovable/email/suppression'
     | '/api/public/bookings/create'
@@ -253,6 +313,7 @@ export interface RootRouteChildren {
   AgentPortalRoute: typeof AgentPortalRoute
   BookRoute: typeof BookRoute
   ConsultationRoute: typeof ConsultationRoute
+  LegalRoute: typeof LegalRouteWithChildren
   RemedyFinderRoute: typeof RemedyFinderRoute
   ShopRoute: typeof ShopRoute
   TestimonialsRoute: typeof TestimonialsRoute
@@ -297,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RemedyFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/consultation': {
       id: '/consultation'
       path: '/consultation'
@@ -338,6 +406,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/product/$handle'
       preLoaderRoute: typeof ProductHandleRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/legal/terms': {
+      id: '/legal/terms'
+      path: '/terms'
+      fullPath: '/legal/terms'
+      preLoaderRoute: typeof LegalTermsRouteImport
+      parentRoute: typeof LegalRoute
+    }
+    '/legal/shipping': {
+      id: '/legal/shipping'
+      path: '/shipping'
+      fullPath: '/legal/shipping'
+      preLoaderRoute: typeof LegalShippingRouteImport
+      parentRoute: typeof LegalRoute
+    }
+    '/legal/privacy': {
+      id: '/legal/privacy'
+      path: '/privacy'
+      fullPath: '/legal/privacy'
+      preLoaderRoute: typeof LegalPrivacyRouteImport
+      parentRoute: typeof LegalRoute
+    }
+    '/legal/disclaimer': {
+      id: '/legal/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/legal/disclaimer'
+      preLoaderRoute: typeof LegalDisclaimerRouteImport
+      parentRoute: typeof LegalRoute
     }
     '/email/unsubscribe': {
       id: '/email/unsubscribe'
@@ -408,12 +504,29 @@ const AgentRouteChildren: AgentRouteChildren = {
 
 const AgentRouteWithChildren = AgentRoute._addFileChildren(AgentRouteChildren)
 
+interface LegalRouteChildren {
+  LegalDisclaimerRoute: typeof LegalDisclaimerRoute
+  LegalPrivacyRoute: typeof LegalPrivacyRoute
+  LegalShippingRoute: typeof LegalShippingRoute
+  LegalTermsRoute: typeof LegalTermsRoute
+}
+
+const LegalRouteChildren: LegalRouteChildren = {
+  LegalDisclaimerRoute: LegalDisclaimerRoute,
+  LegalPrivacyRoute: LegalPrivacyRoute,
+  LegalShippingRoute: LegalShippingRoute,
+  LegalTermsRoute: LegalTermsRoute,
+}
+
+const LegalRouteWithChildren = LegalRoute._addFileChildren(LegalRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgentRoute: AgentRouteWithChildren,
   AgentPortalRoute: AgentPortalRoute,
   BookRoute: BookRoute,
   ConsultationRoute: ConsultationRoute,
+  LegalRoute: LegalRouteWithChildren,
   RemedyFinderRoute: RemedyFinderRoute,
   ShopRoute: ShopRoute,
   TestimonialsRoute: TestimonialsRoute,
