@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Section, Eyebrow } from "@/components/Section";
 import { HealingStandard } from "@/components/HealingStandard";
+import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
 import heroImg from "@/assets/hero.jpg";
 import kit1 from "@/assets/kit-pcos-1.png";
 import kit2 from "@/assets/kit-pcos-2.png";
@@ -82,6 +83,11 @@ function Home() {
         </div>
       </section>
 
+      {/* CALLOUT — guide to Remedy Finder */}
+      <Section className="pt-0 pb-6 md:pb-10">
+        <RemedyFinderCallout />
+      </Section>
+
       {/* HEALING STANDARD — directly under hero */}
       <Section className="pt-0 pb-8 md:pb-16">
         <HealingStandard />
@@ -133,13 +139,14 @@ function Home() {
 
       {/* BEST SELLERS */}
       <Section>
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
           <div>
             <Eyebrow>Best-selling kits</Eyebrow>
             <h2 className="mt-3 font-serif text-4xl md:text-5xl">Loved by thousands of women.</h2>
           </div>
           <Link to="/shop" className="text-sm text-sage-deep underline-offset-4 hover:underline">Shop all kits →</Link>
         </div>
+        <RemedyFinderCallout variant="compact" className="mb-10" />
         <div className="grid md:grid-cols-3 gap-8">
           {kits.map((k) => (
             <article key={k.name} className="group">

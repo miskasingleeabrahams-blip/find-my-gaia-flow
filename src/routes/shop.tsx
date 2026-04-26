@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { HealingStandard, HealingReminder } from "@/components/HealingStandard";
+import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
 export const Route = createFileRoute("/shop")({
@@ -58,6 +59,10 @@ function Shop() {
           <p className="mt-5 text-muted-foreground">
             Every formula is plant-based, doctor-reviewed, and made in small batches.
           </p>
+        </div>
+
+        <div className="mt-12">
+          <RemedyFinderCallout />
         </div>
 
         {products.length === 0 ? (
