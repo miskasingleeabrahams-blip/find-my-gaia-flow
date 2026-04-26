@@ -139,13 +139,14 @@ function Home() {
 
       {/* BEST SELLERS */}
       <Section>
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
           <div>
             <Eyebrow>Best-selling kits</Eyebrow>
             <h2 className="mt-3 font-serif text-4xl md:text-5xl">Loved by thousands of women.</h2>
           </div>
           <Link to="/shop" className="text-sm text-sage-deep underline-offset-4 hover:underline">Shop all kits →</Link>
         </div>
+        <RemedyFinderCallout variant="compact" className="mb-10" />
         <div className="grid md:grid-cols-3 gap-8">
           {kits.map((k) => (
             <article key={k.name} className="group">
