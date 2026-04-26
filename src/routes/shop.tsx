@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { HealingStandard, HealingReminder } from "@/components/HealingStandard";
+import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
 export const Route = createFileRoute("/shop")({
