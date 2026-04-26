@@ -26,7 +26,7 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link to="/consultation" className="hover:text-sage-deep">Book Your 3-Month Check-In</Link></li>
             <li><Link to="/agent" className="hover:text-sage-deep">Become an Agent</Link></li>
-            <li>hello@gaiaberry.co</li>
+            <li><a href="mailto:info@gaiaberry.co.za" className="hover:text-sage-deep">info@gaiaberry.co.za</a></li>
           </ul>
         </div>
       </div>
