@@ -68,7 +68,7 @@ function Shop() {
           </div>
         ) : (
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {products.map((p) => {
+            {products.map((p: ShopifyProduct) => {
               const img = p.node.images.edges[0]?.node;
               const price = p.node.priceRange.minVariantPrice;
               return (
