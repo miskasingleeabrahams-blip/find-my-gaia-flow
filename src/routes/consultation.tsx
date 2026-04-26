@@ -7,8 +7,8 @@ import { useState } from "react";
 export const Route = createFileRoute("/consultation")({
   head: () => ({
     meta: [
-      { title: "Book a Consultation — GaiaBerry" },
-      { name: "description", content: "Book a 1:1 consultation with a GaiaBerry fertility herbalist." },
+      { title: "Book Your 3-Month Check-In — GaiaBerry" },
+      { name: "description", content: "Book your 3-month check-in with one of our qualified GaiaBerry consultants." },
     ],
   }),
   component: Consultation,
@@ -22,10 +22,10 @@ function Consultation() {
       <SiteHeader />
       <div className="mx-auto max-w-6xl px-6 md:px-10 py-20 grid lg:grid-cols-2 gap-14 items-start">
         <div>
-          <Eyebrow>1:1 Consultation</Eyebrow>
-          <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">Be heard. Be guided. Begin.</h1>
+          <Eyebrow>3-Month Check-In</Eyebrow>
+          <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">Book Your 3-Month Check-In.</h1>
           <p className="mt-6 text-muted-foreground leading-relaxed">
-            A 45-minute private session with a GaiaBerry fertility herbalist. We'll explore your cycle, decode your symptoms, and design a remedy plan that honours your unique story.
+            A 45-minute private session with one of our qualified GaiaBerry consultants. We'll review your progress, decode your symptoms, and guide your next phase of healing.
           </p>
           <div className="mt-10 space-y-5">
             {[
@@ -54,7 +54,7 @@ function Consultation() {
         >
           {!sent ? (
             <>
-              <h2 className="font-serif text-2xl">Reserve your session</h2>
+              <h2 className="font-serif text-2xl">Book your 3-month check-in</h2>
               <p className="text-sm text-muted-foreground mt-1">We'll reach out within 24 hours to confirm.</p>
               <div className="mt-6 grid gap-4">
                 <Field label="Your name" type="text" />
@@ -73,7 +73,7 @@ function Consultation() {
             <div className="text-center py-12">
               <div className="mx-auto h-14 w-14 rounded-full bg-sage/20 grid place-items-center text-sage-deep text-xl">✓</div>
               <h2 className="mt-4 font-serif text-3xl">Thank you.</h2>
-              <p className="mt-2 text-muted-foreground">Your request is received. A herbalist will write to you soon.</p>
+              <p className="mt-2 text-muted-foreground">Your request is received. One of our qualified consultants will write to you soon.</p>
             </div>
           )}
         </form>
