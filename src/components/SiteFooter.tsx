@@ -75,7 +75,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} GaiaBerry. Made with intention.
+        © {new Date().getFullYear()} GaiaBerry (Pty) Ltd. Made with intention.
       </div>
     </footer>
   );
