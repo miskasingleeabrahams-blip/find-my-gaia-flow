@@ -3,9 +3,9 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Section, Eyebrow } from "@/components/Section";
 import heroImg from "@/assets/hero.jpg";
-import kit1 from "@/assets/kit-deep-fertility-cleanse.png";
-import kit2 from "@/assets/kit-anaemia-fertility.png";
-import kit3 from "@/assets/kit-blocked-tubes.png";
+import kit1 from "@/assets/kit-pcos-1.png";
+import kit2 from "@/assets/kit-pcos-2.png";
+import kit3 from "@/assets/kit-progesterone.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,9 +18,9 @@ export const Route = createFileRoute("/")({
 });
 
 const kits = [
-  { img: kit1, name: "Endo Kit — Deep Fertility Cleanse", desc: "Womb cleanse, increased blood flow & immunity for Endo and Fibroids.", price: "R620" },
-  { img: kit2, name: "Anaemia & Fertility Kit", desc: "Iron-rich, blood-building herbs to nourish the womb after recurring loss.", price: "R820" },
-  { img: kit3, name: "Blocked Tubes Kit", desc: "A focused herbal protocol to support tubal health and reproductive flow.", price: "R920" },
+  { img: kit1, name: "PCOS Kit 1", desc: "Chaste Berry, Repro Oxidative Care & Milk Thistle — restores cycles, balances blood sugar and supports the liver.", price: "R845" },
+  { img: kit2, name: "PCOS Kit 2", desc: "Chaste Berry, Repro Oxidative Care & Ashwagandha — for PCOS with anxiety, stress and low libido.", price: "R895" },
+  { img: kit3, name: "Progesterone Kit", desc: "Lifts progesterone gently, eases spotting and lengthens short luteal phases.", price: "R720" },
 ];
 
 const testimonials = [
