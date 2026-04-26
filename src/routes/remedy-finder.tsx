@@ -3,6 +3,13 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { useMemo, useState } from "react";
+import kitPcos1 from "@/assets/kit-pcos-1.png";
+import kitPcos2 from "@/assets/kit-pcos-2.png";
+import kitDeepCleanse from "@/assets/kit-deep-fertility-cleanse.png";
+import kitBlockedTubes from "@/assets/kit-blocked-tubes.png";
+import kitAnaemia from "@/assets/kit-anaemia-fertility.png";
+import kitProgesterone from "@/assets/kit-progesterone.png";
+import kitManOfSteel from "@/assets/kit-man-of-steel.png";
 
 export const Route = createFileRoute("/remedy-finder")({
   head: () => ({
@@ -47,6 +54,7 @@ type Recommendation = {
   name: string;
   price: string;
   description: string;
+  image?: string;
   addOns?: { name: string; price: string; note: string }[];
 };
 
