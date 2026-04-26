@@ -9,15 +9,30 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as RemedyFinderRouteImport } from './routes/remedy-finder'
 import { Route as ConsultationRouteImport } from './routes/consultation'
+import { Route as BookRouteImport } from './routes/book'
 import { Route as AgentPortalRouteImport } from './routes/agent-portal'
 import { Route as AgentRouteImport } from './routes/agent'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
+import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as AgentRespondRouteImport } from './routes/agent.respond'
+import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
+import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
+import { Route as ApiPublicBookingsRespondRouteImport } from './routes/api.public.bookings.respond'
+import { Route as ApiPublicBookingsCreateRouteImport } from './routes/api.public.bookings.create'
 
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -36,6 +51,11 @@ const RemedyFinderRoute = RemedyFinderRouteImport.update({
 const ConsultationRoute = ConsultationRouteImport.update({
   id: '/consultation',
   path: '/consultation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgentPortalRoute = AgentPortalRouteImport.update({
@@ -58,37 +78,111 @@ const ProductHandleRoute = ProductHandleRouteImport.update({
   path: '/product/$handle',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
+  id: '/email/unsubscribe',
+  path: '/email/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentRespondRoute = AgentRespondRouteImport.update({
+  id: '/respond',
+  path: '/respond',
+  getParentRoute: () => AgentRoute,
+} as any)
+const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
+  id: '/lovable/email/suppression',
+  path: '/lovable/email/suppression',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailTransactionalSendRoute =
+  LovableEmailTransactionalSendRouteImport.update({
+    id: '/lovable/email/transactional/send',
+    path: '/lovable/email/transactional/send',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LovableEmailQueueProcessRoute =
+  LovableEmailQueueProcessRouteImport.update({
+    id: '/lovable/email/queue/process',
+    path: '/lovable/email/queue/process',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicBookingsRespondRoute =
+  ApiPublicBookingsRespondRouteImport.update({
+    id: '/api/public/bookings/respond',
+    path: '/api/public/bookings/respond',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicBookingsCreateRoute = ApiPublicBookingsCreateRouteImport.update({
+  id: '/api/public/bookings/create',
+  path: '/api/public/bookings/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/agent': typeof AgentRoute
+  '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
+  '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
+  '/agent/respond': typeof AgentRespondRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
+  '/api/public/bookings/respond': typeof ApiPublicBookingsRespondRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/agent': typeof AgentRoute
+  '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
+  '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
+  '/agent/respond': typeof AgentRespondRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
+  '/api/public/bookings/respond': typeof ApiPublicBookingsRespondRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/agent': typeof AgentRoute
+  '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
+  '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
+  '/agent/respond': typeof AgentRespondRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
+  '/api/public/bookings/respond': typeof ApiPublicBookingsRespondRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -96,46 +190,92 @@ export interface FileRouteTypes {
     | '/'
     | '/agent'
     | '/agent-portal'
+    | '/book'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
+    | '/unsubscribe'
+    | '/agent/respond'
+    | '/email/unsubscribe'
     | '/product/$handle'
+    | '/lovable/email/suppression'
+    | '/api/public/bookings/create'
+    | '/api/public/bookings/respond'
+    | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/agent'
     | '/agent-portal'
+    | '/book'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
+    | '/unsubscribe'
+    | '/agent/respond'
+    | '/email/unsubscribe'
     | '/product/$handle'
+    | '/lovable/email/suppression'
+    | '/api/public/bookings/create'
+    | '/api/public/bookings/respond'
+    | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   id:
     | '__root__'
     | '/'
     | '/agent'
     | '/agent-portal'
+    | '/book'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
+    | '/unsubscribe'
+    | '/agent/respond'
+    | '/email/unsubscribe'
     | '/product/$handle'
+    | '/lovable/email/suppression'
+    | '/api/public/bookings/create'
+    | '/api/public/bookings/respond'
+    | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AgentRoute: typeof AgentRoute
+  AgentRoute: typeof AgentRouteWithChildren
   AgentPortalRoute: typeof AgentPortalRoute
+  BookRoute: typeof BookRoute
   ConsultationRoute: typeof ConsultationRoute
   RemedyFinderRoute: typeof RemedyFinderRoute
   ShopRoute: typeof ShopRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
+  EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   ProductHandleRoute: typeof ProductHandleRoute
+  LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
+  ApiPublicBookingsCreateRoute: typeof ApiPublicBookingsCreateRoute
+  ApiPublicBookingsRespondRoute: typeof ApiPublicBookingsRespondRoute
+  LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
+  LovableEmailTransactionalSendRoute: typeof LovableEmailTransactionalSendRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -162,6 +302,13 @@ declare module '@tanstack/react-router' {
       path: '/consultation'
       fullPath: '/consultation'
       preLoaderRoute: typeof ConsultationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agent-portal': {
@@ -192,18 +339,93 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductHandleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/email/unsubscribe': {
+      id: '/email/unsubscribe'
+      path: '/email/unsubscribe'
+      fullPath: '/email/unsubscribe'
+      preLoaderRoute: typeof EmailUnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/respond': {
+      id: '/agent/respond'
+      path: '/respond'
+      fullPath: '/agent/respond'
+      preLoaderRoute: typeof AgentRespondRouteImport
+      parentRoute: typeof AgentRoute
+    }
+    '/lovable/email/suppression': {
+      id: '/lovable/email/suppression'
+      path: '/lovable/email/suppression'
+      fullPath: '/lovable/email/suppression'
+      preLoaderRoute: typeof LovableEmailSuppressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/transactional/send': {
+      id: '/lovable/email/transactional/send'
+      path: '/lovable/email/transactional/send'
+      fullPath: '/lovable/email/transactional/send'
+      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/queue/process': {
+      id: '/lovable/email/queue/process'
+      path: '/lovable/email/queue/process'
+      fullPath: '/lovable/email/queue/process'
+      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/bookings/respond': {
+      id: '/api/public/bookings/respond'
+      path: '/api/public/bookings/respond'
+      fullPath: '/api/public/bookings/respond'
+      preLoaderRoute: typeof ApiPublicBookingsRespondRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/bookings/create': {
+      id: '/api/public/bookings/create'
+      path: '/api/public/bookings/create'
+      fullPath: '/api/public/bookings/create'
+      preLoaderRoute: typeof ApiPublicBookingsCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AgentRouteChildren {
+  AgentRespondRoute: typeof AgentRespondRoute
+}
+
+const AgentRouteChildren: AgentRouteChildren = {
+  AgentRespondRoute: AgentRespondRoute,
+}
+
+const AgentRouteWithChildren = AgentRoute._addFileChildren(AgentRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AgentRoute: AgentRoute,
+  AgentRoute: AgentRouteWithChildren,
   AgentPortalRoute: AgentPortalRoute,
+  BookRoute: BookRoute,
   ConsultationRoute: ConsultationRoute,
   RemedyFinderRoute: RemedyFinderRoute,
   ShopRoute: ShopRoute,
   TestimonialsRoute: TestimonialsRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
+  EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   ProductHandleRoute: ProductHandleRoute,
+  LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
+  ApiPublicBookingsCreateRoute: ApiPublicBookingsCreateRoute,
+  ApiPublicBookingsRespondRoute: ApiPublicBookingsRespondRoute,
+  LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
+  LovableEmailTransactionalSendRoute: LovableEmailTransactionalSendRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
