@@ -255,6 +255,13 @@ function Home() {
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover opacity-[0.07] pointer-events-none"
         />
+        {/* Magnolia accent — mirrored, top-right */}
+        <img
+          src={magnoliaBranch}
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute -top-12 -right-16 w-[260px] md:w-[380px] opacity-70 rotate-[160deg] scale-x-[-1] select-none"
+        />
         <div className="relative mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-14 items-start">
             {/* side visual */}
