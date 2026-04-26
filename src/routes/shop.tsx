@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { HalaalBadge } from "@/components/HalaalBadge";
 import { HealingStandard, HealingReminder } from "@/components/HealingStandard";
 import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
@@ -115,6 +116,7 @@ function Shop() {
                     </span>
                     <AddToCartButton product={p} />
                   </div>
+                  <HalaalBadge className="mt-3" />
                   <HealingReminder className="mt-3" />
                 </article>
               );

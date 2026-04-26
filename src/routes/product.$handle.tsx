@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { HalaalBadge } from "@/components/HalaalBadge";
 import { HealingStandard } from "@/components/HealingStandard";
 import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
 import { storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from "@/lib/shopify";
@@ -94,6 +95,7 @@ function ProductPage() {
             <div className="mt-5 text-2xl text-sage-deep font-medium">
               {price.currencyCode} {parseFloat(price.amount).toFixed(2)}
             </div>
+            <HalaalBadge className="mt-4" />
 
             <div
               className="prose prose-sm mt-8 text-ink/85 leading-relaxed max-w-none [&_h3]:font-serif [&_h3]:text-xl [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-ink [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_p]:mt-3 [&_strong]:text-ink"

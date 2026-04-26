@@ -11,6 +11,7 @@ import kitAnaemia from "@/assets/kit-anaemia-fertility.png";
 import kitProgesterone from "@/assets/kit-progesterone.png";
 import kitManOfSteel from "@/assets/kit-man-of-steel.png";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { HalaalBadge } from "@/components/HalaalBadge";
 import { HealingStandard, HealingReminder } from "@/components/HealingStandard";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
@@ -574,6 +575,7 @@ function ResultStep({
         </p>
         {matchedProduct && (
           <div className="mt-6 flex flex-col items-center gap-3">
+            <HalaalBadge />
             <AddToCartButton
               product={matchedProduct}
               label="Add to basket"
