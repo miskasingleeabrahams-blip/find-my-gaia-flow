@@ -61,6 +61,32 @@ export const STOREFRONT_QUERY = `
   }
 `;
 
+export const PRODUCT_BY_HANDLE_QUERY = `
+  query GetProductByHandle($handle: String!) {
+    productByHandle(handle: $handle) {
+      id
+      title
+      descriptionHtml
+      description
+      handle
+      priceRange { minVariantPrice { amount currencyCode } }
+      images(first: 8) { edges { node { url altText } } }
+      variants(first: 10) {
+        edges {
+          node {
+            id
+            title
+            price { amount currencyCode }
+            availableForSale
+            selectedOptions { name value }
+          }
+        }
+      }
+      options { name values }
+    }
+  }
+`;
+
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
     method: "POST",
