@@ -152,12 +152,10 @@ function AgentPortal() {
     );
   }
 
-  // Filter to Agent products only and attach agent price
-  const agentProducts = products
-    .map((p: ShopifyProduct) => ({ p, agentPrice: findAgentPrice(p.node.title) }))
-    .filter((x: { p: ShopifyProduct; agentPrice: number | null }) =>
-      x.agentPrice !== null && /^agent\b/i.test(x.p.node.title),
-    ) as { p: ShopifyProduct; agentPrice: number }[];
+  // Show all products except excluded ones
+  const agentProducts = products.filter(
+    (p: ShopifyProduct) => !isExcluded(p.node.title),
+  );
 
   return (
     <div className="min-h-screen bg-cream">
