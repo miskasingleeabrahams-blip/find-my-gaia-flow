@@ -105,7 +105,7 @@ function AgentPortal() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password.trim() === AGENT_PASSWORD) {
+    if (password.trim().toUpperCase() === AGENT_PASSWORD.toUpperCase()) {
       sessionStorage.setItem(STORAGE_KEY, "1");
       setAuthed(true);
       toast.success("Welcome, agent");
