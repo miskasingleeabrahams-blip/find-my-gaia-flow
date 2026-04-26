@@ -9,15 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as RemedyFinderRouteImport } from './routes/remedy-finder'
 import { Route as ConsultationRouteImport } from './routes/consultation'
+import { Route as BookRouteImport } from './routes/book'
 import { Route as AgentPortalRouteImport } from './routes/agent-portal'
 import { Route as AgentRouteImport } from './routes/agent'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as AgentRespondRouteImport } from './routes/agent.respond'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -25,6 +28,11 @@ import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/e
 import { Route as ApiPublicBookingsRespondRouteImport } from './routes/api.public.bookings.respond'
 import { Route as ApiPublicBookingsCreateRouteImport } from './routes/api.public.bookings.create'
 
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -43,6 +51,11 @@ const RemedyFinderRoute = RemedyFinderRouteImport.update({
 const ConsultationRoute = ConsultationRouteImport.update({
   id: '/consultation',
   path: '/consultation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgentPortalRoute = AgentPortalRouteImport.update({
@@ -69,6 +82,11 @@ const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
   id: '/email/unsubscribe',
   path: '/email/unsubscribe',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AgentRespondRoute = AgentRespondRouteImport.update({
+  id: '/respond',
+  path: '/respond',
+  getParentRoute: () => AgentRoute,
 } as any)
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
@@ -107,12 +125,15 @@ const ApiPublicBookingsCreateRoute = ApiPublicBookingsCreateRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/agent': typeof AgentRoute
+  '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
+  '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
+  '/agent/respond': typeof AgentRespondRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -124,12 +145,15 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/agent': typeof AgentRoute
+  '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
+  '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
+  '/agent/respond': typeof AgentRespondRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -142,12 +166,15 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/agent': typeof AgentRoute
+  '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
+  '/book': typeof BookRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
+  '/agent/respond': typeof AgentRespondRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/product/$handle': typeof ProductHandleRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -163,10 +190,13 @@ export interface FileRouteTypes {
     | '/'
     | '/agent'
     | '/agent-portal'
+    | '/book'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
+    | '/unsubscribe'
+    | '/agent/respond'
     | '/email/unsubscribe'
     | '/product/$handle'
     | '/lovable/email/suppression'
@@ -180,10 +210,13 @@ export interface FileRouteTypes {
     | '/'
     | '/agent'
     | '/agent-portal'
+    | '/book'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
+    | '/unsubscribe'
+    | '/agent/respond'
     | '/email/unsubscribe'
     | '/product/$handle'
     | '/lovable/email/suppression'
@@ -197,10 +230,13 @@ export interface FileRouteTypes {
     | '/'
     | '/agent'
     | '/agent-portal'
+    | '/book'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
     | '/testimonials'
+    | '/unsubscribe'
+    | '/agent/respond'
     | '/email/unsubscribe'
     | '/product/$handle'
     | '/lovable/email/suppression'
@@ -213,12 +249,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AgentRoute: typeof AgentRoute
+  AgentRoute: typeof AgentRouteWithChildren
   AgentPortalRoute: typeof AgentPortalRoute
+  BookRoute: typeof BookRoute
   ConsultationRoute: typeof ConsultationRoute
   RemedyFinderRoute: typeof RemedyFinderRoute
   ShopRoute: typeof ShopRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   ProductHandleRoute: typeof ProductHandleRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
@@ -231,6 +269,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -257,6 +302,13 @@ declare module '@tanstack/react-router' {
       path: '/consultation'
       fullPath: '/consultation'
       preLoaderRoute: typeof ConsultationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agent-portal': {
@@ -293,6 +345,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/email/unsubscribe'
       preLoaderRoute: typeof EmailUnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/agent/respond': {
+      id: '/agent/respond'
+      path: '/respond'
+      fullPath: '/agent/respond'
+      preLoaderRoute: typeof AgentRespondRouteImport
+      parentRoute: typeof AgentRoute
     }
     '/lovable/email/suppression': {
       id: '/lovable/email/suppression'
@@ -339,14 +398,26 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AgentRouteChildren {
+  AgentRespondRoute: typeof AgentRespondRoute
+}
+
+const AgentRouteChildren: AgentRouteChildren = {
+  AgentRespondRoute: AgentRespondRoute,
+}
+
+const AgentRouteWithChildren = AgentRoute._addFileChildren(AgentRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AgentRoute: AgentRoute,
+  AgentRoute: AgentRouteWithChildren,
   AgentPortalRoute: AgentPortalRoute,
+  BookRoute: BookRoute,
   ConsultationRoute: ConsultationRoute,
   RemedyFinderRoute: RemedyFinderRoute,
   ShopRoute: ShopRoute,
   TestimonialsRoute: TestimonialsRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   ProductHandleRoute: ProductHandleRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
