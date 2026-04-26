@@ -6,6 +6,7 @@ import { AddToCartButton } from "@/components/AddToCartButton";
 import { HalaalBadge } from "@/components/HalaalBadge";
 import { HealingStandard } from "@/components/HealingStandard";
 import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
+import { PregnancySafetyNote } from "@/components/PregnancySafetyNote";
 import { storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from "@/lib/shopify";
 import { notFound } from "@tanstack/react-router";
 
