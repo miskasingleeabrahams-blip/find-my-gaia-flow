@@ -77,13 +77,16 @@ function Home() {
           </div>
           <div className="relative">
             <div className="absolute -inset-6 rounded-[3rem] bg-[var(--gradient-blush)] -z-10 blur-2xl opacity-70" />
-            <img
-              src={heroImg}
-              alt="Natural herbs, berries and eucalyptus on cream linen"
-              width={1536}
-              height={1280}
-              className="rounded-[2.5rem] shadow-[var(--shadow-petal)] object-cover w-full aspect-[5/4]"
-            />
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-[var(--shadow-petal)]">
+              <img
+                src={heroImg}
+                alt="GaiaBerry natural fertility products with fresh berries on a cream surface"
+                width={1536}
+                height={1280}
+                className="object-cover w-full aspect-[5/4]"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,oklch(0.97_0.018_25/0.35)_100%)] pointer-events-none" />
+            </div>
           </div>
         </div>
       </section>
