@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Section, Eyebrow } from "@/components/Section";
+import { HealingStandard } from "@/components/HealingStandard";
 import heroImg from "@/assets/hero.jpg";
 import kit1 from "@/assets/kit-pcos-1.png";
 import kit2 from "@/assets/kit-pcos-2.png";
@@ -123,6 +124,11 @@ function Home() {
             </div>
           </div>
         </div>
+      </Section>
+
+      {/* HEALING STANDARD */}
+      <Section className="pt-0">
+        <HealingStandard />
       </Section>
 
       {/* BEST SELLERS */}

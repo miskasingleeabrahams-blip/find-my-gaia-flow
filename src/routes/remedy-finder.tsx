@@ -11,6 +11,7 @@ import kitAnaemia from "@/assets/kit-anaemia-fertility.png";
 import kitProgesterone from "@/assets/kit-progesterone.png";
 import kitManOfSteel from "@/assets/kit-man-of-steel.png";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { HealingStandard, HealingReminder } from "@/components/HealingStandard";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
 export const Route = createFileRoute("/remedy-finder")({
