@@ -30,7 +30,21 @@ const AGENT_PRICES: { match: string; price: number }[] = [
   { match: "breast milk", price: 173 },
 ];
 
+// Products agents are NOT allowed to purchase
+const EXCLUDED_KEYWORDS = [
+  "progesterone",
+  "pcos",
+  "anemia",
+  "fertility kit",
+];
+
+function isExcluded(title: string): boolean {
+  const t = title.toLowerCase();
+  return EXCLUDED_KEYWORDS.some((k) => t.includes(k));
+}
+
 function findAgentPrice(title: string): number | null {
+  if (isExcluded(title)) return null;
   const t = title.toLowerCase();
   const hit = AGENT_PRICES.find((p) => t.includes(p.match));
   return hit ? hit.price : null;
