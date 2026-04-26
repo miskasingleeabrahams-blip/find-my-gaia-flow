@@ -14,6 +14,7 @@ import kit1 from "@/assets/kit-pcos-1.png";
 import kit2 from "@/assets/kit-pcos-2.png";
 import kit3 from "@/assets/kit-progesterone.png";
 import firstBaby from "@/assets/first-gaiaberry-baby.jpg";
+import magnoliaBranch from "@/assets/magnolia-branch.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
