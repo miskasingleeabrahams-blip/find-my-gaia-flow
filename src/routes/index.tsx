@@ -185,7 +185,7 @@ function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
                 <a
-                  href="https://www.google.com/search?q=gaia+berry+reviews"
+                  href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-cream/40 text-cream px-5 py-2.5 text-sm hover:bg-cream/10 transition"
@@ -193,7 +193,7 @@ function Home() {
                   Read reviews
                 </a>
                 <a
-                  href="https://search.google.com/local/writereview?placeid=gaia-berry"
+                  href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-5 py-2.5 text-sm font-medium hover:bg-blush transition shadow-[var(--shadow-soft)]"
