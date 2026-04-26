@@ -156,7 +156,7 @@ function Home() {
         </div>
       </Section>
 
-      {/* MILESTONES — celebrating the women & babies */}
+      {/* MILESTONES + REVIEWS */}
       <div className="mx-auto max-w-7xl px-6 md:px-10 mt-2 md:mt-4">
         <div className="relative rounded-[2rem] overflow-hidden">
           <img
@@ -166,17 +166,32 @@ function Home() {
             loading="lazy"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.35_0.04_150/0.55)_0%,oklch(0.35_0.04_150/0.75)_100%)]" />
-          <div className="relative px-6 md:px-12 py-10 md:py-14 grid grid-cols-3 gap-4 md:gap-8 text-center text-cream">
-            {[
-              { n: "1000+", t: "Babies conceived" },
-              { n: "5 yrs", t: "Of plant-rooted care" },
-              { n: "SA + 🌍", t: "Women supported" },
-            ].map((m) => (
-              <div key={m.t}>
-                <div className="font-serif text-3xl md:text-5xl text-cream">{m.n}</div>
-                <div className="mt-2 text-xs md:text-sm uppercase tracking-[0.2em] text-cream/80">{m.t}</div>
+          <div className="relative px-6 md:px-12 py-10 md:py-14 text-center text-cream">
+            <p className="font-serif italic text-xl md:text-3xl text-cream max-w-2xl mx-auto leading-snug">
+              "Too many heartbeats to count, and counting still."
+            </p>
+            <div className="mt-4 text-xs md:text-sm uppercase tracking-[0.25em] text-cream/80">
+              Babies conceived · Cycles restored · Women held
+            </div>
+
+            {/* Reviews CTA */}
+            <div className="mt-10 inline-flex flex-col sm:flex-row items-center gap-4 rounded-2xl bg-cream/10 backdrop-blur-sm border border-cream/20 px-6 py-5">
+              <div className="flex items-center gap-2 text-cream">
+                <span className="text-xl tracking-wide">★★★★★</span>
+                <span className="text-sm text-cream/85">Loved by our community</span>
               </div>
-            ))}
+              <a
+                href="https://g.page/r/gaiaberry/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-6 py-3 text-sm font-medium hover:bg-blush transition shadow-[var(--shadow-soft)]"
+              >
+                Leave a Google review →
+              </a>
+            </div>
+            <p className="mt-3 text-[11px] uppercase tracking-[0.2em] text-cream/65">
+              Verified reviews on Google · No sign-up needed
+            </p>
           </div>
         </div>
       </div>
