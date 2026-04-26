@@ -229,11 +229,19 @@ function getRecommendation(a: Answers): Recommendation {
 
     case "Postpartum and breastfeeding":
       return {
-        name: "Postpartum & New Mum Care",
-        price: "R440",
-        image: kitAnaemia,
-        description: "Replenishing herbs for the fourth trimester — to restore, soothe and support breastfeeding.",
-        addOns: [ADDONS.ironSea, ADDONS.wombTea],
+        name: "Postpartum Tea",
+        price: "R220",
+        productHandle: "postpartum-tea",
+        description: "A restorative herbal blend to nourish and replenish mothers in the fourth trimester.",
+        addOnHeading: "Pair with",
+        addOnIntro: "For breastfeeding support, add Breastmilk Tea below.",
+        addOns: [
+          {
+            name: "Breastmilk Tea",
+            price: "R220",
+            note: "A nourishing herbal blend to support healthy lactation and milk supply.",
+          },
+        ],
       };
 
     case "Male fertility":
