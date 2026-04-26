@@ -145,14 +145,24 @@ function AgentPortal() {
               Enter your agent password to access wholesale pricing.
             </p>
             <form onSubmit={handleLogin} className="mt-8 space-y-4">
-              <input
-                type="password"
-                autoFocus
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Agent password"
-                className="w-full rounded-full border border-border bg-background px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage/40"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  autoFocus
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Agent password"
+                  className="w-full rounded-full border border-border bg-background px-5 py-3 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-sage/40"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((v) => !v)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 inline-flex items-center justify-center rounded-full text-muted-foreground hover:text-ink hover:bg-sage/10 transition"
+                >
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
               <button
                 type="submit"
                 className="w-full rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm hover:opacity-90 transition"
