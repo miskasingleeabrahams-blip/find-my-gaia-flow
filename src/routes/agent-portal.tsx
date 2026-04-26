@@ -94,6 +94,7 @@ function AgentPortal() {
   const [authed, setAuthed] = useState(false);
   const [password, setPassword] = useState("");
   const [checking, setChecking] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
