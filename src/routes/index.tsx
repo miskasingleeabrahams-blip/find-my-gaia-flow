@@ -106,12 +106,22 @@ function Home() {
               </div>
             ))}
           </div>
-          <Link
-            to="/remedy-finder"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-8 py-4 hover:bg-blush transition"
-          >
-            Begin the Remedy Finder →
-          </Link>
+          <div className="mt-12 flex flex-col items-center gap-4">
+            <Link
+              to="/remedy-finder"
+              className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-8 py-4 hover:bg-blush transition shadow-[var(--shadow-soft)]"
+            >
+              Begin the Remedy Finder →
+            </Link>
+            <p className="text-xs uppercase tracking-[0.25em] text-cream/70">
+              Free · 2 minutes · No sign-up
+            </p>
+            <div className="mt-2 flex items-center gap-3 text-cream/70">
+              <span className="h-px w-10 bg-cream/30" />
+              <span className="font-serif italic text-sm">held by nature, guided by women</span>
+              <span className="h-px w-10 bg-cream/30" />
+            </div>
+          </div>
         </div>
       </Section>
 
