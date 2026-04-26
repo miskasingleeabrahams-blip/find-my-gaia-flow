@@ -7,7 +7,7 @@ import logo from "@/assets/gaiaberry-logo.png";
 const nav = [
   { to: "/remedy-finder", label: "Remedy Finder" },
   { to: "/shop", label: "Shop" },
-  { to: "/testimonials", label: "Stories" },
+  { to: "/testimonials", label: "Testimonials" },
   { to: "/consultation", label: "3-Month Follow-Up" },
   { to: "/agent", label: "Become an Agent" },
 ] as const;

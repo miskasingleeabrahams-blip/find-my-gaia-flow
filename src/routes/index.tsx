@@ -52,6 +52,9 @@ function Home() {
             <p className="mt-6 max-w-lg text-lg text-muted-foreground leading-relaxed">
               For women navigating PCOS, infertility and hormonal imbalance. Discover plant-based remedies, personalised to your body, your story, your season.
             </p>
+            <p className="mt-4 max-w-lg text-base text-sage-deep font-medium">
+              Trusted by thousands of women across South Africa to conceive naturally. 🌿
+            </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 to="/remedy-finder"
