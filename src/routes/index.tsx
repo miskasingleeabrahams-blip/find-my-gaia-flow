@@ -68,11 +68,11 @@ function Home() {
               </Link>
             </div>
             <div className="mt-10 flex items-center gap-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              <span>Plant-based</span>
+              <span>Natural herbs</span>
               <span className="h-1 w-1 rounded-full bg-sage" />
-              <span>Doctor-reviewed</span>
+              <span>High quality</span>
               <span className="h-1 w-1 rounded-full bg-sage" />
-              <span>10,000+ women</span>
+              <span>SA & abroad</span>
             </div>
           </div>
           <div className="relative">

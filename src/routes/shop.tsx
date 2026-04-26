@@ -67,7 +67,7 @@ function Shop() {
             Crafted with intention. Delivered with care.
           </h1>
           <p className="mt-5 text-muted-foreground">
-            Every formula is plant-based, doctor-reviewed, and made in small batches.
+            Every formula is plant-based, made from natural herbs, and crafted in small batches to the highest quality standard.
           </p>
         </div>
 
