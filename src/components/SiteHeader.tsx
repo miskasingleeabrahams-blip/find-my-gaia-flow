@@ -7,6 +7,7 @@ const nav = [
   { to: "/testimonials", label: "Stories" },
   { to: "/consultation", label: "Consultation" },
   { to: "/agent", label: "Become an Agent" },
+  { to: "/agent-portal", label: "Agent Portal" },
 ] as const;
 
 export function SiteHeader() {
