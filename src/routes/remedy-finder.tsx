@@ -526,8 +526,6 @@ function ResultStep({
             These complementary remedies deepen and accelerate your results — chosen specifically for your concern.
           </p>
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
-          </p>
-          <div className="mt-6 grid sm:grid-cols-2 gap-4">
             {result.addOns.map((a) => (
               <div key={a.name} className="rounded-2xl bg-blush/25 p-5 border border-border">
                 <div className="flex items-baseline justify-between gap-3">
