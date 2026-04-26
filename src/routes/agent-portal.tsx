@@ -12,43 +12,18 @@ const AGENT_PASSWORD = "AGENT-GAIA-2145";
 const AGENT_DISCOUNT_CODE = "AGENT-GAIA-2145";
 const STORAGE_KEY = "gaiaberry_agent_auth";
 
-// Agent pricing (ZAR) — keyed by lowercased keyword found in the product title
-const AGENT_PRICES: { match: string; price: number }[] = [
-  { match: "womb nourish", price: 173 },
-  { match: "endometriosis", price: 487 },
-  { match: "blocked fallopi", price: 723 },
-  { match: "inflammation", price: 173 },
-  { match: "fertility cleanser", price: 346 },
-  { match: "hormonal bala", price: 346 },
-  { match: "crampbark", price: 275 },
-  { match: "ashwagandha", price: 275 },
-  { match: "milk thistle", price: 275 },
-  { match: "chaste berry", price: 251 },
-  { match: "repro oxidativ", price: 173 },
-  { match: "male fertility", price: 1060 },
-  { match: "ironsea", price: 251 },
-  { match: "postpartum", price: 173 },
-  { match: "breast milk", price: 173 },
-];
-
 // Products agents are NOT allowed to purchase
 const EXCLUDED_KEYWORDS = [
   "progesterone",
   "pcos",
+  "anaemia",
   "anemia",
-  "fertility kit",
+  "anaemia & fertility",
 ];
 
 function isExcluded(title: string): boolean {
   const t = title.toLowerCase();
   return EXCLUDED_KEYWORDS.some((k) => t.includes(k));
-}
-
-function findAgentPrice(title: string): number | null {
-  if (isExcluded(title)) return null;
-  const t = title.toLowerCase();
-  const hit = AGENT_PRICES.find((p) => t.includes(p.match));
-  return hit ? hit.price : null;
 }
 
 export const Route = createFileRoute("/agent-portal")({
@@ -177,12 +152,10 @@ function AgentPortal() {
     );
   }
 
-  // Filter to Agent products only and attach agent price
-  const agentProducts = products
-    .map((p: ShopifyProduct) => ({ p, agentPrice: findAgentPrice(p.node.title) }))
-    .filter((x: { p: ShopifyProduct; agentPrice: number | null }) =>
-      x.agentPrice !== null && /^agent\b/i.test(x.p.node.title),
-    ) as { p: ShopifyProduct; agentPrice: number }[];
+  // Show all products except excluded ones
+  const agentProducts = products.filter(
+    (p: ShopifyProduct) => !isExcluded(p.node.title),
+  );
 
   return (
     <div className="min-h-screen bg-cream">
@@ -192,11 +165,11 @@ function AgentPortal() {
           <div className="max-w-2xl">
             <Eyebrow>Agent Portal</Eyebrow>
             <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">
-              Wholesale pricing for our agents.
+              Shop with your agent discount.
             </h1>
             <p className="mt-5 text-muted-foreground">
-              Below are the agent prices. Add items to your basket and check out as usual —
-              your agent rate will be reconciled by GaiaBerry on fulfilment.
+              Browse the catalogue below, add items to your basket, and apply your agent
+              discount code at checkout to receive 21.45% off.
             </p>
           </div>
           <button
@@ -232,21 +205,18 @@ function AgentPortal() {
 
         {agentProducts.length === 0 ? (
           <div className="mt-16 rounded-3xl bg-card border border-border p-12 text-center">
-            <p className="font-serif text-2xl text-ink">No agent products found</p>
+            <p className="font-serif text-2xl text-ink">No products found</p>
             <p className="mt-3 text-muted-foreground text-sm">Please check back soon.</p>
           </div>
         ) : (
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {agentProducts.map(({ p, agentPrice }: { p: ShopifyProduct; agentPrice: number }) => {
+            {agentProducts.map((p: ShopifyProduct) => {
               const img = p.node.images.edges[0]?.node;
               const retail = p.node.priceRange.minVariantPrice;
               const retailAmount = parseFloat(retail.amount);
               return (
                 <article key={p.node.id} className="group">
                   <div className="relative overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8 aspect-square">
-                    <span className="absolute top-4 left-4 rounded-full bg-sage-deep text-cream text-xs px-3 py-1">
-                      Agent price
-                    </span>
                     {img && (
                       <img
                         src={img.url}
@@ -257,15 +227,10 @@ function AgentPortal() {
                     )}
                   </div>
                   <h3 className="mt-5 font-serif text-2xl">{p.node.title}</h3>
-                  <div className="mt-3 flex items-baseline gap-3">
+                  <div className="mt-3">
                     <span className="text-sage-deep font-medium text-2xl">
-                      ZAR {agentPrice!.toFixed(2)}
+                      {retail.currencyCode} {retailAmount.toFixed(2)}
                     </span>
-                    {retailAmount > agentPrice! && (
-                      <span className="text-sm text-muted-foreground line-through">
-                        ZAR {retailAmount.toFixed(2)}
-                      </span>
-                    )}
                   </div>
                   <div className="mt-5">
                     <AddToCartButton product={p} className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-sage-deep text-cream px-5 py-3 text-sm hover:opacity-90 transition disabled:opacity-50" />
