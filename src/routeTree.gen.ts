@@ -13,6 +13,7 @@ import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as RemedyFinderRouteImport } from './routes/remedy-finder'
 import { Route as ConsultationRouteImport } from './routes/consultation'
+import { Route as AgentPortalRouteImport } from './routes/agent-portal'
 import { Route as AgentRouteImport } from './routes/agent'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const ConsultationRoute = ConsultationRouteImport.update({
   path: '/consultation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgentPortalRoute = AgentPortalRouteImport.update({
+  id: '/agent-portal',
+  path: '/agent-portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AgentRoute = AgentRouteImport.update({
   id: '/agent',
   path: '/agent',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
+  '/agent-portal': typeof AgentPortalRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
+  '/agent-portal': typeof AgentPortalRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
+  '/agent-portal': typeof AgentPortalRoute
   '/consultation': typeof ConsultationRoute
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/agent'
+    | '/agent-portal'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/agent'
+    | '/agent-portal'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/agent'
+    | '/agent-portal'
     | '/consultation'
     | '/remedy-finder'
     | '/shop'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgentRoute: typeof AgentRoute
+  AgentPortalRoute: typeof AgentPortalRoute
   ConsultationRoute: typeof ConsultationRoute
   RemedyFinderRoute: typeof RemedyFinderRoute
   ShopRoute: typeof ShopRoute
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConsultationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agent-portal': {
+      id: '/agent-portal'
+      path: '/agent-portal'
+      fullPath: '/agent-portal'
+      preLoaderRoute: typeof AgentPortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/agent': {
       id: '/agent'
       path: '/agent'
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgentRoute: AgentRoute,
+  AgentPortalRoute: AgentPortalRoute,
   ConsultationRoute: ConsultationRoute,
   RemedyFinderRoute: RemedyFinderRoute,
   ShopRoute: ShopRoute,
