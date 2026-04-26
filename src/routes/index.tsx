@@ -105,10 +105,9 @@ function Home() {
         <HealingStandard />
       </Section>
 
-      {/* REMEDY FINDER FEATURE */}
+      {/* OUR STORY — first GaiaBerry baby */}
       <Section className="py-10 md:py-24">
-        <div className="rounded-[2.5rem] bg-[var(--gradient-sage)] text-cream px-8 md:px-16 py-12 md:py-24 text-center relative overflow-hidden">
-          {/* subtle lifestyle backdrop */}
+        <div className="rounded-[2.5rem] bg-[var(--gradient-sage)] text-cream px-6 md:px-16 py-12 md:py-20 relative overflow-hidden">
           <img
             src={lifestyleFlatlay}
             alt=""
@@ -116,43 +115,41 @@ function Home() {
             className="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-soft-light pointer-events-none"
           />
           <div className="absolute inset-0 bg-[var(--gradient-sage)] opacity-70 pointer-events-none" />
-          <div className="relative">
-            <Eyebrow>
-              <span className="text-cream/80">The GaiaBerry Method</span>
-            </Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl md:text-6xl text-cream max-w-3xl mx-auto text-balance">
-              A 2-minute ritual to find the remedy made for you.
-            </h2>
-            <p className="mt-6 max-w-xl mx-auto text-cream/85 leading-relaxed">
-              Answer a few thoughtful questions about your cycle, symptoms and goals. We'll match you with a personalised herbal protocol, and the women who've walked your path.
-            </p>
-            <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto text-left">
-              {[
-                { n: "01", t: "Tell us your story", d: "Cycle, symptoms, season of life." },
-                { n: "02", t: "We listen", d: "Matched to a tradition-rooted protocol." },
-                { n: "03", t: "Begin gently", d: "Daily rituals delivered to your door." },
-              ].map((s) => (
-                <div key={s.n} className="rounded-2xl bg-cream/10 backdrop-blur-sm p-5 border border-cream/15">
-                  <div className="font-serif text-2xl text-cream/90">{s.n}</div>
-                  <div className="mt-2 font-medium">{s.t}</div>
-                  <div className="text-sm text-cream/75 mt-1">{s.d}</div>
+          <div className="relative mx-auto max-w-5xl grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="relative">
+              <div className="rotate-[-3deg] hover:rotate-0 transition-transform duration-700">
+                <div className="bg-cream p-3 pb-10 shadow-[var(--shadow-petal)] rounded-sm">
+                  <img
+                    src={firstBaby}
+                    alt="Ultrasound of the first GaiaBerry baby — a gift after years of trying"
+                    loading="lazy"
+                    className="w-full aspect-[4/5] object-cover"
+                  />
+                  <p className="mt-3 text-center font-serif italic text-ink/70 text-sm">
+                    Our very first GaiaBerry baby 🌿
+                  </p>
                 </div>
-              ))}
+              </div>
             </div>
-            <div className="mt-12 flex flex-col items-center gap-4">
-              <Link
-                to="/remedy-finder"
-                className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-8 py-4 hover:bg-blush transition shadow-[var(--shadow-soft)]"
-              >
-                Begin the Remedy Finder →
-              </Link>
-              <p className="text-xs uppercase tracking-[0.25em] text-cream/70">
-                Free · 2 minutes · No sign-up
+            <div>
+              <Eyebrow>
+                <span className="text-cream/80">Our Story</span>
+              </Eyebrow>
+              <h2 className="mt-3 font-serif text-4xl md:text-5xl text-cream leading-tight text-balance">
+                The little heartbeat that started it all.
+              </h2>
+              <p className="mt-6 text-cream/85 leading-relaxed">
+                GaiaBerry was founded in 2020 by a woman with PCOS who knew the heartbreak of infertility.
+                After years of unsuccessful treatments and months of patient research, she found her way
+                back to the plants — and to a positive test of her own.
               </p>
-              <div className="mt-2 flex items-center gap-3 text-cream/70">
+              <p className="mt-4 text-cream/85 leading-relaxed">
+                This ultrasound is the very first GaiaBerry baby. Since then, thousands of women across
+                South Africa have walked the same gentle path home to their bodies.
+              </p>
+              <div className="mt-8 flex items-center gap-3 text-cream/70">
                 <span className="h-px w-10 bg-cream/30" />
                 <span className="font-serif italic text-sm">held by nature, guided by women</span>
-                <span className="h-px w-10 bg-cream/30" />
               </div>
             </div>
           </div>
@@ -252,42 +249,6 @@ function Home() {
         </div>
       </Section>
 
-      {/* OUR STORY — first GaiaBerry baby */}
-      <Section className="bg-blush/30 max-w-none rounded-none">
-        <div className="mx-auto max-w-5xl grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-[var(--gradient-blush)] -z-10 blur-2xl opacity-60" />
-            <div className="relative rotate-[-3deg] hover:rotate-0 transition-transform duration-700">
-              <div className="bg-cream p-3 pb-12 shadow-[var(--shadow-petal)] rounded-sm">
-                <img
-                  src={firstBaby}
-                  alt="Ultrasound of the first GaiaBerry baby — a gift after years of trying"
-                  loading="lazy"
-                  className="w-full aspect-[4/5] object-cover"
-                />
-                <p className="mt-3 text-center font-serif italic text-ink/70 text-sm">
-                  Our very first GaiaBerry baby 🌿
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <Eyebrow>Our Story</Eyebrow>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl text-ink leading-tight">
-              The little heartbeat that started it all.
-            </h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed">
-              GaiaBerry was founded in 2020 by a woman with PCOS who knew the heartbreak of infertility.
-              After years of unsuccessful treatments and months of patient research, she found her way
-              back to the plants — and to a positive test of her own.
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              This ultrasound is the very first GaiaBerry baby. Since then, thousands of women across
-              South Africa have walked the same gentle path home to their bodies.
-            </p>
-          </div>
-        </div>
-      </Section>
 
       {/* CONSULTATION + AGENT */}
       <Section>
