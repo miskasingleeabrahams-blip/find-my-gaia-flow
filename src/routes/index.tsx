@@ -64,7 +64,7 @@ function Home() {
                 to="/consultation"
                 className="inline-flex items-center rounded-full border border-sage-deep/30 text-sage-deep px-8 py-4 text-base hover:bg-sage/10 transition"
               >
-                Book Your 3-Month Check-In
+                Book Your 3-Month Follow-Up
               </Link>
             </div>
             <div className="mt-10 flex items-center gap-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -262,13 +262,13 @@ function Home() {
               <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,oklch(0.97_0.018_25/0.55)_100%)]" />
             </div>
             <div className="p-10 md:p-14">
-              <Eyebrow>3-Month Check-In</Eyebrow>
-              <h3 className="mt-3 font-serif text-3xl md:text-4xl">Book your 3-month check-in.</h3>
+              <Eyebrow>3-Month Follow-Up</Eyebrow>
+              <h3 className="mt-3 font-serif text-3xl md:text-4xl">Book your 3-month follow-up.</h3>
               <p className="mt-4 text-muted-foreground leading-relaxed">
                 A 45-minute private session with one of our qualified GaiaBerry consultants, to review your progress and design your next phase of healing.
               </p>
               <Link to="/consultation" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition">
-                Book Your 3-Month Check-In →
+                Book Your 3-Month Follow-Up →
               </Link>
             </div>
           </div>

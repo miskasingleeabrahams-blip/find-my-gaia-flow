@@ -7,8 +7,8 @@ import { useState } from "react";
 export const Route = createFileRoute("/consultation")({
   head: () => ({
     meta: [
-      { title: "Book Your 3-Month Check-In — GaiaBerry" },
-      { name: "description", content: "Book your 3-month check-in with one of our qualified GaiaBerry consultants." },
+      { title: "Book Your 3-Month Follow-Up — GaiaBerry" },
+      { name: "description", content: "Book your 3-month follow-up with one of our qualified GaiaBerry consultants." },
     ],
   }),
   component: Consultation,
@@ -22,8 +22,8 @@ function Consultation() {
       <SiteHeader />
       <div className="mx-auto max-w-6xl px-6 md:px-10 py-20 grid lg:grid-cols-2 gap-14 items-start">
         <div>
-          <Eyebrow>3-Month Check-In</Eyebrow>
-          <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">Book Your 3-Month Check-In.</h1>
+          <Eyebrow>3-Month Follow-Up</Eyebrow>
+          <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">Book Your 3-Month Follow-Up.</h1>
           <p className="mt-6 text-muted-foreground leading-relaxed">
             A 45-minute private session with one of our qualified GaiaBerry consultants. We'll review your progress, decode your symptoms, and guide your next phase of healing.
           </p>
@@ -31,7 +31,7 @@ function Consultation() {
             {[
               { t: "45-minute private session", d: "On video, in your own quiet space." },
               { t: "Personal protocol", d: "A written plan with rituals, remedies and lifestyle guidance." },
-              { t: "Two follow-up notes", d: "Check-ins over the following weeks as you settle in." },
+              { t: "Two follow-up notes", d: "Follow-ups over the following weeks as you settle in." },
             ].map((b) => (
               <div key={b.t} className="flex gap-4">
                 <div className="mt-1 h-6 w-6 rounded-full bg-sage/30 grid place-items-center text-sage-deep">✓</div>
@@ -54,7 +54,7 @@ function Consultation() {
         >
           {!sent ? (
             <>
-              <h2 className="font-serif text-2xl">Book your 3-month check-in</h2>
+              <h2 className="font-serif text-2xl">Book your 3-month follow-up</h2>
               <p className="text-sm text-muted-foreground mt-1">We'll reach out within 24 hours to confirm.</p>
               <div className="mt-6 grid gap-4">
                 <Field label="Your name" type="text" />

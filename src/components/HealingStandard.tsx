@@ -70,7 +70,7 @@ export function HealingStandard({
                 to="/consultation"
                 className="inline-flex items-center gap-2 rounded-full border border-sage-deep/30 bg-cream/70 text-sage-deep px-8 py-4 hover:bg-sage/10 transition"
               >
-                Book Your 3-Month Check-In →
+                Book Your 3-Month Follow-Up →
               </Link>
             </div>
           </div>
