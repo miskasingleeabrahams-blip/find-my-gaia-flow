@@ -61,6 +61,10 @@ function Shop() {
           </p>
         </div>
 
+        <div className="mt-12">
+          <RemedyFinderCallout />
+        </div>
+
         {products.length === 0 ? (
           <div className="mt-16 rounded-3xl bg-card border border-border p-12 text-center">
             <p className="font-serif text-2xl text-ink">No products found</p>
