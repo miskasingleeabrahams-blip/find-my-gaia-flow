@@ -518,12 +518,14 @@ function ResultStep({
         </p>
       </div>
 
-      {result.addOns && (
+      {result.addOns && result.addOns.length > 0 && (
         <div className="mt-10">
-          <p className="text-xs uppercase tracking-[0.25em] text-sage-deep text-center">Recommended Add-ons</p>
-          <p className="mt-3 text-sm text-muted-foreground text-center max-w-lg mx-auto">
-            With the Endo Kit, you may add Milk Thistle drops or Chaste Berry drops — or both.
-            Not mandatory, but strongly advised based on your symptoms.
+          <p className="text-xs uppercase tracking-[0.25em] text-sage-deep text-center">Enhance your results</p>
+          <p className="mt-3 font-serif text-2xl text-ink text-center">Recommended to use with this kit</p>
+          <p className="mt-2 text-sm text-muted-foreground text-center max-w-lg mx-auto">
+            These complementary remedies deepen and accelerate your results — chosen specifically for your concern.
+          </p>
+          <div className="mt-6 grid sm:grid-cols-2 gap-4">
           </p>
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
             {result.addOns.map((a) => (
