@@ -69,7 +69,7 @@ export function SiteFooter() {
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               <span className="font-medium text-sage-deep">Made to halaal standards.</span>{" "}
-              All GaiaBerry products are manufactured according to SANHA (South African National Halaal Authority) regulations. We are not SANHA-certified.
+              All GaiaBerry products are manufactured according to SANHA (South African National Halaal Authority) regulations.
             </p>
           </div>
         </div>
