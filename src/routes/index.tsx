@@ -201,26 +201,49 @@ function Home() {
       </Section>
 
       {/* TESTIMONIALS */}
-      <Section className="bg-blush/20 max-w-none rounded-none">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-14">
-            <Eyebrow>Stories of becoming</Eyebrow>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">Held, heard, transformed.</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="rounded-3xl bg-cream p-8 shadow-[var(--shadow-soft)]">
-                <div className="text-sage-deep font-serif text-4xl leading-none">"</div>
-                <blockquote className="mt-2 text-ink/90 leading-relaxed">{t.quote}</blockquote>
-                <figcaption className="mt-6 text-sm">
-                  <div className="font-medium text-ink">{t.name}</div>
-                  <div className="text-muted-foreground">{t.role}</div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link to="/testimonials" className="text-sage-deep underline-offset-4 hover:underline">Read more stories →</Link>
+      <Section className="bg-blush/20 max-w-none rounded-none relative overflow-hidden">
+        {/* subtle background lifestyle texture */}
+        <img
+          src={lifestyleTea}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.07] pointer-events-none"
+        />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-14 items-start">
+            {/* side visual */}
+            <div className="hidden lg:block">
+              <div className="rounded-[2rem] overflow-hidden shadow-[var(--shadow-soft)] aspect-[4/5]">
+                <img
+                  src={lifestyleTinctures}
+                  alt="GaiaBerry herbal tinctures in soft natural light"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div>
+              <div className="text-center lg:text-left mb-10">
+                <Eyebrow>Stories of becoming</Eyebrow>
+                <h2 className="mt-3 font-serif text-4xl md:text-5xl">Held, heard, transformed.</h2>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {testimonials.map((t) => (
+                  <figure key={t.name} className="rounded-3xl bg-cream/95 backdrop-blur-sm p-8 shadow-[var(--shadow-soft)]">
+                    <div className="text-sage-deep font-serif text-4xl leading-none">"</div>
+                    <blockquote className="mt-2 text-ink/90 leading-relaxed">{t.quote}</blockquote>
+                    <figcaption className="mt-6 text-sm">
+                      <div className="font-medium text-ink">{t.name}</div>
+                      <div className="text-muted-foreground">{t.role}</div>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <div className="text-center lg:text-left mt-10">
+                <Link to="/testimonials" className="text-sage-deep underline-offset-4 hover:underline">Read more stories →</Link>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -228,15 +251,26 @@ function Home() {
       {/* CONSULTATION + AGENT */}
       <Section>
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="rounded-[2rem] bg-cream border border-border p-10 md:p-14">
-            <Eyebrow>3-Month Check-In</Eyebrow>
-            <h3 className="mt-3 font-serif text-3xl md:text-4xl">Book your 3-month check-in.</h3>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              A 45-minute private session with one of our qualified GaiaBerry consultants — to review your progress and design your next phase of healing.
-            </p>
-            <Link to="/consultation" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition">
-              Book Your 3-Month Check-In →
-            </Link>
+          <div className="rounded-[2rem] bg-cream border border-border overflow-hidden flex flex-col">
+            <div className="relative h-48 md:h-56 overflow-hidden">
+              <img
+                src={lifestyleFullRange}
+                alt="The GaiaBerry range of natural fertility remedies"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,oklch(0.97_0.018_25/0.55)_100%)]" />
+            </div>
+            <div className="p-10 md:p-14">
+              <Eyebrow>3-Month Check-In</Eyebrow>
+              <h3 className="mt-3 font-serif text-3xl md:text-4xl">Book your 3-month check-in.</h3>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                A 45-minute private session with one of our qualified GaiaBerry consultants — to review your progress and design your next phase of healing.
+              </p>
+              <Link to="/consultation" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition">
+                Book Your 3-Month Check-In →
+              </Link>
+            </div>
           </div>
           <div className="rounded-[2rem] bg-[var(--gradient-blush)] p-10 md:p-14">
             <Eyebrow>Become an agent</Eyebrow>
