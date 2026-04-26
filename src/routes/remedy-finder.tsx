@@ -290,6 +290,7 @@ function RemedyFinder() {
     setStep("concern");
   };
 
+  const { products } = Route.useLoaderData();
   const result = useMemo(() => getRecommendation(answers), [answers]);
 
   const progress =
@@ -338,7 +339,7 @@ function RemedyFinder() {
           )}
 
           {step === "result" && (
-            <ResultStep result={result} answers={answers} onReset={reset} />
+            <ResultStep result={result} answers={answers} onReset={reset} products={products} />
           )}
         </div>
       </div>
@@ -527,11 +528,17 @@ function ResultStep({
   result,
   answers,
   onReset,
+  products,
 }: {
   result: Recommendation;
   answers: Answers;
   onReset: () => void;
+  products: ShopifyProduct[];
 }) {
+  const matchedProduct = result.productHandle
+    ? products.find((p) => p.node.handle === result.productHandle)
+    : undefined;
+
   return (
     <div>
       <div className="text-center">
@@ -554,6 +561,15 @@ function ResultStep({
         <p className="mt-5 text-muted-foreground leading-relaxed max-w-md mx-auto">
           {result.description}
         </p>
+        {matchedProduct && (
+          <div className="mt-6 flex justify-center">
+            <AddToCartButton
+              product={matchedProduct}
+              label="Add to basket"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 hover:opacity-90 transition disabled:opacity-50"
+            />
+          </div>
+        )}
       </div>
 
       {result.addOns && result.addOns.length > 0 && (
