@@ -50,12 +50,16 @@ const concerns: Concern[] = [
   "Not sure",
 ];
 
+type AddOn = { name: string; price: string; note: string };
+
 type Recommendation = {
   name: string;
   price: string;
   description: string;
   image?: string;
-  addOns?: { name: string; price: string; note: string }[];
+  addOns?: AddOn[];
+  addOnHeading?: string;
+  addOnIntro?: string;
 };
 
 type Answers = {
@@ -69,20 +73,40 @@ type Answers = {
   medicationDetail?: string;
 };
 
-function getRecommendation(a: Answers): Recommendation {
-  const endoAddOns = [
-    {
-      name: "Milk Thistle Drops — Insulin Care",
-      price: "R350",
-      note: "Best with insulin resistance, PCOS tendencies or liver congestion. Regulates blood sugar and supports hormonal detoxification.",
-    },
-    {
-      name: "Chaste Berry Drops — Fertility Tonic",
-      price: "R320",
-      note: "Best with hormonal imbalance, irregular cycles, PMS or low progesterone. Balances progesterone and regulates the cycle.",
-    },
-  ];
+const ADDONS: Record<string, AddOn> = {
+  chasteBerry: {
+    name: "Chaste Berry Drops — Fertility Tonic",
+    price: "R320",
+    note: "Balances progesterone, regulates the cycle and eases PMS. Best with hormonal imbalance, irregular cycles or low progesterone.",
+  },
+  milkThistle: {
+    name: "Milk Thistle Drops — Insulin Care",
+    price: "R350",
+    note: "Regulates blood sugar, detoxes the liver and supports insulin sensitivity. Best with PCOS tendencies or liver congestion.",
+  },
+  ashwagandha: {
+    name: "Ashwagandha Drops — Stress & Adrenal",
+    price: "R340",
+    note: "Calms the nervous system, supports adrenals and lifts low libido. Best with stress, anxiety or fatigue.",
+  },
+  ironSea: {
+    name: "IronSea Elixir — Iron Builder",
+    price: "R290",
+    note: "Plant-based iron tonic that gently lifts iron stores and energy. Best after blood loss or with low iron.",
+  },
+  wombTea: {
+    name: "Womb Nourishment Tea",
+    price: "R220",
+    note: "A daily nourishing tea to tone the womb and steady the cycle. Beautiful alongside any fertility kit.",
+  },
+  reproOxidative: {
+    name: "Repro Oxidative Care",
+    price: "R380",
+    note: "Antioxidant support for egg quality and reproductive cellular health. A gentle daily companion.",
+  },
+};
 
+function getRecommendation(a: Answers): Recommendation {
   switch (a.concern) {
     case "PCOS": {
       if (
@@ -94,6 +118,7 @@ function getRecommendation(a: Answers): Recommendation {
           price: "R845",
           image: kitPcos1,
           description: "Crafted for PCOS with weight gain, bloating or ovarian cysts — to gently restore metabolic and hormonal harmony.",
+          addOns: [ADDONS.milkThistle, ADDONS.wombTea],
         };
       }
       return {
@@ -101,6 +126,7 @@ function getRecommendation(a: Answers): Recommendation {
         price: "R845",
         image: kitPcos2,
         description: "Crafted for PCOS with fatigue, hirsutism and stress-driven imbalance — to nourish the adrenals and rebalance hormones.",
+        addOns: [ADDONS.ashwagandha, ADDONS.milkThistle],
       };
     }
 
@@ -112,14 +138,15 @@ function getRecommendation(a: Answers): Recommendation {
           price: "R970",
           image: kitDeepCleanse,
           description: "Deep Fertility Cleanse paired with Milk Thistle to address Endo and PCOS together.",
+          addOns: [ADDONS.chasteBerry, ADDONS.reproOxidative],
         };
       }
       return {
         name: "Endo Kit (Deep Fertility Cleanse)",
-        price: "R620 + add-on",
+        price: "R620",
         image: kitDeepCleanse,
         description: "A deep cleanse to support Endo or Fibroids. Pair with Milk Thistle and/or Chaste Berry drops for fuller support.",
-        addOns: endoAddOns,
+        addOns: [ADDONS.milkThistle, ADDONS.chasteBerry],
       };
     }
 
@@ -129,22 +156,19 @@ function getRecommendation(a: Answers): Recommendation {
         price: "R920",
         image: kitBlockedTubes,
         description: "A focused herbal protocol to support tubal health and reproductive flow.",
+        addOns: [ADDONS.wombTea, ADDONS.reproOxidative],
       };
 
     case "Recurring miscarriages":
-      if (a.miscarriageIron === "Yes" || a.miscarriageIron === "Not sure") {
-        return {
-          name: "Anaemia & Fertility Kit",
-          price: "R820",
-          image: kitAnaemia,
-          description: "Iron-rich, blood-building herbs to nourish the womb and support a thriving pregnancy.",
-        };
-      }
       return {
         name: "Anaemia & Fertility Kit",
         price: "R820",
         image: kitAnaemia,
-        description: "Even without confirmed anaemia, this nourishing kit supports recurring loss recovery and womb strengthening.",
+        description:
+          a.miscarriageIron === "No"
+            ? "Even without confirmed anaemia, this nourishing kit supports recurring loss recovery and womb strengthening."
+            : "Iron-rich, blood-building herbs to nourish the womb and support a thriving pregnancy.",
+        addOns: [ADDONS.ironSea, ADDONS.chasteBerry],
       };
 
     case "Low progesterone":
@@ -154,6 +178,7 @@ function getRecommendation(a: Answers): Recommendation {
         price: "R720",
         image: kitProgesterone,
         description: "Designed to lift progesterone gently, ease spotting and lengthen short luteal phases.",
+        addOns: [ADDONS.chasteBerry, ADDONS.wombTea],
       };
 
     case "Pregnancy care":
@@ -162,6 +187,7 @@ function getRecommendation(a: Answers): Recommendation {
         price: "R220",
         image: kitAnaemia,
         description: "A daily nourishing tea to support a healthy, thriving pregnancy.",
+        addOns: [ADDONS.ironSea],
       };
 
     case "Postpartum and breastfeeding":
@@ -170,6 +196,7 @@ function getRecommendation(a: Answers): Recommendation {
         price: "R440",
         image: kitAnaemia,
         description: "Replenishing herbs for the fourth trimester — to restore, soothe and support breastfeeding.",
+        addOns: [ADDONS.ironSea, ADDONS.wombTea],
       };
 
     case "Male fertility":
@@ -178,6 +205,7 @@ function getRecommendation(a: Answers): Recommendation {
         price: "R1,350",
         image: kitManOfSteel,
         description: "A potent kit to support male fertility, vitality and sperm health.",
+        addOns: [ADDONS.ashwagandha, ADDONS.reproOxidative],
       };
 
     case "Not sure":
@@ -490,12 +518,12 @@ function ResultStep({
         </p>
       </div>
 
-      {result.addOns && (
+      {result.addOns && result.addOns.length > 0 && (
         <div className="mt-10">
-          <p className="text-xs uppercase tracking-[0.25em] text-sage-deep text-center">Recommended Add-ons</p>
-          <p className="mt-3 text-sm text-muted-foreground text-center max-w-lg mx-auto">
-            With the Endo Kit, you may add Milk Thistle drops or Chaste Berry drops — or both.
-            Not mandatory, but strongly advised based on your symptoms.
+          <p className="text-xs uppercase tracking-[0.25em] text-sage-deep text-center">Enhance your results</p>
+          <p className="mt-3 font-serif text-2xl text-ink text-center">Recommended to use with this kit</p>
+          <p className="mt-2 text-sm text-muted-foreground text-center max-w-lg mx-auto">
+            These complementary remedies deepen and accelerate your results — chosen specifically for your concern.
           </p>
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
             {result.addOns.map((a) => (
