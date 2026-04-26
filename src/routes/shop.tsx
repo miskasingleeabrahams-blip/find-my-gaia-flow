@@ -79,20 +79,26 @@ function Shop() {
               const price = p.node.priceRange.minVariantPrice;
               return (
                 <article key={p.node.id} className="group">
-                  <div className="relative overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8 aspect-square">
-                    {img && (
-                      <img
-                        src={img.url}
-                        alt={img.altText || p.node.title}
-                        loading="lazy"
-                        className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-700"
-                      />
-                    )}
-                  </div>
-                  <h3 className="mt-5 font-serif text-2xl">{p.node.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                    {p.node.description}
-                  </p>
+                  <Link
+                    to="/product/$handle"
+                    params={{ handle: p.node.handle }}
+                    className="block"
+                  >
+                    <div className="relative overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8 aspect-square">
+                      {img && (
+                        <img
+                          src={img.url}
+                          alt={img.altText || p.node.title}
+                          loading="lazy"
+                          className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-700"
+                        />
+                      )}
+                    </div>
+                    <h3 className="mt-5 font-serif text-2xl group-hover:text-sage-deep transition-colors">{p.node.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                      {p.node.description}
+                    </p>
+                  </Link>
                   <div className="mt-5 flex items-center justify-between gap-3">
                     <span className="text-sage-deep font-medium text-lg">
                       {price.currencyCode} {parseFloat(price.amount).toFixed(2)}
