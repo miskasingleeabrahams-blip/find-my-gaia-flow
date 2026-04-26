@@ -64,7 +64,7 @@ function Home() {
                 to="/consultation"
                 className="inline-flex items-center rounded-full border border-sage-deep/30 text-sage-deep px-8 py-4 text-base hover:bg-sage/10 transition"
               >
-                Book a Consultation
+                Book 3-Month Check-In
               </Link>
             </div>
             <div className="mt-10 flex items-center gap-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
