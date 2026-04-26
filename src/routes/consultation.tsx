@@ -3,6 +3,10 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AlertTriangle, Clock, MessageCircle, CheckCircle2, XCircle, CalendarClock, Leaf, CreditCard, FileText, Sparkles } from "lucide-react";
+import samiyaPhoto from "@/assets/consultants/samiya.jpg";
+import nafeesahPhoto from "@/assets/consultants/nafeesah.jpg";
+import ronellePhoto from "@/assets/consultants/ronelle.jpg";
+import rhodanthePhoto from "@/assets/consultants/rhodanthe.jpg";
 
 export const Route = createFileRoute("/consultation")({
   head: () => ({
@@ -17,10 +21,10 @@ export const Route = createFileRoute("/consultation")({
 });
 
 const consultants = [
-  { name: "Ronelle", role: "GaiaBerry Fertility Consultant" },
-  { name: "Samiya", role: "GaiaBerry Fertility Consultant" },
-  { name: "Nafeesah", role: "GaiaBerry Fertility Consultant" },
-  { name: "Rhodanthe", role: "GaiaBerry Fertility Consultant" },
+  { name: "Ronelle", role: "GaiaBerry Fertility Consultant", photo: ronellePhoto },
+  { name: "Samiya", role: "GaiaBerry Fertility Consultant", photo: samiyaPhoto },
+  { name: "Nafeesah", role: "GaiaBerry Fertility Consultant", photo: nafeesahPhoto },
+  { name: "Rhodanthe", role: "GaiaBerry Fertility Consultant", photo: rhodanthePhoto },
 ];
 
 const sessions = [
@@ -166,8 +170,13 @@ function Consultation() {
               key={c.name}
               className="rounded-3xl bg-card border border-border p-5 md:p-7 text-center shadow-[var(--shadow-soft)]"
             >
-              <div className="mx-auto h-20 w-20 md:h-24 md:w-24 rounded-full bg-[var(--gradient-blush)] grid place-items-center text-blush-deep font-serif text-2xl">
-                {c.name[0]}
+              <div className="mx-auto h-24 w-24 md:h-28 md:w-28 rounded-full overflow-hidden ring-2 ring-blush-deep/20 shadow-[var(--shadow-soft)]">
+                <img
+                  src={c.photo}
+                  alt={`${c.name}, ${c.role}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div className="mt-4 font-serif text-xl text-ink">{c.name}</div>
               <div className="mt-1 text-xs uppercase tracking-[0.18em] text-sage-deep">{c.role}</div>
