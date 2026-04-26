@@ -165,11 +165,11 @@ function AgentPortal() {
           <div className="max-w-2xl">
             <Eyebrow>Agent Portal</Eyebrow>
             <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">
-              Wholesale pricing for our agents.
+              Shop with your agent discount.
             </h1>
             <p className="mt-5 text-muted-foreground">
-              Below are the agent prices. Add items to your basket and check out as usual —
-              your agent rate will be reconciled by GaiaBerry on fulfilment.
+              Browse the catalogue below, add items to your basket, and apply your agent
+              discount code at checkout to receive 21.45% off.
             </p>
           </div>
           <button
