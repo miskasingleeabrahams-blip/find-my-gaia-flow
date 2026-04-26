@@ -74,14 +74,14 @@ export const Route = createFileRoute('/api/public/bookings/respond')({
           // Placeholder payment URL — wire up real Stripe when account is connected.
           const paymentUrl = `${origin}/pay/${b.id}`
 
-          const { error: upErr } = await supabase
-            .from('consultation_bookings')
+          const { error: upErr } = await (supabase
+            .from('consultation_bookings') as any)
             .update({
               status: 'confirmed',
               confirmed_at: new Date().toISOString(),
               payment_link: paymentUrl,
-            } as any)
-            .eq('id' as any, b.id)
+            })
+            .eq('id', b.id)
 
           if (upErr) {
             return Response.json({ error: 'Failed to update booking' }, { status: 500 })
@@ -108,13 +108,13 @@ export const Route = createFileRoute('/api/public/bookings/respond')({
         }
 
         // Decline
-        const { error: upErr } = await supabase
-          .from('consultation_bookings')
+        const { error: upErr } = await (supabase
+          .from('consultation_bookings') as any)
           .update({
             status: 'declined',
             declined_at: new Date().toISOString(),
-          } as any)
-          .eq('id' as any, b.id)
+          })
+          .eq('id', b.id)
 
         if (upErr) {
           return Response.json({ error: 'Failed to update booking' }, { status: 500 })
