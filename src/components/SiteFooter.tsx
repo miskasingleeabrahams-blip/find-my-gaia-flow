@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/gaiaberry-logo.png";
+import iaothBadge from "@/assets/iaoth-badge.png";
 
 export function SiteFooter() {
   return (
