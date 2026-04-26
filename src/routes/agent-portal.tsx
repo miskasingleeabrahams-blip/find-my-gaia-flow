@@ -12,43 +12,18 @@ const AGENT_PASSWORD = "AGENT-GAIA-2145";
 const AGENT_DISCOUNT_CODE = "AGENT-GAIA-2145";
 const STORAGE_KEY = "gaiaberry_agent_auth";
 
-// Agent pricing (ZAR) — keyed by lowercased keyword found in the product title
-const AGENT_PRICES: { match: string; price: number }[] = [
-  { match: "womb nourish", price: 173 },
-  { match: "endometriosis", price: 487 },
-  { match: "blocked fallopi", price: 723 },
-  { match: "inflammation", price: 173 },
-  { match: "fertility cleanser", price: 346 },
-  { match: "hormonal bala", price: 346 },
-  { match: "crampbark", price: 275 },
-  { match: "ashwagandha", price: 275 },
-  { match: "milk thistle", price: 275 },
-  { match: "chaste berry", price: 251 },
-  { match: "repro oxidativ", price: 173 },
-  { match: "male fertility", price: 1060 },
-  { match: "ironsea", price: 251 },
-  { match: "postpartum", price: 173 },
-  { match: "breast milk", price: 173 },
-];
-
 // Products agents are NOT allowed to purchase
 const EXCLUDED_KEYWORDS = [
   "progesterone",
   "pcos",
+  "anaemia",
   "anemia",
-  "fertility kit",
+  "anaemia & fertility",
 ];
 
 function isExcluded(title: string): boolean {
   const t = title.toLowerCase();
   return EXCLUDED_KEYWORDS.some((k) => t.includes(k));
-}
-
-function findAgentPrice(title: string): number | null {
-  if (isExcluded(title)) return null;
-  const t = title.toLowerCase();
-  const hit = AGENT_PRICES.find((p) => t.includes(p.match));
-  return hit ? hit.price : null;
 }
 
 export const Route = createFileRoute("/agent-portal")({
