@@ -33,9 +33,24 @@ const kits = [
 ];
 
 const testimonials = [
-  { quote: "After two years of trying, the Remedy Finder pointed me to a routine that worked. I'm now 16 weeks pregnant.", name: "Amara O.", role: "Conception Companion" },
-  { quote: "My cycles regulated within three months. I finally feel held by something that understands PCOS.", name: "Ifeoma A.", role: "PCOS Reset Kit" },
-  { quote: "The consultation felt like therapy and herbalism combined. Truly personal.", name: "Lara K.", role: "1:1 Consultation" },
+  {
+    quote:
+      "I highly recommend this product — it's by far the best I've used since being diagnosed with PCOS, thyroid issues, endometriosis and low iron levels. Their products work!",
+    name: "Nikita Jansen van Niewenhuizen",
+    role: "Verified Google review · ★★★★★",
+  },
+  {
+    quote:
+      "I've had irregular periods for 17 years and I finally decided to try Gaia Berry. The products have helped me so much — I only wish I had found them sooner.",
+    name: "Aziza Alibedi",
+    role: "Verified Google review · ★★★★★",
+  },
+  {
+    quote:
+      "Not only are their products good and so helpful, but Miska is so supportive and willing to give advice and offer guidance where she can. I've been using GaiaBerry since March and I'm so happy 😊",
+    name: "Letascha-Lee Dreyden",
+    role: "Verified Google review · ★★★★★",
+  },
 ];
 
 function Home() {
