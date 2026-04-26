@@ -191,13 +191,13 @@ function Home() {
       <Section>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="rounded-[2rem] bg-cream border border-border p-10 md:p-14">
-            <Eyebrow>1:1 Consultation</Eyebrow>
-            <h3 className="mt-3 font-serif text-3xl md:text-4xl">Speak with a fertility herbalist.</h3>
+            <Eyebrow>3-Month Check-In</Eyebrow>
+            <h3 className="mt-3 font-serif text-3xl md:text-4xl">Book your 3-month check-in.</h3>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              A 45-minute private session to map your cycle, decode your symptoms, and design a remedy plan that honours your body.
+              A 45-minute private session with one of our qualified GaiaBerry consultants — to review your progress and design your next phase of healing.
             </p>
             <Link to="/consultation" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition">
-              Book your session →
+              Book Your 3-Month Check-In →
             </Link>
           </div>
           <div className="rounded-[2rem] bg-[var(--gradient-blush)] p-10 md:p-14">
