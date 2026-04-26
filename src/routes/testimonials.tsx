@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
+import lifestyleSide from "@/assets/lifestyle-tinctures.jpg";
 
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
@@ -32,7 +33,16 @@ function Testimonials() {
           <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">Words from the women we walk with.</h1>
           <p className="mt-5 text-muted-foreground">Each story is shared with permission and held with care.</p>
         </div>
-        <div className="mt-16 grid md:grid-cols-2 gap-8">
+        {/* soft lifestyle divider */}
+        <div className="mt-12 relative rounded-[2rem] overflow-hidden h-36 md:h-48">
+          <img
+            src={lifestyleSide}
+            alt="GaiaBerry herbal tinctures in soft natural light"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.97_0.018_25/0.2)_0%,oklch(0.97_0.018_25/0.5)_100%)]" />
+        </div>
+        <div className="mt-12 grid md:grid-cols-2 gap-8">
           {stories.map((s, i) => (
             <figure key={i} className={`rounded-[2rem] p-10 ${i % 2 === 0 ? "bg-blush/30" : "bg-sage/15"}`}>
               <div className="text-sage-deep font-serif text-5xl leading-none">"</div>
