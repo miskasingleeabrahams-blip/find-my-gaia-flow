@@ -265,7 +265,7 @@ function Home() {
               <Eyebrow>3-Month Follow-Up</Eyebrow>
               <h3 className="mt-3 font-serif text-3xl md:text-4xl">Book your 3-month follow-up.</h3>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                A 45-minute private session with one of our qualified GaiaBerry consultants, to review your progress and design your next phase of healing.
+                A private WhatsApp session with one of our qualified GaiaBerry consultants — choose 15 minutes (R100) or 30 minutes (R200) to review your progress and design your next phase of healing.
               </p>
               <Link to="/consultation" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition">
                 Book Your 3-Month Follow-Up →
