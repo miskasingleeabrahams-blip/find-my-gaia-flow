@@ -175,22 +175,35 @@ function Home() {
             </div>
 
             {/* Reviews CTA */}
-            <div className="mt-10 inline-flex flex-col sm:flex-row items-center gap-4 rounded-2xl bg-cream/10 backdrop-blur-sm border border-cream/20 px-6 py-5">
-              <div className="flex items-center gap-2 text-cream">
-                <span className="text-xl tracking-wide">★★★★★</span>
-                <span className="text-sm text-cream/85">Loved by our community</span>
+            <div className="mt-10 inline-flex flex-col items-center gap-3 rounded-2xl bg-cream/10 backdrop-blur-sm border border-cream/20 px-6 py-5">
+              <div className="flex items-center gap-3 text-cream">
+                <span className="font-serif text-3xl text-cream">4.9</span>
+                <div className="flex flex-col items-start">
+                  <span className="text-base tracking-widest text-[#fbbf24]">★★★★★</span>
+                  <span className="text-xs text-cream/80">Based on 34 Google reviews</span>
+                </div>
               </div>
-              <a
-                href="https://g.page/r/gaiaberry/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-6 py-3 text-sm font-medium hover:bg-blush transition shadow-[var(--shadow-soft)]"
-              >
-                Leave a Google review →
-              </a>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <a
+                  href="https://www.google.com/search?q=gaia+berry+reviews"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-cream/40 text-cream px-5 py-2.5 text-sm hover:bg-cream/10 transition"
+                >
+                  Read reviews
+                </a>
+                <a
+                  href="https://search.google.com/local/writereview?placeid=gaia-berry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-5 py-2.5 text-sm font-medium hover:bg-blush transition shadow-[var(--shadow-soft)]"
+                >
+                  Leave a Google review →
+                </a>
+              </div>
             </div>
             <p className="mt-3 text-[11px] uppercase tracking-[0.2em] text-cream/65">
-              Verified reviews on Google · No sign-up needed
+              Verified reviews on Google
             </p>
           </div>
         </div>
