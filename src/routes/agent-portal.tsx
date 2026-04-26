@@ -205,21 +205,18 @@ function AgentPortal() {
 
         {agentProducts.length === 0 ? (
           <div className="mt-16 rounded-3xl bg-card border border-border p-12 text-center">
-            <p className="font-serif text-2xl text-ink">No agent products found</p>
+            <p className="font-serif text-2xl text-ink">No products found</p>
             <p className="mt-3 text-muted-foreground text-sm">Please check back soon.</p>
           </div>
         ) : (
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {agentProducts.map(({ p, agentPrice }: { p: ShopifyProduct; agentPrice: number }) => {
+            {agentProducts.map((p: ShopifyProduct) => {
               const img = p.node.images.edges[0]?.node;
               const retail = p.node.priceRange.minVariantPrice;
               const retailAmount = parseFloat(retail.amount);
               return (
                 <article key={p.node.id} className="group">
                   <div className="relative overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8 aspect-square">
-                    <span className="absolute top-4 left-4 rounded-full bg-sage-deep text-cream text-xs px-3 py-1">
-                      Agent price
-                    </span>
                     {img && (
                       <img
                         src={img.url}
@@ -230,15 +227,10 @@ function AgentPortal() {
                     )}
                   </div>
                   <h3 className="mt-5 font-serif text-2xl">{p.node.title}</h3>
-                  <div className="mt-3 flex items-baseline gap-3">
+                  <div className="mt-3">
                     <span className="text-sage-deep font-medium text-2xl">
-                      ZAR {agentPrice!.toFixed(2)}
+                      {retail.currencyCode} {retailAmount.toFixed(2)}
                     </span>
-                    {retailAmount > agentPrice! && (
-                      <span className="text-sm text-muted-foreground line-through">
-                        ZAR {retailAmount.toFixed(2)}
-                      </span>
-                    )}
                   </div>
                   <div className="mt-5">
                     <AddToCartButton product={p} className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-sage-deep text-cream px-5 py-3 text-sm hover:opacity-90 transition disabled:opacity-50" />
