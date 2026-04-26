@@ -7,7 +7,7 @@ const nav = [
   { to: "/remedy-finder", label: "Remedy Finder" },
   { to: "/shop", label: "Shop" },
   { to: "/testimonials", label: "Stories" },
-  { to: "/consultation", label: "Consultation" },
+  { to: "/consultation", label: "3-Month Check-In" },
   { to: "/agent", label: "Become an Agent" },
 ] as const;
 

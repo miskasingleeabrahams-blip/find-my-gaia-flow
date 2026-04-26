@@ -24,7 +24,7 @@ export function SiteFooter() {
         <div>
           <h4 className="font-serif text-lg mb-4">Support</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/consultation" className="hover:text-sage-deep">Book a Consultation</Link></li>
+            <li><Link to="/consultation" className="hover:text-sage-deep">Book Your 3-Month Check-In</Link></li>
             <li><Link to="/agent" className="hover:text-sage-deep">Become an Agent</Link></li>
             <li>hello@gaiaberry.co</li>
           </ul>
