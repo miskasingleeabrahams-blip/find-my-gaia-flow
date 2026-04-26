@@ -288,6 +288,22 @@ function Home() {
         </div>
       </Section>
 
+      {/* MEDICAL DISCLAIMER */}
+      <div className="mx-auto max-w-4xl px-6 md:px-10 pb-16">
+        <div className="rounded-2xl border border-sage/30 bg-sage/5 p-6 md:p-8 text-sm text-muted-foreground leading-relaxed">
+          <p className="font-medium text-sage-deep mb-2">A gentle note 🌿</p>
+          <p>
+            GaiaBerry products and consultations are offered for educational and wellness purposes only.
+            They are not intended to diagnose, treat, cure or prevent any medical condition. Always speak
+            to a qualified healthcare practitioner before starting a new herbal regimen — especially if
+            you are pregnant, breastfeeding or taking medication.{" "}
+            <Link to="/legal/disclaimer" className="text-sage-deep underline-offset-4 hover:underline">
+              Read the full medical disclaimer →
+            </Link>
+          </p>
+        </div>
+      </div>
+
       <SiteFooter />
     </div>
   );
