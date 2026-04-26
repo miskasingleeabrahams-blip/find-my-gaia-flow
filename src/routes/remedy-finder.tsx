@@ -12,6 +12,7 @@ import kitProgesterone from "@/assets/kit-progesterone.png";
 import kitManOfSteel from "@/assets/kit-man-of-steel.png";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { HalaalBadge } from "@/components/HalaalBadge";
+import { PregnancySafetyNote } from "@/components/PregnancySafetyNote";
 import { HealingStandard, HealingReminder } from "@/components/HealingStandard";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
@@ -587,6 +588,7 @@ function ResultStep({
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 hover:opacity-90 transition disabled:opacity-50"
             />
             <HealingReminder className="max-w-sm text-center" />
+            <PregnancySafetyNote productKey={`${result.name}`} className="max-w-sm text-left" />
           </div>
         )}
       </div>
