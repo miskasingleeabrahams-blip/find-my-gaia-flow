@@ -8,7 +8,7 @@ import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/l
 import { Lock, LogOut, Copy } from "lucide-react";
 import { toast } from "sonner";
 
-const AGENT_PASSWORD = "AGENT-1KHWXUY0";
+const AGENT_PASSWORD = "AGENT-GAIA-2145";
 const AGENT_DISCOUNT_CODE = "AGENT-GAIA-2145";
 const STORAGE_KEY = "gaiaberry_agent_auth";
 
