@@ -3,9 +3,9 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Section, Eyebrow } from "@/components/Section";
 import heroImg from "@/assets/hero.jpg";
-import kit1 from "@/assets/kit-1.jpg";
-import kit2 from "@/assets/kit-2.jpg";
-import kit3 from "@/assets/kit-3.jpg";
+import kit1 from "@/assets/kit-deep-fertility-cleanse.png";
+import kit2 from "@/assets/kit-anaemia-fertility.png";
+import kit3 from "@/assets/kit-blocked-tubes.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,9 +18,9 @@ export const Route = createFileRoute("/")({
 });
 
 const kits = [
-  { img: kit1, name: "Conception Companion", desc: "A 90-day herbal ritual to nurture egg quality and cycle regularity.", price: "$148" },
-  { img: kit2, name: "PCOS Reset Kit", desc: "Adaptogenic blends to gently restore insulin and hormonal harmony.", price: "$132" },
-  { img: kit3, name: "Cycle Soothe Tea", desc: "A daily ritual brew of red raspberry, chamomile and rose for balance.", price: "$48" },
+  { img: kit1, name: "Endo Kit — Deep Fertility Cleanse", desc: "Womb cleanse, increased blood flow & immunity for Endo and Fibroids.", price: "R620" },
+  { img: kit2, name: "Anaemia & Fertility Kit", desc: "Iron-rich, blood-building herbs to nourish the womb after recurring loss.", price: "R820" },
+  { img: kit3, name: "Blocked Tubes Kit", desc: "A focused herbal protocol to support tubal health and reproductive flow.", price: "R920" },
 ];
 
 const testimonials = [
@@ -127,14 +127,12 @@ function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           {kits.map((k) => (
             <article key={k.name} className="group">
-              <div className="overflow-hidden rounded-3xl bg-blush/30">
+              <div className="overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8">
                 <img
                   src={k.img}
                   alt={k.name}
-                  width={896}
-                  height={896}
                   loading="lazy"
-                  className="aspect-square object-cover w-full group-hover:scale-105 transition-transform duration-700"
+                  className="aspect-square object-contain w-full group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <h3 className="mt-5 font-serif text-2xl">{k.name}</h3>
