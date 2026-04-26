@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as RemedyFinderRouteImport } from './routes/remedy-finder'
 import { Route as LegalRouteImport } from './routes/legal'
@@ -41,6 +42,11 @@ const UnsubscribeRoute = UnsubscribeRouteImport.update({
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
@@ -162,6 +168,7 @@ export interface FileRoutesByFullPath {
   '/legal': typeof LegalRouteWithChildren
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/agent/respond': typeof AgentRespondRoute
@@ -187,6 +194,7 @@ export interface FileRoutesByTo {
   '/legal': typeof LegalRouteWithChildren
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/agent/respond': typeof AgentRespondRoute
@@ -213,6 +221,7 @@ export interface FileRoutesById {
   '/legal': typeof LegalRouteWithChildren
   '/remedy-finder': typeof RemedyFinderRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/agent/respond': typeof AgentRespondRoute
@@ -240,6 +249,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/remedy-finder'
     | '/shop'
+    | '/sitemap.xml'
     | '/testimonials'
     | '/unsubscribe'
     | '/agent/respond'
@@ -265,6 +275,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/remedy-finder'
     | '/shop'
+    | '/sitemap.xml'
     | '/testimonials'
     | '/unsubscribe'
     | '/agent/respond'
@@ -290,6 +301,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/remedy-finder'
     | '/shop'
+    | '/sitemap.xml'
     | '/testimonials'
     | '/unsubscribe'
     | '/agent/respond'
@@ -316,6 +328,7 @@ export interface RootRouteChildren {
   LegalRoute: typeof LegalRouteWithChildren
   RemedyFinderRoute: typeof RemedyFinderRoute
   ShopRoute: typeof ShopRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TestimonialsRoute: typeof TestimonialsRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
@@ -342,6 +355,13 @@ declare module '@tanstack/react-router' {
       path: '/testimonials'
       fullPath: '/testimonials'
       preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shop': {
@@ -529,6 +549,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalRoute: LegalRouteWithChildren,
   RemedyFinderRoute: RemedyFinderRoute,
   ShopRoute: ShopRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TestimonialsRoute: TestimonialsRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
