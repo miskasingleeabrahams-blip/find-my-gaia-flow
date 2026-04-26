@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Section, Eyebrow } from "@/components/Section";
 import { HealingStandard } from "@/components/HealingStandard";
+import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
 import heroImg from "@/assets/hero.jpg";
 import kit1 from "@/assets/kit-pcos-1.png";
 import kit2 from "@/assets/kit-pcos-2.png";
