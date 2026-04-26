@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { CartDrawer } from "@/components/CartDrawer";
+import logo from "@/assets/gaiaberry-logo.png";
 
 const nav = [
   { to: "/remedy-finder", label: "Remedy Finder" },
@@ -17,9 +18,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-cream/75 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 md:px-10 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
-          <span className="h-8 w-8 rounded-full bg-gradient-to-br from-sage to-sage-deep grid place-items-center text-cream font-serif text-lg">G</span>
-          <span className="font-serif text-2xl tracking-tight text-ink">GaiaBerry</span>
+        <Link to="/" className="flex items-center group" onClick={() => setOpen(false)} aria-label="GaiaBerry home">
+          <img src={logo} alt="GaiaBerry" className="h-10 md:h-12 w-auto object-contain" />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {nav.map((n) => (

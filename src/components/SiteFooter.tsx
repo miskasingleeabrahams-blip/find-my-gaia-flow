@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
+import logo from "@/assets/gaiaberry-logo.png";
 
 export function SiteFooter() {
   return (
     <footer className="mt-32 bg-[var(--gradient-warm)] border-t border-border/60">
       <div className="mx-auto max-w-7xl px-6 md:px-10 py-16 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2">
-            <span className="h-8 w-8 rounded-full bg-gradient-to-br from-sage to-sage-deep grid place-items-center text-cream font-serif text-lg">G</span>
-            <span className="font-serif text-2xl text-ink">GaiaBerry</span>
+          <div className="flex items-center">
+            <img src={logo} alt="GaiaBerry" className="h-12 w-auto object-contain" />
           </div>
           <p className="mt-4 max-w-md text-sm text-muted-foreground leading-relaxed">
             Nature-led remedies for fertility, hormones and reproductive wellness — created with care, rooted in tradition, guided by science.
