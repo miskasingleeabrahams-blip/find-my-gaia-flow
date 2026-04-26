@@ -34,7 +34,7 @@ function Agent() {
             Carry the medicine. Hold the women.
           </h1>
           <p className="mt-6 max-w-xl mx-auto text-ink/80 leading-relaxed">
-            GaiaBerry agents are educators, healers and community-builders. If you've felt called to walk alongside women on their fertility journey — this is for you.
+            GaiaBerry agents are educators, healers and community-builders. If you've felt called to walk alongside women on their fertility journey, this is for you.
           </p>
         </div>
       </section>
@@ -53,7 +53,7 @@ function Agent() {
 
           <div className="mt-12 rounded-2xl bg-sage/15 p-8">
             <div className="font-serif text-2xl">"It feels like being a quiet light for the women in my city."</div>
-            <div className="mt-4 text-sm text-muted-foreground">— Tomi, GaiaBerry agent · Ibadan</div>
+            <div className="mt-4 text-sm text-muted-foreground">Tomi, GaiaBerry agent · Ibadan</div>
           </div>
         </div>
 

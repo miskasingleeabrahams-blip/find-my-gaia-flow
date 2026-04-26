@@ -16,7 +16,7 @@ export const Route = createFileRoute("/testimonials")({
 
 const stories = [
   { quote: "After two years of trying, the Remedy Finder pointed me to a routine that worked. I'm now 16 weeks pregnant and full of gratitude.", name: "Amara O.", role: "Conception Companion", location: "Lagos" },
-  { quote: "My cycles regulated within three months. I finally feel held by something that understands PCOS — not just medicates it.", name: "Ifeoma A.", role: "PCOS Reset Kit", location: "Abuja" },
+  { quote: "My cycles regulated within three months. I finally feel held by something that understands PCOS, not just medicates it.", name: "Ifeoma A.", role: "PCOS Reset Kit", location: "Abuja" },
   { quote: "The consultation felt like therapy and herbalism combined. Truly personal and gentle.", name: "Lara K.", role: "1:1 Consultation", location: "London" },
   { quote: "I never thought a tea could change my life. The cramps that ruled me are now barely there.", name: "Chiamaka E.", role: "Cycle Soothe Tea", location: "Nairobi" },
   { quote: "My hormones felt like they were screaming. Now they whisper. Thank you, GaiaBerry.", name: "Sade M.", role: "Hormone Harmony Powder", location: "Accra" },

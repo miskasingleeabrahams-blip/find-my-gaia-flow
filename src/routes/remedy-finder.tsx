@@ -106,22 +106,22 @@ type Answers = {
 
 const ADDONS: Record<string, AddOn> = {
   chasteBerry: {
-    name: "Chaste Berry Drops — Fertility Tonic",
+    name: "Chaste Berry Drops · Fertility Tonic",
     price: "R320",
     note: "Balances progesterone, regulates the cycle and eases PMS. Best with hormonal imbalance, irregular cycles or low progesterone.",
   },
   milkThistle: {
-    name: "Milk Thistle Drops — Insulin Care",
+    name: "Milk Thistle Drops · Insulin Care",
     price: "R350",
     note: "Regulates blood sugar, detoxes the liver and supports insulin sensitivity. Best with PCOS tendencies or liver congestion.",
   },
   ashwagandha: {
-    name: "Ashwagandha Drops — Stress & Adrenal",
+    name: "Ashwagandha Drops · Stress & Adrenal",
     price: "R340",
     note: "Calms the nervous system, supports adrenals and lifts low libido. Best with stress, anxiety or fatigue.",
   },
   ironSea: {
-    name: "IronSea Elixir — Iron Builder",
+    name: "IronSea Elixir · Iron Builder",
     price: "R290",
     note: "Plant-based iron tonic that gently lifts iron stores and energy. Best after blood loss or with low iron.",
   },
@@ -149,7 +149,7 @@ function getRecommendation(a: Answers): Recommendation {
           price: "R845",
           image: kitPcos1,
           productHandle: "pcos-kit-1",
-          description: "Crafted for PCOS with weight gain, bloating or ovarian cysts — to gently restore metabolic and hormonal harmony.",
+          description: "Crafted for PCOS with weight gain, bloating or ovarian cysts, to gently restore metabolic and hormonal harmony.",
           addOns: [ADDONS.milkThistle, ADDONS.wombTea],
         };
       }
@@ -158,7 +158,7 @@ function getRecommendation(a: Answers): Recommendation {
         price: "R895",
         image: kitPcos2,
         productHandle: "pcos-kit-2",
-        description: "Crafted for PCOS with fatigue, hirsutism and stress-driven imbalance — to nourish the adrenals and rebalance hormones.",
+        description: "Crafted for PCOS with fatigue, hirsutism and stress-driven imbalance, to nourish the adrenals and rebalance hormones.",
         addOns: [ADDONS.ashwagandha, ADDONS.milkThistle],
       };
     }
@@ -221,7 +221,7 @@ function getRecommendation(a: Answers): Recommendation {
 
     case "Pregnancy care":
       return {
-        name: "Pregnancy Care — Womb Nourishment Tea",
+        name: "Pregnancy Care · Womb Nourishment Tea",
         price: "R220",
         image: kitAnaemia,
         description: "A daily nourishing tea to support a healthy, thriving pregnancy.",
@@ -414,7 +414,7 @@ function BranchStep({
   } else if (concern === "Endometriosis" || concern === "Fibroids") {
     question = "Do you also have PCOS?";
     key = "endoHasPcos";
-    options = ["Yes — I have both Endo and PCOS", "No — Endo or Fibroids only"];
+    options = ["Yes, I have both Endo and PCOS", "No, Endo or Fibroids only"];
   } else if (concern === "Blocked fallopian tubes") {
     question = "Which of these do you experience?";
     key = "tubesSymptom";
@@ -589,7 +589,7 @@ function ResultStep({
           <p className="text-xs uppercase tracking-[0.25em] text-sage-deep text-center">Enhance your results</p>
           <p className="mt-3 font-serif text-2xl text-ink text-center">Recommended to use with this kit</p>
           <p className="mt-2 text-sm text-muted-foreground text-center max-w-lg mx-auto">
-            These complementary remedies deepen and accelerate your results — chosen specifically for your concern.
+            These complementary remedies deepen and accelerate your results, chosen specifically for your concern.
           </p>
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
             {result.addOns.map((a) => (
