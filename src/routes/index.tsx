@@ -82,6 +82,11 @@ function Home() {
         </div>
       </section>
 
+      {/* HEALING STANDARD — directly under hero */}
+      <Section className="pt-0 pb-16">
+        <HealingStandard />
+      </Section>
+
       {/* REMEDY FINDER FEATURE */}
       <Section className="py-24">
         <div className="rounded-[2.5rem] bg-[var(--gradient-sage)] text-cream px-8 md:px-16 py-16 md:py-24 text-center relative overflow-hidden">
@@ -124,11 +129,6 @@ function Home() {
             </div>
           </div>
         </div>
-      </Section>
-
-      {/* HEALING STANDARD */}
-      <Section className="pt-0">
-        <HealingStandard />
       </Section>
 
       {/* BEST SELLERS */}
