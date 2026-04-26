@@ -34,6 +34,8 @@ export type Database = {
           price_cents: number | null
           session_length: string
           status: string
+          yoco_checkout_id: string | null
+          yoco_payment_id: string | null
         }
         Insert: {
           agent_email?: string | null
@@ -54,6 +56,8 @@ export type Database = {
           price_cents?: number | null
           session_length: string
           status?: string
+          yoco_checkout_id?: string | null
+          yoco_payment_id?: string | null
         }
         Update: {
           agent_email?: string | null
@@ -74,6 +78,8 @@ export type Database = {
           price_cents?: number | null
           session_length?: string
           status?: string
+          yoco_checkout_id?: string | null
+          yoco_payment_id?: string | null
         }
         Relationships: []
       }
@@ -185,6 +191,57 @@ export type Database = {
           id?: string
           metadata?: Json | null
           reason?: string
+        }
+        Relationships: []
+      }
+      yoco_shopify_orders: {
+        Row: {
+          amount_cents: number
+          created_at: string
+          currency: string
+          customer_email: string | null
+          id: string
+          metadata: Json | null
+          paid_at: string | null
+          shopify_cart_token: string | null
+          shopify_draft_order_id: string | null
+          shopify_order_id: string | null
+          status: string
+          updated_at: string
+          yoco_checkout_id: string
+          yoco_payment_id: string | null
+        }
+        Insert: {
+          amount_cents: number
+          created_at?: string
+          currency?: string
+          customer_email?: string | null
+          id?: string
+          metadata?: Json | null
+          paid_at?: string | null
+          shopify_cart_token?: string | null
+          shopify_draft_order_id?: string | null
+          shopify_order_id?: string | null
+          status?: string
+          updated_at?: string
+          yoco_checkout_id: string
+          yoco_payment_id?: string | null
+        }
+        Update: {
+          amount_cents?: number
+          created_at?: string
+          currency?: string
+          customer_email?: string | null
+          id?: string
+          metadata?: Json | null
+          paid_at?: string | null
+          shopify_cart_token?: string | null
+          shopify_draft_order_id?: string | null
+          shopify_order_id?: string | null
+          status?: string
+          updated_at?: string
+          yoco_checkout_id?: string
+          yoco_payment_id?: string | null
         }
         Relationships: []
       }
