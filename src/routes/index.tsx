@@ -83,13 +83,13 @@ function Home() {
       </section>
 
       {/* HEALING STANDARD — directly under hero */}
-      <Section className="pt-0 pb-16">
+      <Section className="pt-0 pb-8 md:pb-16">
         <HealingStandard />
       </Section>
 
       {/* REMEDY FINDER FEATURE */}
-      <Section className="py-24">
-        <div className="rounded-[2.5rem] bg-[var(--gradient-sage)] text-cream px-8 md:px-16 py-16 md:py-24 text-center relative overflow-hidden">
+      <Section className="py-10 md:py-24">
+        <div className="rounded-[2.5rem] bg-[var(--gradient-sage)] text-cream px-8 md:px-16 py-12 md:py-24 text-center relative overflow-hidden">
           <Eyebrow>
             <span className="text-cream/80">The GaiaBerry Method</span>
           </Eyebrow>
