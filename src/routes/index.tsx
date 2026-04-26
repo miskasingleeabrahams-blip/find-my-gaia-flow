@@ -156,7 +156,7 @@ function Home() {
         </div>
       </Section>
 
-      {/* MILESTONES + REVIEWS */}
+      {/* MILESTONES — poetic line after Our Story */}
       <div className="mx-auto max-w-7xl px-6 md:px-10 mt-2 md:mt-4">
         <div className="relative rounded-[2rem] overflow-hidden">
           <img
@@ -173,44 +173,41 @@ function Home() {
             <div className="mt-4 text-xs md:text-sm uppercase tracking-[0.25em] text-cream/80">
               Babies conceived · Cycles restored · Women held
             </div>
-
-            {/* Reviews CTA */}
-            <div className="mt-10 inline-flex flex-col items-center gap-3 rounded-2xl bg-cream/10 backdrop-blur-sm border border-cream/20 px-6 py-5">
-              <div className="flex items-center gap-3 text-cream">
-                <span className="font-serif text-3xl text-cream">4.9</span>
-                <div className="flex flex-col items-start">
-                  <span className="text-base tracking-widest text-[#fbbf24]">★★★★★</span>
-                  <span className="text-xs text-cream/80">Based on 34 Google reviews</span>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <a
-                  href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-cream/40 text-cream px-5 py-2.5 text-sm hover:bg-cream/10 transition"
-                >
-                  Read reviews
-                </a>
-                <a
-                  href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-cream text-sage-deep px-5 py-2.5 text-sm font-medium hover:bg-blush transition shadow-[var(--shadow-soft)]"
-                >
-                  Leave a Google review →
-                </a>
-              </div>
-            </div>
-            <p className="mt-3 text-[11px] uppercase tracking-[0.2em] text-cream/65">
-              Verified reviews on Google
-            </p>
           </div>
         </div>
       </div>
 
       {/* BEST SELLERS */}
       <Section>
+        {/* Reviews trust strip — placed right before the buying decision */}
+        <div className="mb-8 md:mb-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 rounded-2xl border border-sage/25 bg-sage/5 px-5 py-4">
+          <div className="flex items-center gap-3">
+            <span className="font-serif text-3xl text-sage-deep leading-none">4.9</span>
+            <div className="flex flex-col items-start">
+              <span className="text-base tracking-widest text-[#f59e0b] leading-none">★★★★★</span>
+              <span className="text-xs text-muted-foreground mt-1">Based on 34 verified Google reviews</span>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <a
+              href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-sage-deep/30 text-sage-deep px-5 py-2 text-sm hover:bg-sage/10 transition"
+            >
+              Read reviews
+            </a>
+            <a
+              href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+            >
+              Leave a review →
+            </a>
+          </div>
+        </div>
+
         <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
           <div>
             <Eyebrow>Best-selling kits</Eyebrow>
