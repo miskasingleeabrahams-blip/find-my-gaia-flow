@@ -5,10 +5,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
-import { Lock, LogOut } from "lucide-react";
+import { Lock, LogOut, Copy } from "lucide-react";
 import { toast } from "sonner";
 
 const AGENT_PASSWORD = "AGENT-1KHWXUY0";
+const AGENT_DISCOUNT_CODE = "AGENT-1KHWXUY0";
 const STORAGE_KEY = "gaiaberry_agent_auth";
 
 // Agent pricing (ZAR) — keyed by lowercased keyword found in the product title
@@ -193,6 +194,29 @@ function AgentPortal() {
           >
             <LogOut className="h-4 w-4" /> Sign out
           </button>
+        </div>
+
+        <div className="mt-10 rounded-3xl bg-sage/10 border border-sage/30 p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+          <div className="flex-1">
+            <p className="font-serif text-xl text-ink">Your agent discount code</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Apply this code at checkout to receive 21.45% off your order.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <code className="rounded-full bg-cream border border-border px-5 py-2.5 text-sm font-mono tracking-wide text-ink">
+              {AGENT_DISCOUNT_CODE}
+            </code>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(AGENT_DISCOUNT_CODE);
+                toast.success("Discount code copied");
+              }}
+              className="inline-flex items-center gap-2 rounded-full bg-sage-deep text-cream px-4 py-2.5 text-sm hover:opacity-90 transition"
+            >
+              <Copy className="h-4 w-4" /> Copy
+            </button>
+          </div>
         </div>
 
         {agentProducts.length === 0 ? (
