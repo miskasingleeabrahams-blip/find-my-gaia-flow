@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { HealingStandard, HealingReminder } from "@/components/HealingStandard";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
 export const Route = createFileRoute("/shop")({
@@ -93,11 +94,16 @@ function Shop() {
                     </span>
                     <AddToCartButton product={p} />
                   </div>
+                  <HealingReminder className="mt-3" />
                 </article>
               );
             })}
           </div>
         )}
+
+        <div className="mt-24">
+          <HealingStandard />
+        </div>
       </div>
       <SiteFooter />
     </div>

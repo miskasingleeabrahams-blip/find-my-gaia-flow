@@ -550,6 +550,8 @@ function ResultStep({
 
   return (
     <div>
+      <HealingStandard variant="compact" className="mb-12" />
+
       <div className="text-center">
         <Eyebrow>Your remedy</Eyebrow>
         {result.image && (
@@ -571,12 +573,13 @@ function ResultStep({
           {result.description}
         </p>
         {matchedProduct && (
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex flex-col items-center gap-3">
             <AddToCartButton
               product={matchedProduct}
               label="Add to basket"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 hover:opacity-90 transition disabled:opacity-50"
             />
+            <HealingReminder className="max-w-sm text-center" />
           </div>
         )}
       </div>
