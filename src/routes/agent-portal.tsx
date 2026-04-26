@@ -5,10 +5,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
-import { Lock, LogOut } from "lucide-react";
+import { Lock, LogOut, Copy } from "lucide-react";
 import { toast } from "sonner";
 
 const AGENT_PASSWORD = "AGENT-1KHWXUY0";
+const AGENT_DISCOUNT_CODE = "AGENT-1KHWXUY0";
 const STORAGE_KEY = "gaiaberry_agent_auth";
 
 // Agent pricing (ZAR) — keyed by lowercased keyword found in the product title
