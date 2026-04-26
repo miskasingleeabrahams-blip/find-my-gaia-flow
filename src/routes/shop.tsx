@@ -6,6 +6,7 @@ import kitDeepCleanse from "@/assets/kit-deep-fertility-cleanse.png";
 import kitBlockedTubes from "@/assets/kit-blocked-tubes.png";
 import kitManOfSteel from "@/assets/kit-man-of-steel.png";
 import kitAnaemia from "@/assets/kit-anaemia-fertility.png";
+import kitProgesterone from "@/assets/kit-progesterone.png";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -23,7 +24,7 @@ const products = [
   { img: kitAnaemia, name: "Anaemia & Fertility Kit", desc: "Chaste Berry, IronSea Elixir and Womb Nourishment Tea for recurring loss recovery.", price: "R820", tag: "New" },
   { img: kitManOfSteel, name: "Man of Steel Kit", desc: "Stamina, Sperm and Erectile support — a potent kit for male fertility and vitality.", price: "R1,350" },
   { img: kitDeepCleanse, name: "PCOS Kit", desc: "Crafted for PCOS — to gently restore metabolic and hormonal harmony.", price: "R845" },
-  { img: kitAnaemia, name: "Progesterone Kit", desc: "Lifts progesterone gently, eases spotting and lengthens short luteal phases.", price: "R720" },
+  { img: kitProgesterone, name: "Progesterone Kit", desc: "Lifts progesterone gently, eases spotting and lengthens short luteal phases.", price: "R720" },
 ];
 
 function Shop() {
