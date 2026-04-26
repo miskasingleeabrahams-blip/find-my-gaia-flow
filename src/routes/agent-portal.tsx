@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
-import { Lock, LogOut, Copy } from "lucide-react";
+import { Lock, LogOut, Copy, Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
 
 const AGENT_PASSWORD = "AGENT-GAIA-2145";
