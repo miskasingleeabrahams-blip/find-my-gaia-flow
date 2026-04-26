@@ -2,9 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
-import kit1 from "@/assets/kit-1.jpg";
-import kit2 from "@/assets/kit-2.jpg";
-import kit3 from "@/assets/kit-3.jpg";
+import kitDeepCleanse from "@/assets/kit-deep-fertility-cleanse.png";
+import kitBlockedTubes from "@/assets/kit-blocked-tubes.png";
+import kitManOfSteel from "@/assets/kit-man-of-steel.png";
+import kitAnaemia from "@/assets/kit-anaemia-fertility.png";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -17,12 +18,12 @@ export const Route = createFileRoute("/shop")({
 });
 
 const products = [
-  { img: kit1, name: "Conception Companion", desc: "A 90-day herbal ritual for egg quality, lining health and cycle regularity.", price: "$148", tag: "Best seller" },
-  { img: kit2, name: "PCOS Reset Kit", desc: "Adaptogens & seed-cycling to gently restore hormonal harmony.", price: "$132", tag: "New" },
-  { img: kit3, name: "Cycle Soothe Tea", desc: "Daily blend of red raspberry, chamomile and rose petals.", price: "$48" },
-  { img: kit1, name: "Lining Love Tincture", desc: "A nourishing uterine lining tonic for the trying-to-conceive season.", price: "$72" },
-  { img: kit2, name: "Hormone Harmony Powder", desc: "Maca, ashwagandha & shatavari blend for daily balance.", price: "$58" },
-  { img: kit3, name: "Postpartum Restore", desc: "Replenishing herbs for the fourth trimester and beyond.", price: "$96" },
+  { img: kitDeepCleanse, name: "Endo Kit — Deep Fertility Cleanse", desc: "Womb cleanse, increased blood flow & immunity. For Endometriosis, Fibroids and blocked tubes.", price: "R620", tag: "Best seller" },
+  { img: kitBlockedTubes, name: "Blocked Tubes Kit", desc: "A 3-step protocol to repair scar tissue, ease inflammation and support tubal health.", price: "R920" },
+  { img: kitAnaemia, name: "Anaemia & Fertility Kit", desc: "Chaste Berry, IronSea Elixir and Womb Nourishment Tea for recurring loss recovery.", price: "R820", tag: "New" },
+  { img: kitManOfSteel, name: "Man of Steel Kit", desc: "Stamina, Sperm and Erectile support — a potent kit for male fertility and vitality.", price: "R1,350" },
+  { img: kitDeepCleanse, name: "PCOS Kit", desc: "Crafted for PCOS — to gently restore metabolic and hormonal harmony.", price: "R845" },
+  { img: kitAnaemia, name: "Progesterone Kit", desc: "Lifts progesterone gently, eases spotting and lengthens short luteal phases.", price: "R720" },
 ];
 
 function Shop() {
@@ -38,13 +39,13 @@ function Shop() {
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {products.map((p, idx) => (
             <article key={idx} className="group">
-              <div className="relative overflow-hidden rounded-3xl bg-blush/30">
+              <div className="relative overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8">
                 {p.tag && (
                   <span className="absolute top-4 left-4 z-10 rounded-full bg-cream/90 backdrop-blur px-3 py-1 text-xs uppercase tracking-wider text-sage-deep">
                     {p.tag}
                   </span>
                 )}
-                <img src={p.img} alt={p.name} width={896} height={896} loading="lazy" className="aspect-square object-cover w-full group-hover:scale-105 transition-transform duration-700" />
+                <img src={p.img} alt={p.name} loading="lazy" className="aspect-square object-contain w-full group-hover:scale-105 transition-transform duration-700" />
               </div>
               <h3 className="mt-5 font-serif text-2xl">{p.name}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
