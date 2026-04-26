@@ -69,7 +69,10 @@
   --secondary-foreground: oklch(0.35 0.04 25);
 
   --muted: oklch(0.95 0.012 80);
-  --muted-foreground: oklch(0.5 0.02 140);
+  --muted-foreground: oklch(0.46 0.018 145);
+
+  /* Soft body text color — muted sage-grey for elegant readability */
+  --body: oklch(0.42 0.022 150);
 
   --accent: oklch(0.92 0.03 20);
   --accent-foreground: oklch(0.35 0.04 25);
