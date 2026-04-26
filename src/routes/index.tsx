@@ -45,12 +45,12 @@ function Home() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        {/* Decorative magnolia branch — top-left flourish */}
+        {/* Decorative magnolia branch — top-right flourish (mirrored) */}
         <img
           src={magnoliaBranch}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute -top-10 -left-16 w-[280px] md:w-[420px] opacity-80 -rotate-12 select-none z-0"
+          className="pointer-events-none absolute -top-10 -right-16 w-[220px] md:w-[420px] opacity-70 rotate-12 scale-x-[-1] select-none z-0"
         />
         <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-10 pt-8 md:pt-24 pb-12 md:pb-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
