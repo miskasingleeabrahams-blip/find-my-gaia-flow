@@ -1,0 +1,233 @@
+import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { Eyebrow } from "@/components/Section";
+import { AddToCartButton } from "@/components/AddToCartButton";
+import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
+import { Lock, LogOut } from "lucide-react";
+import { toast } from "sonner";
+
+const AGENT_PASSWORD = "AGENT-1KHWXUY0";
+const STORAGE_KEY = "gaiaberry_agent_auth";
+
+// Agent pricing (ZAR) — keyed by lowercased keyword found in the product title
+const AGENT_PRICES: { match: string; price: number }[] = [
+  { match: "womb nourish", price: 173 },
+  { match: "endometriosis", price: 487 },
+  { match: "blocked fallopi", price: 723 },
+  { match: "inflammation", price: 173 },
+  { match: "fertility cleanser", price: 346 },
+  { match: "hormonal bala", price: 346 },
+  { match: "crampbark", price: 275 },
+  { match: "ashwagandha", price: 275 },
+  { match: "milk thistle", price: 275 },
+  { match: "chaste berry", price: 251 },
+  { match: "repro oxidativ", price: 173 },
+  { match: "male fertility", price: 1060 },
+  { match: "ironsea", price: 251 },
+  { match: "postpartum", price: 173 },
+  { match: "breast milk", price: 173 },
+];
+
+function findAgentPrice(title: string): number | null {
+  const t = title.toLowerCase();
+  const hit = AGENT_PRICES.find((p) => t.includes(p.match));
+  return hit ? hit.price : null;
+}
+
+export const Route = createFileRoute("/agent-portal")({
+  head: () => ({
+    meta: [
+      { title: "Agent Portal — GaiaBerry" },
+      { name: "description", content: "Private portal for GaiaBerry agents." },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
+  loader: async (): Promise<{ products: ShopifyProduct[] }> => {
+    const data = await storefrontApiRequest(STOREFRONT_QUERY, { first: 100, query: null });
+    const products: ShopifyProduct[] = data?.data?.products?.edges ?? [];
+    return { products };
+  },
+  errorComponent: ({ error, reset }) => {
+    const router = useRouter();
+    return (
+      <div className="min-h-screen bg-cream">
+        <SiteHeader />
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <h1 className="font-serif text-3xl">We couldn't load the portal.</h1>
+          <p className="mt-4 text-muted-foreground text-sm">{error.message}</p>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="mt-8 rounded-full bg-primary text-primary-foreground px-6 py-3"
+          >
+            Try again
+          </button>
+        </div>
+        <SiteFooter />
+      </div>
+    );
+  },
+  component: AgentPortal,
+});
+
+function AgentPortal() {
+  const { products } = Route.useLoaderData();
+  const [authed, setAuthed] = useState(false);
+  const [password, setPassword] = useState("");
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setAuthed(sessionStorage.getItem(STORAGE_KEY) === "1");
+      setChecking(false);
+    }
+  }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password.trim() === AGENT_PASSWORD) {
+      sessionStorage.setItem(STORAGE_KEY, "1");
+      setAuthed(true);
+      toast.success("Welcome, agent");
+    } else {
+      toast.error("Incorrect password");
+      setPassword("");
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem(STORAGE_KEY);
+    setAuthed(false);
+    setPassword("");
+  };
+
+  if (checking) {
+    return (
+      <div className="min-h-screen bg-cream">
+        <SiteHeader />
+        <div className="mx-auto max-w-3xl px-6 py-24" />
+        <SiteFooter />
+      </div>
+    );
+  }
+
+  if (!authed) {
+    return (
+      <div className="min-h-screen bg-cream">
+        <SiteHeader />
+        <div className="mx-auto max-w-md px-6 py-24">
+          <div className="rounded-3xl bg-card border border-border p-10 shadow-sm">
+            <div className="h-12 w-12 rounded-full bg-sage/15 grid place-items-center mx-auto">
+              <Lock className="h-5 w-5 text-sage-deep" />
+            </div>
+            <h1 className="mt-5 font-serif text-3xl text-center">Agent Portal</h1>
+            <p className="mt-2 text-center text-sm text-muted-foreground">
+              Enter your agent password to access wholesale pricing.
+            </p>
+            <form onSubmit={handleLogin} className="mt-8 space-y-4">
+              <input
+                type="password"
+                autoFocus
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Agent password"
+                className="w-full rounded-full border border-border bg-background px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage/40"
+              />
+              <button
+                type="submit"
+                className="w-full rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm hover:opacity-90 transition"
+              >
+                Enter portal
+              </button>
+            </form>
+          </div>
+        </div>
+        <SiteFooter />
+      </div>
+    );
+  }
+
+  // Filter to Agent products only and attach agent price
+  const agentProducts = products
+    .map((p: ShopifyProduct) => ({ p, agentPrice: findAgentPrice(p.node.title) }))
+    .filter((x: { p: ShopifyProduct; agentPrice: number | null }) =>
+      x.agentPrice !== null && /^agent\b/i.test(x.p.node.title),
+    ) as { p: ShopifyProduct; agentPrice: number }[];
+
+  return (
+    <div className="min-h-screen bg-cream">
+      <SiteHeader />
+      <div className="mx-auto max-w-7xl px-6 md:px-10 py-20">
+        <div className="flex items-start justify-between gap-6 flex-wrap">
+          <div className="max-w-2xl">
+            <Eyebrow>Agent Portal</Eyebrow>
+            <h1 className="mt-3 font-serif text-5xl md:text-6xl text-balance">
+              Wholesale pricing for our agents.
+            </h1>
+            <p className="mt-5 text-muted-foreground">
+              Below are the agent prices. Add items to your basket and check out as usual —
+              your agent rate will be reconciled by GaiaBerry on fulfilment.
+            </p>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground hover:text-ink transition"
+          >
+            <LogOut className="h-4 w-4" /> Sign out
+          </button>
+        </div>
+
+        {agentProducts.length === 0 ? (
+          <div className="mt-16 rounded-3xl bg-card border border-border p-12 text-center">
+            <p className="font-serif text-2xl text-ink">No agent products found</p>
+            <p className="mt-3 text-muted-foreground text-sm">Please check back soon.</p>
+          </div>
+        ) : (
+          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {agentProducts.map(({ p, agentPrice }: { p: ShopifyProduct; agentPrice: number }) => {
+              const img = p.node.images.edges[0]?.node;
+              const retail = p.node.priceRange.minVariantPrice;
+              const retailAmount = parseFloat(retail.amount);
+              return (
+                <article key={p.node.id} className="group">
+                  <div className="relative overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8 aspect-square">
+                    <span className="absolute top-4 left-4 rounded-full bg-sage-deep text-cream text-xs px-3 py-1">
+                      Agent price
+                    </span>
+                    {img && (
+                      <img
+                        src={img.url}
+                        alt={img.altText || p.node.title}
+                        loading="lazy"
+                        className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-700"
+                      />
+                    )}
+                  </div>
+                  <h3 className="mt-5 font-serif text-2xl">{p.node.title}</h3>
+                  <div className="mt-3 flex items-baseline gap-3">
+                    <span className="text-sage-deep font-medium text-2xl">
+                      ZAR {agentPrice!.toFixed(2)}
+                    </span>
+                    {retailAmount > agentPrice! && (
+                      <span className="text-sm text-muted-foreground line-through">
+                        ZAR {retailAmount.toFixed(2)}
+                      </span>
+                    )}
+                  </div>
+                  <div className="mt-5">
+                    <AddToCartButton product={p} className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-sage-deep text-cream px-5 py-3 text-sm hover:opacity-90 transition disabled:opacity-50" />
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        )}
+      </div>
+      <SiteFooter />
+    </div>
+  );
+}
