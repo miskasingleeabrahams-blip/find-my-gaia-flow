@@ -17,9 +17,9 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-cream/75 border-b border-border/60">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 h-24 md:h-28 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 py-3 md:py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center group" onClick={() => setOpen(false)} aria-label="GaiaBerry home">
-          <img src={logo} alt="GaiaBerry" className="h-16 md:h-20 w-auto object-contain" />
+          <img src={logo} alt="GaiaBerry" className="h-20 md:h-28 w-auto object-contain" />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {nav.map((n) => (
