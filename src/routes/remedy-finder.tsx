@@ -138,7 +138,7 @@ function getRecommendation(a: Answers): Recommendation {
           price: "R970",
           image: kitDeepCleanse,
           description: "Deep Fertility Cleanse paired with Milk Thistle to address Endo and PCOS together.",
-          addOns: [ADDONS.chasteBerry, ADDONS.reproOxidative],
+          addOns: [ADDONS.chasteBerry, ADDONS.milkThistle],
         };
       }
       return {
