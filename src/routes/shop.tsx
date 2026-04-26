@@ -7,6 +7,8 @@ import kitBlockedTubes from "@/assets/kit-blocked-tubes.png";
 import kitManOfSteel from "@/assets/kit-man-of-steel.png";
 import kitAnaemia from "@/assets/kit-anaemia-fertility.png";
 import kitProgesterone from "@/assets/kit-progesterone.png";
+import kitPcos1 from "@/assets/kit-pcos-1.png";
+import kitPcos2 from "@/assets/kit-pcos-2.png";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -23,7 +25,8 @@ const products = [
   { img: kitBlockedTubes, name: "Blocked Tubes Kit", desc: "A 3-step protocol to repair scar tissue, ease inflammation and support tubal health.", price: "R920" },
   { img: kitAnaemia, name: "Anaemia & Fertility Kit", desc: "Chaste Berry, IronSea Elixir and Womb Nourishment Tea for recurring loss recovery.", price: "R820", tag: "New" },
   { img: kitManOfSteel, name: "Man of Steel Kit", desc: "Stamina, Sperm and Erectile support — a potent kit for male fertility and vitality.", price: "R1,350" },
-  { img: kitDeepCleanse, name: "PCOS Kit", desc: "Crafted for PCOS — to gently restore metabolic and hormonal harmony.", price: "R845" },
+  { img: kitPcos1, name: "PCOS Kit 1", desc: "Chaste Berry, Repro Oxidative Care & Milk Thistle — restores cycles, balances blood sugar and supports the liver.", price: "R845" },
+  { img: kitPcos2, name: "PCOS Kit 2", desc: "Chaste Berry, Repro Oxidative Care & Ashwagandha — for PCOS with anxiety, stress and low libido.", price: "R895" },
   { img: kitProgesterone, name: "Progesterone Kit", desc: "Lifts progesterone gently, eases spotting and lengthens short luteal phases.", price: "R720" },
 ];
 
