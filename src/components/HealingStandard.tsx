@@ -19,7 +19,7 @@ export function HealingStandard({
           The GaiaBerry Healing Standard
         </h2>
         <p className="mt-6 text-ink/80 leading-relaxed">
-          At GaiaBerry, we believe in supporting your body naturally — not rushing it.
+          At GaiaBerry, we believe in supporting your body naturally, not rushing it.
         </p>
         <p className="mt-4 text-ink/80 leading-relaxed">
           For best results, all our products should be used consistently for a{" "}
@@ -52,7 +52,7 @@ export function HealingStandard({
 
           <div className="mt-10 mx-auto max-w-2xl text-center">
             <p className="font-serif italic text-xl md:text-2xl text-sage-deep leading-snug">
-              🌿 This is not a quick fix — it's a gentle, consistent journey back to balance.
+              🌿 This is not a quick fix. It's a gentle, consistent journey back to balance.
             </p>
             <p className="mt-6 text-ink/80 leading-relaxed">
               After completing 3 months, you may choose to reassess your progress and continue your

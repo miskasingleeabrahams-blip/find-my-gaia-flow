@@ -25,8 +25,8 @@ export const Route = createFileRoute("/")({
 });
 
 const kits = [
-  { img: kit1, name: "PCOS Kit 1", desc: "Chaste Berry, Repro Oxidative Care & Milk Thistle — restores cycles, balances blood sugar and supports the liver.", price: "R845" },
-  { img: kit2, name: "PCOS Kit 2", desc: "Chaste Berry, Repro Oxidative Care & Ashwagandha — for PCOS with anxiety, stress and low libido.", price: "R895" },
+  { img: kit1, name: "PCOS Kit 1", desc: "Chaste Berry, Repro Oxidative Care & Milk Thistle. Restores cycles, balances blood sugar and supports the liver.", price: "R845" },
+  { img: kit2, name: "PCOS Kit 2", desc: "Chaste Berry, Repro Oxidative Care & Ashwagandha. For PCOS with anxiety, stress and low libido.", price: "R895" },
   { img: kit3, name: "Progesterone Kit", desc: "Lifts progesterone gently, eases spotting and lengthens short luteal phases.", price: "R720" },
 ];
 
@@ -50,7 +50,7 @@ function Home() {
               A gentler path to <em className="text-sage-deep not-italic italic">your</em> reproductive wellness.
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted-foreground leading-relaxed">
-              For women navigating PCOS, infertility and hormonal imbalance — discover plant-based remedies, personalised to your body, your story, your season.
+              For women navigating PCOS, infertility and hormonal imbalance. Discover plant-based remedies, personalised to your body, your story, your season.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
@@ -120,7 +120,7 @@ function Home() {
               A 2-minute ritual to find the remedy made for you.
             </h2>
             <p className="mt-6 max-w-xl mx-auto text-cream/85 leading-relaxed">
-              Answer a few thoughtful questions about your cycle, symptoms and goals. We'll match you with a personalised herbal protocol — and the women who've walked your path.
+              Answer a few thoughtful questions about your cycle, symptoms and goals. We'll match you with a personalised herbal protocol, and the women who've walked your path.
             </p>
             <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto text-left">
               {[
@@ -265,7 +265,7 @@ function Home() {
               <Eyebrow>3-Month Check-In</Eyebrow>
               <h3 className="mt-3 font-serif text-3xl md:text-4xl">Book your 3-month check-in.</h3>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                A 45-minute private session with one of our qualified GaiaBerry consultants — to review your progress and design your next phase of healing.
+                A 45-minute private session with one of our qualified GaiaBerry consultants, to review your progress and design your next phase of healing.
               </p>
               <Link to="/consultation" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition">
                 Book Your 3-Month Check-In →

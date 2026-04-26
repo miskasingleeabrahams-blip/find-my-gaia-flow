@@ -10,7 +10,7 @@ export function SiteFooter() {
             <img src={logo} alt="GaiaBerry" className="h-20 w-auto object-contain" />
           </div>
           <p className="mt-4 max-w-md text-sm text-muted-foreground leading-relaxed">
-            Nature-led remedies for fertility, hormones and reproductive wellness — created with care, rooted in tradition, guided by science.
+            Nature-led remedies for fertility, hormones and reproductive wellness. Created with care, rooted in tradition, guided by science.
           </p>
         </div>
         <div>
