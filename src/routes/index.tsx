@@ -152,17 +152,31 @@ function Home() {
           />
           <div className="relative mx-auto max-w-5xl grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="relative">
-              <div className="rotate-[-3deg] hover:rotate-0 transition-transform duration-700 max-w-md mx-auto md:max-w-none">
-                <div className="bg-cream p-4 md:p-5 pb-12 md:pb-14 shadow-[var(--shadow-petal)] rounded-sm">
+              {/* Magnolia branch tucked behind the polaroid */}
+              <img
+                src={magnoliaBranch}
+                alt=""
+                aria-hidden
+                className="pointer-events-none absolute -top-10 -right-6 md:-top-14 md:-right-12 w-[170px] md:w-[240px] opacity-80 -rotate-[18deg] select-none drop-shadow-[0_8px_18px_oklch(0_0_0/0.18)]"
+              />
+              <div className="rotate-[-3deg] hover:rotate-0 transition-transform duration-700 max-w-[420px] sm:max-w-[480px] md:max-w-none mx-auto">
+                <div className="relative bg-cream p-5 md:p-6 pb-14 md:pb-16 shadow-[var(--shadow-petal)] rounded-sm">
                   <img
                     src={firstBaby}
                     alt="Ultrasound of the first GaiaBerry baby — a gift after years of trying"
                     loading="lazy"
                     className="w-full aspect-[4/5] object-cover"
                   />
-                  <p className="mt-4 text-center font-serif italic text-ink/70 text-base md:text-lg">
+                  <p className="mt-5 text-center font-serif italic text-ink/70 text-base md:text-lg">
                     Our very first GaiaBerry baby 🌿
                   </p>
+                  {/* Small magnolia bloom resting on the polaroid corner */}
+                  <img
+                    src={magnoliaBranch}
+                    alt=""
+                    aria-hidden
+                    className="pointer-events-none absolute -bottom-8 -left-8 md:-bottom-10 md:-left-12 w-[120px] md:w-[170px] rotate-[160deg] opacity-90 select-none drop-shadow-[0_6px_14px_oklch(0_0_0/0.2)]"
+                  />
                 </div>
               </div>
             </div>
