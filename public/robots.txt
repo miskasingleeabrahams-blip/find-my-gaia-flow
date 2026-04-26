@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /agent
+Disallow: /agent-portal
+Disallow: /agent/
+Disallow: /api/
+Disallow: /lovable/
+Disallow: /unsubscribe
+Disallow: /email/
+
+Sitemap: https://gaiaberry.co.za/sitemap.xml

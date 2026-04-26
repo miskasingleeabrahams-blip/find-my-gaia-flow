@@ -18,12 +18,26 @@ export const Route = createFileRoute("/product/$handle")({
     if (!product) throw notFound();
     return { product };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.product.title ?? "Product"} — GaiaBerry` },
-      { name: "description", content: loaderData?.product.description?.slice(0, 160) ?? "GaiaBerry natural wellness product." },
-    ],
-  }),
+  head: ({ loaderData, params }) => {
+    const product = loaderData?.product;
+    const title = `${product?.title ?? "Product"} — GaiaBerry`;
+    const description = product?.description?.slice(0, 160) ?? "GaiaBerry natural wellness product.";
+    const image = product?.images.edges[0]?.node.url ?? "https://gaiaberry.co.za/og-shop.jpg";
+    const url = `https://gaiaberry.co.za/product/${params.handle}`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:image", content: image },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "product" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: image },
+      ],
+    };
+  },
   notFoundComponent: () => (
     <div className="min-h-screen bg-cream">
       <SiteHeader />

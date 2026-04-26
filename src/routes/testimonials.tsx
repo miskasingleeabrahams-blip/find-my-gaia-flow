@@ -8,6 +8,11 @@ export const Route = createFileRoute("/testimonials")({
     meta: [
       { title: "Reviews — GaiaBerry" },
       { name: "description", content: "Real WhatsApp testimonials from women across South Africa and abroad who walked their fertility journey with GaiaBerry." },
+      { property: "og:title", content: "Reviews — GaiaBerry" },
+      { property: "og:description", content: "Real WhatsApp testimonials from women across South Africa and abroad who walked their fertility journey with GaiaBerry." },
+      { property: "og:image", content: "https://gaiaberry.co.za/og-testimonials.jpg" },
+      { property: "og:url", content: "https://gaiaberry.co.za/testimonials" },
+      { name: "twitter:image", content: "https://gaiaberry.co.za/og-testimonials.jpg" },
     ],
   }),
   component: Testimonials,

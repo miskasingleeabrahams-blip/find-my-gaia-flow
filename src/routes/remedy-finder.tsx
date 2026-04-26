@@ -20,6 +20,11 @@ export const Route = createFileRoute("/remedy-finder")({
     meta: [
       { title: "Remedy Finder — GaiaBerry" },
       { name: "description", content: "Answer a few questions to discover your personalised GaiaBerry remedy." },
+      { property: "og:title", content: "Remedy Finder — GaiaBerry" },
+      { property: "og:description", content: "Answer a few questions to discover your personalised GaiaBerry remedy." },
+      { property: "og:image", content: "https://gaiaberry.co.za/og-remedy-finder.jpg" },
+      { property: "og:url", content: "https://gaiaberry.co.za/remedy-finder" },
+      { name: "twitter:image", content: "https://gaiaberry.co.za/og-remedy-finder.jpg" },
     ],
   }),
   loader: async (): Promise<{ products: ShopifyProduct[] }> => {
