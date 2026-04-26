@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 md:px-10 py-16 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center">
-            <img src={logo} alt="GaiaBerry" className="h-12 w-auto object-contain" />
+            <img src={logo} alt="GaiaBerry" className="h-20 w-auto object-contain" />
           </div>
           <p className="mt-4 max-w-md text-sm text-muted-foreground leading-relaxed">
             Nature-led remedies for fertility, hormones and reproductive wellness — created with care, rooted in tradition, guided by science.
