@@ -617,17 +617,9 @@ function ResultStep({
 
       <div className="mt-10 rounded-2xl bg-sage/15 p-6 text-center">
         <p className="font-serif text-xl text-ink leading-snug">
-          "Healing begins within. If you would like to discuss your situation in more detail, you are welcome to book a consultation with our consultant."
+          "Healing begins within. If you would like free guidance on your recommendation, chat directly with our consultant on WhatsApp."
         </p>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="https://www.gaiaberry.co.za/book-online"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition"
-          >
-            Book a consultation →
-          </a>
           <a
             href="https://wa.me/27728929308?text=Hi%20GaiaBerry%2C%20I%20just%20received%20my%20free%20product%20recommendation%20and%20would%20love%20some%20guidance."
             target="_blank"
