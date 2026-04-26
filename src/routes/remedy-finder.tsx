@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
@@ -10,6 +10,8 @@ import kitBlockedTubes from "@/assets/kit-blocked-tubes.png";
 import kitAnaemia from "@/assets/kit-anaemia-fertility.png";
 import kitProgesterone from "@/assets/kit-progesterone.png";
 import kitManOfSteel from "@/assets/kit-man-of-steel.png";
+import { AddToCartButton } from "@/components/AddToCartButton";
+import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
 export const Route = createFileRoute("/remedy-finder")({
   head: () => ({
@@ -18,6 +20,33 @@ export const Route = createFileRoute("/remedy-finder")({
       { name: "description", content: "Answer a few questions to discover your personalised GaiaBerry remedy." },
     ],
   }),
+  loader: async (): Promise<{ products: ShopifyProduct[] }> => {
+    const data = await storefrontApiRequest(STOREFRONT_QUERY, { first: 50, query: null });
+    const products: ShopifyProduct[] = data?.data?.products?.edges ?? [];
+    return { products };
+  },
+  errorComponent: ({ error, reset }) => {
+    const router = useRouter();
+    return (
+      <div className="min-h-screen bg-cream">
+        <SiteHeader />
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <h1 className="font-serif text-3xl">Something went wrong loading your remedies.</h1>
+          <p className="mt-4 text-muted-foreground text-sm">{error.message}</p>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="mt-8 rounded-full bg-primary text-primary-foreground px-6 py-3"
+          >
+            Try again
+          </button>
+        </div>
+        <SiteFooter />
+      </div>
+    );
+  },
   component: RemedyFinder,
 });
 
@@ -57,6 +86,7 @@ type Recommendation = {
   price: string;
   description: string;
   image?: string;
+  productHandle?: string;
   addOns?: AddOn[];
   addOnHeading?: string;
   addOnIntro?: string;
@@ -117,14 +147,16 @@ function getRecommendation(a: Answers): Recommendation {
           name: "PCOS Kit 1",
           price: "R845",
           image: kitPcos1,
+          productHandle: "pcos-kit-1",
           description: "Crafted for PCOS with weight gain, bloating or ovarian cysts — to gently restore metabolic and hormonal harmony.",
           addOns: [ADDONS.milkThistle, ADDONS.wombTea],
         };
       }
       return {
         name: "PCOS Kit 2",
-        price: "R845",
+        price: "R895",
         image: kitPcos2,
+        productHandle: "pcos-kit-2",
         description: "Crafted for PCOS with fatigue, hirsutism and stress-driven imbalance — to nourish the adrenals and rebalance hormones.",
         addOns: [ADDONS.ashwagandha, ADDONS.milkThistle],
       };
@@ -137,6 +169,7 @@ function getRecommendation(a: Answers): Recommendation {
           name: "Endo & PCOS Protocol",
           price: "R970",
           image: kitDeepCleanse,
+          productHandle: "endo-kit-deep-fertility-cleanse",
           description: "Deep Fertility Cleanse paired with Milk Thistle to address Endo and PCOS together.",
           addOns: [ADDONS.chasteBerry, ADDONS.milkThistle],
         };
@@ -145,6 +178,7 @@ function getRecommendation(a: Answers): Recommendation {
         name: "Endo Kit (Deep Fertility Cleanse)",
         price: "R620",
         image: kitDeepCleanse,
+        productHandle: "endo-kit-deep-fertility-cleanse",
         description: "A deep cleanse to support Endo or Fibroids. Pair with Milk Thistle and/or Chaste Berry drops for fuller support.",
         addOns: [ADDONS.milkThistle, ADDONS.chasteBerry],
       };
@@ -155,6 +189,7 @@ function getRecommendation(a: Answers): Recommendation {
         name: "Blocked Tubes Kit",
         price: "R920",
         image: kitBlockedTubes,
+        productHandle: "blocked-tubes-kit",
         description: "A focused herbal protocol to support tubal health and reproductive flow.",
         addOns: [ADDONS.wombTea, ADDONS.reproOxidative],
       };
@@ -164,6 +199,7 @@ function getRecommendation(a: Answers): Recommendation {
         name: "Anaemia & Fertility Kit",
         price: "R820",
         image: kitAnaemia,
+        productHandle: "anaemia-fertility-kit",
         description:
           a.miscarriageIron === "No"
             ? "Even without confirmed anaemia, this nourishing kit supports recurring loss recovery and womb strengthening."
@@ -177,6 +213,7 @@ function getRecommendation(a: Answers): Recommendation {
         name: "Progesterone Kit",
         price: "R720",
         image: kitProgesterone,
+        productHandle: "progesterone-kit",
         description: "Designed to lift progesterone gently, ease spotting and lengthen short luteal phases.",
         addOns: [ADDONS.chasteBerry, ADDONS.wombTea],
       };
@@ -204,6 +241,7 @@ function getRecommendation(a: Answers): Recommendation {
         name: "Man of Steel Kit",
         price: "R1,350",
         image: kitManOfSteel,
+        productHandle: "man-of-steel-kit",
         description: "A potent kit to support male fertility, vitality and sperm health.",
         addOns: [ADDONS.ashwagandha, ADDONS.reproOxidative],
       };
@@ -252,6 +290,7 @@ function RemedyFinder() {
     setStep("concern");
   };
 
+  const { products } = Route.useLoaderData();
   const result = useMemo(() => getRecommendation(answers), [answers]);
 
   const progress =
@@ -300,7 +339,7 @@ function RemedyFinder() {
           )}
 
           {step === "result" && (
-            <ResultStep result={result} answers={answers} onReset={reset} />
+            <ResultStep result={result} answers={answers} onReset={reset} products={products} />
           )}
         </div>
       </div>
@@ -489,11 +528,17 @@ function ResultStep({
   result,
   answers,
   onReset,
+  products,
 }: {
   result: Recommendation;
   answers: Answers;
   onReset: () => void;
+  products: ShopifyProduct[];
 }) {
+  const matchedProduct = result.productHandle
+    ? products.find((p) => p.node.handle === result.productHandle)
+    : undefined;
+
   return (
     <div>
       <div className="text-center">
@@ -516,6 +561,15 @@ function ResultStep({
         <p className="mt-5 text-muted-foreground leading-relaxed max-w-md mx-auto">
           {result.description}
         </p>
+        {matchedProduct && (
+          <div className="mt-6 flex justify-center">
+            <AddToCartButton
+              product={matchedProduct}
+              label="Add to basket"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 hover:opacity-90 transition disabled:opacity-50"
+            />
+          </div>
+        )}
       </div>
 
       {result.addOns && result.addOns.length > 0 && (

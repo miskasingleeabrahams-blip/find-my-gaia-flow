@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { CartDrawer } from "@/components/CartDrawer";
 
 const nav = [
   { to: "/remedy-finder", label: "Remedy Finder" },
@@ -28,12 +29,15 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link
-          to="/remedy-finder"
-          className="hidden md:inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm hover:opacity-90 transition"
-        >
-          Find My Remedy
-        </Link>
+        <div className="flex items-center gap-3">
+          <CartDrawer />
+          <Link
+            to="/remedy-finder"
+            className="hidden md:inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm hover:opacity-90 transition"
+          >
+            Find My Remedy
+          </Link>
+        </div>
       </div>
     </header>
   );
