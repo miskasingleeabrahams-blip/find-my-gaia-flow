@@ -12,7 +12,7 @@ export const Route = createFileRoute("/shop")({
       { name: "description", content: "Shop GaiaBerry's natural fertility, PCOS and hormone wellness kits." },
     ],
   }),
-  loader: async () => {
+  loader: async (): Promise<{ products: ShopifyProduct[] }> => {
     const data = await storefrontApiRequest(STOREFRONT_QUERY, { first: 50, query: null });
     const products: ShopifyProduct[] = data?.data?.products?.edges ?? [];
     return { products };
