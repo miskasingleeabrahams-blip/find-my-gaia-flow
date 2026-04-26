@@ -21,6 +21,11 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "GaiaBerry — Natural Fertility & Hormone Wellness" },
       { name: "description", content: "Find your personalised natural remedy for PCOS, fertility and hormonal balance." },
+      { property: "og:title", content: "GaiaBerry — Natural Fertility & Hormone Wellness" },
+      { property: "og:description", content: "Find your personalised natural remedy for PCOS, fertility and hormonal balance." },
+      { property: "og:image", content: "https://gaiaberry.co.za/og-default.jpg" },
+      { property: "og:url", content: "https://gaiaberry.co.za/" },
+      { name: "twitter:image", content: "https://gaiaberry.co.za/og-default.jpg" },
     ],
   }),
   component: Home,

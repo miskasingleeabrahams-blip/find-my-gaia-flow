@@ -14,6 +14,11 @@ export const Route = createFileRoute("/shop")({
     meta: [
       { title: "Shop Fertility Kits — GaiaBerry" },
       { name: "description", content: "Shop GaiaBerry's natural fertility, PCOS and hormone wellness kits." },
+      { property: "og:title", content: "Shop Fertility Kits — GaiaBerry" },
+      { property: "og:description", content: "Shop GaiaBerry's natural fertility, PCOS and hormone wellness kits." },
+      { property: "og:image", content: "https://gaiaberry.co.za/og-shop.jpg" },
+      { property: "og:url", content: "https://gaiaberry.co.za/shop" },
+      { name: "twitter:image", content: "https://gaiaberry.co.za/og-shop.jpg" },
     ],
   }),
   loader: async (): Promise<{ products: ShopifyProduct[] }> => {
