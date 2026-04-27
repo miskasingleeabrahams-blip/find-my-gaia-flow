@@ -263,7 +263,7 @@ function getRecommendation(a: Answers): Recommendation {
           productHandle: "pcos-kit-1",
           description:
             "Crafted for PCOS with weight gain, bloating or ovarian cysts, to gently restore metabolic and hormonal harmony.",
-          addOns: [ADDONS.milkThistle, ADDONS.wombTea],
+          addOns: [ADDONS.ashwagandha],
         };
       }
       return {
