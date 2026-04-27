@@ -273,7 +273,7 @@ function getRecommendation(a: Answers): Recommendation {
         productHandle: "pcos-kit-2",
         description:
           "Crafted for PCOS with fatigue, hirsutism and stress-driven imbalance, to nourish the adrenals and rebalance hormones.",
-        addOns: [ADDONS.ashwagandha, ADDONS.milkThistle],
+        addOns: [ADDONS.ashwagandha],
       };
     }
 
