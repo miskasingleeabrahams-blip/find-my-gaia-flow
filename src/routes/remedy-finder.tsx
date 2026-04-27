@@ -320,7 +320,7 @@ function getRecommendation(a: Answers): Recommendation {
         description: has("Confirmed low iron or anaemia")
           ? "Iron-rich, blood-building herbs to nourish the womb and support a thriving pregnancy."
           : "Even without confirmed anaemia, this nourishing kit supports recurring loss recovery and womb strengthening.",
-        addOns: [ADDONS.ironSea, ADDONS.chasteBerry],
+        addOns: [ADDONS.ashwagandha],
       };
 
     case "Low progesterone":
@@ -331,7 +331,7 @@ function getRecommendation(a: Answers): Recommendation {
         image: kitProgesterone,
         productHandle: "progesterone-kit",
         description: "Designed to lift progesterone gently, ease spotting and lengthen short luteal phases.",
-        addOns: [ADDONS.chasteBerry, ADDONS.wombTea],
+        addOns: [ADDONS.ashwagandha],
       };
 
     case "Pregnancy care":
