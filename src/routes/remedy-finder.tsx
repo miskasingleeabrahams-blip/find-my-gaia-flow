@@ -1108,6 +1108,9 @@ function ResultStep({
               </div>
             ))}
           </div>
+          {result.addOnFootnote && (
+            <p className="mt-4 text-xs italic text-sage-deep text-center">{result.addOnFootnote}</p>
+          )}
         </div>
       )}
 
