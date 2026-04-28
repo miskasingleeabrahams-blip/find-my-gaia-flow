@@ -292,8 +292,8 @@ function getRecommendation(a: Answers): Recommendation {
           addOnIntro: "Both add-ons work together — used in sequence, not as a choice.",
           addOnFootnote: "For best results, follow this order.",
           addOns: [
-            { ...ADDONS.milkThistle, note: "Step 1 · Start with Milk Thistle. Use this alongside your cleanse to support your body." },
-            { ...ADDONS.chasteBerry, note: "Step 2 · Then add Chasteberry. Follow with Chasteberry to support your cycle and fertility." },
+          { ...ADDONS.milkThistle, note: "Step 1 · Start with Milk Thistle. Use it alongside your cleanse for at least 3 months to support your body." },
+            { ...ADDONS.chasteBerry, note: "Step 2 · After 3 months on Milk Thistle, add Chasteberry to support your cycle and fertility." },
           ],
         };
       }
