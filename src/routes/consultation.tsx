@@ -82,7 +82,7 @@ function Consultation() {
                 className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm hover:opacity-90 transition shadow-[var(--shadow-soft)]"
               >
                 <Leaf className="h-4 w-4" />
-                Find My Remedy
+                Start My Journey
               </Link>
             </div>
           </div>
@@ -287,7 +287,7 @@ function Consultation() {
             to="/remedy-finder"
             className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm hover:opacity-90 transition shadow-[var(--shadow-soft)]"
           >
-            Find My Remedy →
+            Start My Journey →
           </Link>
         </div>
       </section>
