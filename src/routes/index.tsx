@@ -137,7 +137,51 @@ function Home() {
         <RemedyFinderCallout />
       </Section>
 
-      {/* HEALING STANDARD — directly under hero */}
+      {/* START HERE — 3 clear pathways for new customers */}
+      <Section className="pt-0 pb-8 md:pb-14">
+        <div className="text-center mb-8 md:mb-10">
+          <Eyebrow>New here? Start your journey</Eyebrow>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl text-ink">Choose the path that sounds like you.</h2>
+          <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+            Three simple starting points — pick the one closest to your story and we'll guide you from there.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              tag: "PCOS / Irregular periods",
+              title: "Fertility Cleansing Kit",
+              desc: "Reset your cycle, clear stagnation and prepare your body for balanced, regular periods.",
+            },
+            {
+              tag: "Trying to conceive / Blocked tubes",
+              title: "Blocked Tubes Kit",
+              desc: "Open the way naturally — support tubal health and improve your chances of conceiving.",
+            },
+            {
+              tag: "Hormonal balance",
+              title: "Womb Support",
+              desc: "Nourish your womb, balance hormones and feel like yourself again — gently and naturally.",
+            },
+          ].map((p) => (
+            <article
+              key={p.title}
+              className="rounded-3xl border border-sage/25 bg-cream p-7 md:p-8 flex flex-col shadow-[var(--shadow-soft)]"
+            >
+              <span className="text-xs uppercase tracking-[0.18em] text-sage-deep">{p.tag}</span>
+              <h3 className="mt-3 font-serif text-2xl text-ink">{p.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">{p.desc}</p>
+              <Link
+                to="/remedy-finder"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+              >
+                Start My Journey →
+              </Link>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <Section className="pt-0 pb-8 md:pb-16">
         <HealingStandard />
       </Section>
@@ -350,52 +394,6 @@ function Home() {
           </div>
         </div>
       </Section>
-
-      {/* START HERE — 3 clear pathways for new customers */}
-      <Section className="pt-0 pb-8 md:pb-14">
-        <div className="text-center mb-8 md:mb-10">
-          <Eyebrow>New here? Start your journey</Eyebrow>
-          <h2 className="mt-3 font-serif text-3xl md:text-4xl text-ink">Choose the path that sounds like you.</h2>
-          <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-            Three simple starting points — pick the one closest to your story and we'll guide you from there.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              tag: "PCOS / Irregular periods",
-              title: "Fertility Cleansing Kit",
-              desc: "Reset your cycle, clear stagnation and prepare your body for balanced, regular periods.",
-            },
-            {
-              tag: "Trying to conceive / Blocked tubes",
-              title: "Blocked Tubes Kit",
-              desc: "Open the way naturally — support tubal health and improve your chances of conceiving.",
-            },
-            {
-              tag: "Hormonal balance",
-              title: "Womb Support",
-              desc: "Nourish your womb, balance hormones and feel like yourself again — gently and naturally.",
-            },
-          ].map((p) => (
-            <article
-              key={p.title}
-              className="rounded-3xl border border-sage/25 bg-cream p-7 md:p-8 flex flex-col shadow-[var(--shadow-soft)]"
-            >
-              <span className="text-xs uppercase tracking-[0.18em] text-sage-deep">{p.tag}</span>
-              <h3 className="mt-3 font-serif text-2xl text-ink">{p.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">{p.desc}</p>
-              <Link
-                to="/remedy-finder"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm hover:opacity-90 transition shadow-[var(--shadow-soft)]"
-              >
-                Start My Journey →
-              </Link>
-            </article>
-          ))}
-        </div>
-      </Section>
-
       {/* RETURNING CUSTOMERS — secondary, de-emphasized */}
       <Section className="py-10 md:py-14">
         <div className="rounded-3xl border border-sage/25 bg-sage/5 px-6 md:px-10 py-7 md:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
