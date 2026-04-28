@@ -64,13 +64,13 @@ export function HealingStandard({
                 to="/remedy-finder"
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 hover:opacity-90 transition shadow-[var(--shadow-soft)]"
               >
-                Find My Remedy →
+                Start My Journey →
               </Link>
               <Link
                 to="/consultation"
                 className="inline-flex items-center gap-2 rounded-full border border-sage-deep/30 bg-cream/70 text-sage-deep px-8 py-4 hover:bg-sage/10 transition"
               >
-                Book Your 3-Month Follow-Up →
+                Reassess My Journey →
               </Link>
             </div>
           </div>

@@ -17,7 +17,7 @@ export function SiteFooter() {
         <div>
           <h4 className="font-serif text-lg mb-4">Explore</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/remedy-finder" className="hover:text-sage-deep">Remedy Finder</Link></li>
+            <li><Link to="/remedy-finder" className="hover:text-sage-deep">Start My Journey</Link></li>
             <li><Link to="/shop" className="hover:text-sage-deep">Shop Kits</Link></li>
             <li><Link to="/testimonials" className="hover:text-sage-deep">Testimonials</Link></li>
           </ul>
@@ -25,7 +25,7 @@ export function SiteFooter() {
         <div>
           <h4 className="font-serif text-lg mb-4">Support</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/consultation" className="hover:text-sage-deep">3-Month Follow-Up</Link></li>
+            <li><Link to="/consultation" className="hover:text-sage-deep">Reassess My Journey</Link></li>
             <li><Link to="/agent" className="hover:text-sage-deep">Become an Agent</Link></li>
             <li><a href="mailto:info@gaiaberry.co.za" className="hover:text-sage-deep">info@gaiaberry.co.za</a></li>
           </ul>
