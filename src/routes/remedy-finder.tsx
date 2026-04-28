@@ -290,7 +290,7 @@ function getRecommendation(a: Answers): Recommendation {
             "Deep Fertility Cleanse — your base for Endo and PCOS together. Pair with the recommended add-ons below for fuller support.",
           addOnHeading: "Recommended alongside your cleanse",
           addOnIntro: "Both add-ons work together — used in sequence, not as a choice.",
-          addOnFootnote: "For best results, follow this order.",
+          addOnFootnote: "For best results, use Milk Thistle for at least 3 months before starting Chasteberry.",
           addOns: [
           { ...ADDONS.milkThistle, note: "Step 1 · Start with Milk Thistle. Use it alongside your cleanse for at least 3 months to support your body." },
             { ...ADDONS.chasteBerry, note: "Step 2 · After 3 months on Milk Thistle, add Chasteberry to support your cycle and fertility." },
