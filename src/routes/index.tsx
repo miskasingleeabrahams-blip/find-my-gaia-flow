@@ -137,7 +137,51 @@ function Home() {
         <RemedyFinderCallout />
       </Section>
 
-      {/* HEALING STANDARD — directly under hero */}
+      {/* START HERE — 3 clear pathways for new customers */}
+      <Section className="pt-0 pb-8 md:pb-14">
+        <div className="text-center mb-8 md:mb-10">
+          <Eyebrow>New here? Start your journey</Eyebrow>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl text-ink">Choose the path that sounds like you.</h2>
+          <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+            Three simple starting points — pick the one closest to your story and we'll guide you from there.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              tag: "PCOS / Irregular periods",
+              title: "Fertility Cleansing Kit",
+              desc: "Reset your cycle, clear stagnation and prepare your body for balanced, regular periods.",
+            },
+            {
+              tag: "Trying to conceive / Blocked tubes",
+              title: "Blocked Tubes Kit",
+              desc: "Open the way naturally — support tubal health and improve your chances of conceiving.",
+            },
+            {
+              tag: "Hormonal balance",
+              title: "Womb Support",
+              desc: "Nourish your womb, balance hormones and feel like yourself again — gently and naturally.",
+            },
+          ].map((p) => (
+            <article
+              key={p.title}
+              className="rounded-3xl border border-sage/25 bg-cream p-7 md:p-8 flex flex-col shadow-[var(--shadow-soft)]"
+            >
+              <span className="text-xs uppercase tracking-[0.18em] text-sage-deep">{p.tag}</span>
+              <h3 className="mt-3 font-serif text-2xl text-ink">{p.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">{p.desc}</p>
+              <Link
+                to="/remedy-finder"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+              >
+                Start My Journey →
+              </Link>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <Section className="pt-0 pb-8 md:pb-16">
         <HealingStandard />
       </Section>
@@ -350,42 +394,36 @@ function Home() {
           </div>
         </div>
       </Section>
-
-
-      {/* CONSULTATION + AGENT */}
-      <Section>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="rounded-[2rem] bg-cream border border-border overflow-hidden flex flex-col">
-            <div className="relative h-48 md:h-56 overflow-hidden">
-              <img
-                src={lifestyleFullRange}
-                alt="The GaiaBerry range of natural fertility remedies"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,oklch(0.97_0.018_25/0.55)_100%)]" />
-            </div>
-            <div className="p-10 md:p-14">
-              <Eyebrow>3-Month Follow-Up</Eyebrow>
-              <h3 className="mt-3 font-serif text-3xl md:text-4xl">Book your 3-month follow-up.</h3>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                A private WhatsApp session with one of our qualified GaiaBerry consultants — choose 15 minutes (R100) or 30 minutes (R200) to review your progress and design your next phase of healing.
-              </p>
-              <Link to="/consultation" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition">
-                Book Your 3-Month Follow-Up →
-              </Link>
-            </div>
-          </div>
-          <div className="rounded-[2rem] bg-[var(--gradient-blush)] p-10 md:p-14">
-            <Eyebrow>Become an agent</Eyebrow>
-            <h3 className="mt-3 font-serif text-3xl md:text-4xl">Carry the GaiaBerry mission.</h3>
-            <p className="mt-4 text-ink/80 leading-relaxed">
-              Join a community of women bringing natural fertility care to their cities. Earn, educate, and be part of something that heals.
+      {/* RETURNING CUSTOMERS — secondary, de-emphasized */}
+      <Section className="py-10 md:py-14">
+        <div className="rounded-3xl border border-sage/25 bg-sage/5 px-6 md:px-10 py-7 md:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+          <div className="max-w-2xl">
+            <span className="text-xs uppercase tracking-[0.18em] text-sage-deep">Already started?</span>
+            <h3 className="mt-2 font-serif text-xl md:text-2xl text-ink">Reassess My Journey</h3>
+            <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+              For existing customers after 3 months — a private WhatsApp session (15 min R100 / 30 min R200) to review your progress and plan your next phase.
             </p>
-            <Link to="/agent" className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink text-cream px-7 py-3.5 hover:opacity-90 transition">
-              Apply to be an agent →
-            </Link>
           </div>
+          <Link
+            to="/consultation"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-sage-deep/40 bg-cream/70 text-sage-deep px-6 py-2.5 text-sm hover:bg-sage/10 transition shrink-0"
+          >
+            Reassess My Journey →
+          </Link>
+        </div>
+      </Section>
+
+      {/* AGENT */}
+      <Section className="pt-0">
+        <div className="rounded-[2rem] bg-[var(--gradient-blush)] p-10 md:p-14">
+          <Eyebrow>Become an agent</Eyebrow>
+          <h3 className="mt-3 font-serif text-3xl md:text-4xl">Carry the GaiaBerry mission.</h3>
+          <p className="mt-4 text-ink/80 leading-relaxed max-w-2xl">
+            Join a community of women bringing natural fertility care to their cities. Earn, educate, and be part of something that heals.
+          </p>
+          <Link to="/agent" className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink text-cream px-7 py-3.5 hover:opacity-90 transition">
+            Apply to be an agent →
+          </Link>
         </div>
       </Section>
 
