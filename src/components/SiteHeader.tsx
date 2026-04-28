@@ -5,10 +5,10 @@ import { CartDrawer } from "@/components/CartDrawer";
 import logo from "@/assets/gaiaberry-logo.png";
 
 const nav = [
-  { to: "/remedy-finder", label: "Remedy Finder" },
+  { to: "/remedy-finder", label: "Start My Journey" },
   { to: "/shop", label: "Shop" },
   { to: "/testimonials", label: "Testimonials" },
-  { to: "/consultation", label: "3-Month Follow-Up" },
+  { to: "/consultation", label: "Reassess My Journey" },
   { to: "/agent", label: "Become an Agent" },
 ] as const;
 
@@ -39,7 +39,7 @@ export function SiteHeader() {
             to="/remedy-finder"
             className="hidden md:inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm hover:opacity-90 transition"
           >
-            Find My Remedy
+            Start My Journey
           </Link>
           <button
             type="button"
@@ -72,7 +72,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm hover:opacity-90 transition"
             >
-              Find My Remedy
+              Start My Journey
             </Link>
           </nav>
         </div>

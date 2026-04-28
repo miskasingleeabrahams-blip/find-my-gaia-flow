@@ -43,7 +43,7 @@ export function RemedyFinderCallout({
               isCompact ? "mt-1 text-sm" : "mt-2 text-base max-w-md mx-auto"
             }`}
           >
-            Use our Remedy Finder to get a personalised recommendation.
+            Choose the right fertility support and start your healing journey today.
           </p>
         </div>
         <Link
@@ -52,7 +52,7 @@ export function RemedyFinderCallout({
             isCompact ? "mt-4 sm:mt-0 px-6 py-3 text-sm" : "mt-2 px-7 py-3.5 text-sm"
           }`}
         >
-          Find My Remedy →
+          Start My Journey →
         </Link>
       </div>
     </aside>
