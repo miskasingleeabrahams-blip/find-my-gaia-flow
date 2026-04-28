@@ -287,9 +287,14 @@ function getRecommendation(a: Answers): Recommendation {
           image: kitDeepCleanse,
           productHandle: "endo-kit-deep-fertility-cleanse",
           description:
-            "Deep Fertility Cleanse — your base for Endo and PCOS together. Add Milk Thistle and/or Chaste Berry below for fuller hormonal and liver support.",
-          addOns: [ADDONS.milkThistle, ADDONS.chasteBerry],
-          addOnIntro: "Choose to add Milk Thistle, Chaste Berry, or both — based on what your body needs most.",
+            "Deep Fertility Cleanse — your base for Endo and PCOS together. Pair with the recommended add-ons below for fuller support.",
+          addOnHeading: "Recommended alongside your cleanse",
+          addOnIntro: "Both add-ons work together — used in sequence, not as a choice.",
+          addOnFootnote: "For best results, follow this order.",
+          addOns: [
+            { ...ADDONS.milkThistle, note: "Step 1 · Start with Milk Thistle. Use this alongside your cleanse to support your body." },
+            { ...ADDONS.chasteBerry, note: "Step 2 · Then add Chasteberry. Follow with Chasteberry to support your cycle and fertility." },
+          ],
         };
       }
       return {
@@ -297,8 +302,14 @@ function getRecommendation(a: Answers): Recommendation {
         price: "R620",
         image: kitDeepCleanse,
         productHandle: "endo-kit-deep-fertility-cleanse",
-        description: "A deep cleanse to support Endo or Fibroids. Pair with Milk Thistle and/or Chaste Berry drops for fuller support.",
-        addOns: [ADDONS.milkThistle, ADDONS.chasteBerry],
+        description: "A deep cleanse to support Endo or Fibroids. Pair with the recommended add-ons below for fuller support.",
+        addOnHeading: "Recommended alongside your cleanse",
+        addOnIntro: "Both add-ons work together — used in sequence, not as a choice.",
+        addOnFootnote: "For best results, follow this order.",
+        addOns: [
+          { ...ADDONS.milkThistle, note: "Step 1 · Start with Milk Thistle. Use this alongside your cleanse to support your body." },
+          { ...ADDONS.chasteBerry, note: "Step 2 · Then add Chasteberry. Follow with Chasteberry to support your cycle and fertility." },
+        ],
       };
     }
 
