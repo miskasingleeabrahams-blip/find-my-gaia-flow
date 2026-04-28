@@ -100,6 +100,7 @@ type Recommendation = {
   addOns?: AddOn[];
   addOnHeading?: string;
   addOnIntro?: string;
+  addOnFootnote?: string;
 };
 
 type Answers = {
