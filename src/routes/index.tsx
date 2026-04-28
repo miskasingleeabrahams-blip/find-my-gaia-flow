@@ -32,9 +32,9 @@ export const Route = createFileRoute("/")({
 });
 
 const kits = [
-  { img: kit1, name: "PCOS Kit 1", desc: "Chaste Berry, Repro Oxidative Care & Milk Thistle. Restores cycles, balances blood sugar and supports the liver.", price: "R845" },
-  { img: kit2, name: "PCOS Kit 2", desc: "Chaste Berry, Repro Oxidative Care & Ashwagandha. For PCOS with anxiety, stress and low libido.", price: "R895" },
-  { img: kit3, name: "Progesterone Kit", desc: "Lifts progesterone gently, eases spotting and lengthens short luteal phases.", price: "R720" },
+  { img: kit1, name: "PCOS Kit 1", desc: "Restore regular cycles, balance blood sugar and support liver detox — for women navigating PCOS naturally.", price: "R845" },
+  { img: kit2, name: "PCOS Kit 2", desc: "Balance hormones while easing anxiety, stress and low libido — PCOS support with a calming edge.", price: "R895" },
+  { img: kit3, name: "Progesterone Kit", desc: "Lift low progesterone gently, ease spotting and lengthen short luteal phases for fertility readiness.", price: "R720" },
 ];
 
 const testimonials = [
@@ -89,16 +89,25 @@ function Home() {
                 to="/remedy-finder"
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 text-base shadow-[var(--shadow-soft)] hover:opacity-90 transition"
               >
-                Find My Remedy
+                Start My Journey
                 <span aria-hidden>→</span>
               </Link>
               <Link
-                to="/consultation"
+                to="/shop"
                 className="inline-flex items-center rounded-full border border-sage-deep/30 text-sage-deep px-8 py-4 text-base hover:bg-sage/10 transition"
               >
-                Book Your 3-Month Follow-Up
+                Shop Kits
               </Link>
             </div>
+            <p className="mt-4 max-w-lg text-sm text-ink/70 leading-relaxed">
+              Choose the right fertility support and start your healing journey today.
+            </p>
+            <p className="mt-3 max-w-lg text-xs text-muted-foreground">
+              Already 3 months in?{" "}
+              <Link to="/consultation" className="text-sage-deep underline-offset-4 hover:underline">
+                Reassess my journey →
+              </Link>
+            </p>
             <div className="mt-10 flex items-center gap-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
               <span>Natural herbs</span>
               <span className="h-1 w-1 rounded-full bg-sage" />
