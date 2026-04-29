@@ -197,6 +197,37 @@ function Home() {
         <HealingStandard />
       </Section>
 
+      {/* BEST SELLERS — moved up so buying intent isn't delayed */}
+      <Section>
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
+          <div>
+            <Eyebrow>Best-selling kits</Eyebrow>
+            <h2 className="mt-3 font-serif text-4xl md:text-5xl">Loved by thousands of women.</h2>
+          </div>
+          <Link to="/shop" className="text-sm text-sage-deep underline-offset-4 hover:underline">Shop all kits →</Link>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {kits.map((k) => (
+            <article key={k.name} className="group">
+              <div className="overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8">
+                <img
+                  src={k.img}
+                  alt={k.name}
+                  loading="lazy"
+                  className="aspect-square object-contain w-full group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <h3 className="mt-5 font-serif text-2xl">{k.name}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{k.desc}</p>
+              <div className="mt-4 flex items-center justify-between">
+                <span className="text-sage-deep font-medium">{k.price}</span>
+                <Link to="/shop" className="text-sm text-ink/70 hover:text-sage-deep">View →</Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       {/* OUR STORY — first GaiaBerry baby */}
       <Section className="pt-10 md:pt-24 pb-6 md:pb-10">
         <div className="rounded-[2.5rem] bg-[var(--gradient-sage)] text-cream px-6 md:px-16 py-12 md:py-20 relative overflow-hidden">
@@ -270,7 +301,7 @@ function Home() {
       </Section>
 
       {/* MILESTONES — poetic line after Our Story */}
-      <div className="mx-auto max-w-7xl px-6 md:px-10 mt-2 md:mt-4">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 mt-2 md:mt-4 mb-12 md:mb-16">
         <div className="relative rounded-[2rem] overflow-hidden">
           <img
             src={lifestyleTrioFront}
@@ -289,67 +320,6 @@ function Home() {
           </div>
         </div>
       </div>
-
-      {/* BEST SELLERS */}
-      <Section>
-        {/* Reviews trust strip — placed right before the buying decision */}
-        <div className="mb-8 md:mb-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 rounded-2xl border border-sage/25 bg-sage/5 px-5 py-4">
-          <div className="flex items-center gap-3">
-            <span className="font-serif text-3xl text-sage-deep leading-none">4.9</span>
-            <div className="flex flex-col items-start">
-              <span className="text-base tracking-widest text-[#f59e0b] leading-none">★★★★★</span>
-              <span className="text-xs text-muted-foreground mt-1">Based on 34 verified Google reviews</span>
-            </div>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <a
-              href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-sage-deep/30 text-sage-deep px-5 py-2 text-sm hover:bg-sage/10 transition"
-            >
-              Read reviews
-            </a>
-            <a
-              href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition shadow-[var(--shadow-soft)]"
-            >
-              Leave a review →
-            </a>
-          </div>
-        </div>
-
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
-          <div>
-            <Eyebrow>Best-selling kits</Eyebrow>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">Loved by thousands of women.</h2>
-          </div>
-          <Link to="/shop" className="text-sm text-sage-deep underline-offset-4 hover:underline">Shop all kits →</Link>
-        </div>
-        <RemedyFinderCallout variant="compact" className="mb-10" />
-        <div className="grid md:grid-cols-3 gap-8">
-          {kits.map((k) => (
-            <article key={k.name} className="group">
-              <div className="overflow-hidden rounded-3xl bg-blush/30 flex items-center justify-center p-8">
-                <img
-                  src={k.img}
-                  alt={k.name}
-                  loading="lazy"
-                  className="aspect-square object-contain w-full group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <h3 className="mt-5 font-serif text-2xl">{k.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{k.desc}</p>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-sage-deep font-medium">{k.price}</span>
-                <Link to="/shop" className="text-sm text-ink/70 hover:text-sage-deep">View →</Link>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
 
       {/* TESTIMONIALS */}
       <Section className="bg-blush/20 max-w-none rounded-none relative overflow-hidden">
