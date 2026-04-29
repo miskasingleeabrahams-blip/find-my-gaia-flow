@@ -76,10 +76,10 @@ function Home() {
           <div>
             <Eyebrow>Natural fertility, guided</Eyebrow>
             <h1 className="mt-5 font-serif text-5xl md:text-7xl leading-[1.05] text-balance text-ink">
-              A gentler path to <em className="text-sage-deep not-italic italic">your</em> reproductive wellness.
+              Struggling with <em className="text-sage-deep not-italic italic">PCOS</em>, irregular periods or trying to conceive?
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted-foreground leading-relaxed">
-              For women navigating PCOS, infertility and hormonal imbalance. Discover plant-based remedies, personalised to your body, your story, your season.
+              Start your natural fertility journey with the right support for your body.
             </p>
             <p className="mt-4 max-w-lg text-base text-sage-deep font-medium">
               Trusted by thousands of women across South Africa to conceive naturally. 🌿
@@ -141,7 +141,7 @@ function Home() {
       <Section className="pt-0 pb-8 md:pb-14">
         <div className="text-center mb-8 md:mb-10">
           <Eyebrow>New here? Start your journey</Eyebrow>
-          <h2 className="mt-3 font-serif text-3xl md:text-4xl text-ink">Choose the path that sounds like you.</h2>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl text-ink">Start with the right support for your body.</h2>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
             Three simple starting points — pick the one closest to your story and we'll guide you from there.
           </p>
@@ -395,22 +395,13 @@ function Home() {
         </div>
       </Section>
       {/* RETURNING CUSTOMERS — secondary, de-emphasized */}
-      <Section className="py-10 md:py-14">
-        <div className="rounded-3xl border border-sage/25 bg-sage/5 px-6 md:px-10 py-7 md:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-          <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-[0.18em] text-sage-deep">Already started?</span>
-            <h3 className="mt-2 font-serif text-xl md:text-2xl text-ink">Reassess My Journey</h3>
-            <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
-              For existing customers after 3 months — a private WhatsApp session (15 min R100 / 30 min R200) to review your progress and plan your next phase.
-            </p>
-          </div>
-          <Link
-            to="/consultation"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-sage-deep/40 bg-cream/70 text-sage-deep px-6 py-2.5 text-sm hover:bg-sage/10 transition shrink-0"
-          >
-            Reassess My Journey →
+      <Section className="py-6 md:py-8">
+        <p className="text-center text-sm text-muted-foreground">
+          Already using GaiaBerry for 3 months?{" "}
+          <Link to="/consultation" className="text-sage-deep underline-offset-4 hover:underline">
+            Reassess your journey →
           </Link>
-        </div>
+        </p>
       </Section>
 
       {/* AGENT */}
