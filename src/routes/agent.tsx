@@ -126,11 +126,11 @@ function Agent() {
   );
 }
 
-function Field({ label, type }: { label: string; type: string }) {
+function Field({ label, type, name }: { label: string; type: string; name?: string }) {
   return (
     <div>
       <label className="text-sm text-ink">{label}</label>
-      <input type={type} required className="mt-1.5 w-full rounded-2xl border border-border bg-cream px-4 py-3 outline-none focus:border-sage-deep transition" />
+      <input name={name} type={type} required className="mt-1.5 w-full rounded-2xl border border-border bg-cream px-4 py-3 outline-none focus:border-sage-deep transition" />
     </div>
   );
 }
