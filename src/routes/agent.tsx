@@ -58,7 +58,24 @@ function Agent() {
         </div>
 
         <form
-          onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            const fd = new FormData(e.currentTarget);
+            const fullName = String(fd.get("fullName") || "");
+            const email = String(fd.get("email") || "");
+            const location = String(fd.get("location") || "");
+            const credit = String(fd.get("credit") || "");
+            const why = String(fd.get("why") || "");
+            const subject = `GaiaBerry Agent Application – ${fullName}`;
+            const body =
+              `Full name: ${fullName}\n` +
+              `Email: ${email}\n` +
+              `City & country: ${location}\n` +
+              `Clear credit score: ${credit}\n\n` +
+              `Why GaiaBerry?\n${why}\n`;
+            window.location.href = `mailto:info@gaiaberry.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            setSent(true);
+          }}
           className="rounded-[2rem] bg-card border border-border p-8 md:p-10 shadow-[var(--shadow-soft)] h-fit"
         >
           {!sent ? (
@@ -66,13 +83,29 @@ function Agent() {
               <h3 className="font-serif text-2xl">Apply to join</h3>
               <p className="text-sm text-muted-foreground mt-1">We accept new agents in small, considered cohorts.</p>
               <div className="mt-6 grid gap-4">
-                <Field label="Full name" type="text" />
-                <Field label="Email" type="email" />
-                <Field label="City & country" type="text" />
+                <Field label="Full name" type="text" name="fullName" />
+                <Field label="Email" type="email" name="email" />
+                <Field label="City & country" type="text" name="location" />
+                <div>
+                  <label className="text-sm text-ink">Do you have a clear credit score?</label>
+                  <div className="mt-1.5 flex gap-6">
+                    <label className="flex items-center gap-2 text-sm text-ink">
+                      <input type="radio" name="credit" value="Yes" required className="accent-sage-deep" />
+                      Yes
+                    </label>
+                    <label className="flex items-center gap-2 text-sm text-ink">
+                      <input type="radio" name="credit" value="No" className="accent-sage-deep" />
+                      No
+                    </label>
+                  </div>
+                </div>
                 <div>
                   <label className="text-sm text-ink">Why GaiaBerry?</label>
-                  <textarea rows={4} className="mt-1.5 w-full rounded-2xl border border-border bg-cream px-4 py-3 outline-none focus:border-sage-deep transition" />
+                  <textarea name="why" rows={4} className="mt-1.5 w-full rounded-2xl border border-border bg-cream px-4 py-3 outline-none focus:border-sage-deep transition" />
                 </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Agents must be able to purchase a starter kit and maintain monthly purchases to the value of R1500.
+                </p>
                 <button type="submit" className="mt-2 rounded-full bg-primary text-primary-foreground py-4 hover:opacity-90 transition">
                   Submit application
                 </button>
