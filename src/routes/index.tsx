@@ -141,7 +141,7 @@ function Home() {
       <Section className="pt-0 pb-8 md:pb-14">
         <div className="text-center mb-8 md:mb-10">
           <Eyebrow>New here? Start your journey</Eyebrow>
-          <h2 className="mt-3 font-serif text-3xl md:text-4xl text-ink">Choose the path that sounds like you.</h2>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl text-ink">Start with the right support for your body.</h2>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
             Three simple starting points — pick the one closest to your story and we'll guide you from there.
           </p>
