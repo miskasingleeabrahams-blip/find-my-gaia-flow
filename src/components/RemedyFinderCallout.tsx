@@ -36,7 +36,7 @@ export function RemedyFinderCallout({
               isCompact ? "text-base md:text-lg" : "text-xl md:text-2xl"
             }`}
           >
-            Not sure which product is right for you?
+            Start your journey with the right support for your body
           </p>
           <p
             className={`text-ink/75 leading-relaxed ${
