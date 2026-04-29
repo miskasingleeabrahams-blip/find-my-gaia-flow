@@ -395,22 +395,13 @@ function Home() {
         </div>
       </Section>
       {/* RETURNING CUSTOMERS — secondary, de-emphasized */}
-      <Section className="py-10 md:py-14">
-        <div className="rounded-3xl border border-sage/25 bg-sage/5 px-6 md:px-10 py-7 md:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-          <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-[0.18em] text-sage-deep">Already started?</span>
-            <h3 className="mt-2 font-serif text-xl md:text-2xl text-ink">Reassess My Journey</h3>
-            <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
-              For existing customers after 3 months — a private WhatsApp session (15 min R100 / 30 min R200) to review your progress and plan your next phase.
-            </p>
-          </div>
-          <Link
-            to="/consultation"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-sage-deep/40 bg-cream/70 text-sage-deep px-6 py-2.5 text-sm hover:bg-sage/10 transition shrink-0"
-          >
-            Reassess My Journey →
+      <Section className="py-6 md:py-8">
+        <p className="text-center text-sm text-muted-foreground">
+          Already using GaiaBerry for 3 months?{" "}
+          <Link to="/consultation" className="text-sage-deep underline-offset-4 hover:underline">
+            Reassess your journey →
           </Link>
-        </div>
+        </p>
       </Section>
 
       {/* AGENT */}
