@@ -108,12 +108,23 @@ function Home() {
                 Reassess my journey →
               </Link>
             </p>
-            <div className="mt-10 flex items-center gap-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              <span>Natural herbs</span>
+            {/* Inline review badge — social proof at first impression */}
+            <a
+              href="https://maps.app.goo.gl/HcqhpkhN8unXM7Gx8?g_st=ac"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-3 rounded-full border border-sage/30 bg-sage/5 px-4 py-2 hover:bg-sage/10 transition"
+            >
+              <span className="font-serif text-2xl text-sage-deep leading-none">4.9</span>
+              <span className="flex flex-col items-start leading-tight">
+                <span className="text-sm tracking-widest text-[#f59e0b] leading-none">★★★★★</span>
+                <span className="text-[11px] text-muted-foreground mt-0.5">34 verified Google reviews</span>
+              </span>
+            </a>
+            <div className="mt-6 flex items-center gap-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              <span>1000+ babies conceived</span>
               <span className="h-1 w-1 rounded-full bg-sage" />
-              <span>High quality</span>
-              <span className="h-1 w-1 rounded-full bg-sage" />
-              <span>SA & abroad</span>
+              <span>Shipped SA & abroad</span>
             </div>
           </div>
           <div className="relative">
