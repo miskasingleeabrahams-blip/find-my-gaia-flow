@@ -76,10 +76,10 @@ function Home() {
           <div>
             <Eyebrow>Natural fertility, guided</Eyebrow>
             <h1 className="mt-5 font-serif text-5xl md:text-7xl leading-[1.05] text-balance text-ink">
-              A gentler path to <em className="text-sage-deep not-italic italic">your</em> reproductive wellness.
+              Struggling with <em className="text-sage-deep not-italic italic">PCOS</em>, irregular periods or trying to conceive?
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted-foreground leading-relaxed">
-              For women navigating PCOS, infertility and hormonal imbalance. Discover plant-based remedies, personalised to your body, your story, your season.
+              Start your natural fertility journey with the right support for your body.
             </p>
             <p className="mt-4 max-w-lg text-base text-sage-deep font-medium">
               Trusted by thousands of women across South Africa to conceive naturally. 🌿
