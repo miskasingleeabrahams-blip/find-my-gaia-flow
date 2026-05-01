@@ -40,6 +40,9 @@
   --color-sage-deep: var(--sage-deep);
   --color-blush: var(--blush);
   --color-blush-deep: var(--blush-deep);
+  --color-plum: var(--plum);
+  --color-plum-deep: var(--plum-deep);
+  --color-plum-soft: var(--plum-soft);
   --color-ink: var(--ink);
 }
 
