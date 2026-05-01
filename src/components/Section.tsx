@@ -18,7 +18,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-block text-xs uppercase tracking-[0.25em] text-sage-deep">
+    <span className="inline-block text-[11px] font-medium uppercase tracking-[0.28em] text-plum-deep">
       {children}
     </span>
   );

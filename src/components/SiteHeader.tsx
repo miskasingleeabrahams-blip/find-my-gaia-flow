@@ -16,7 +16,14 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-cream/75 border-b border-border/60">
+    <>
+      {/* Announcement bar — dusty plum accent */}
+      <div className="bg-[var(--gradient-plum)] text-cream text-center text-[12px] tracking-[0.18em] uppercase py-2 px-4">
+        <span className="font-medium">Free shipping on kits over R850</span>
+        <span className="mx-3 opacity-60">·</span>
+        <span className="opacity-90">Held by nature, guided by women</span>
+      </div>
+      <header className="sticky top-0 z-40 backdrop-blur-md bg-cream/75 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 md:px-10 py-3 md:py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center group" onClick={() => setOpen(false)} aria-label="GaiaBerry home">
           <img src={logo} alt="GaiaBerry" className="h-20 md:h-28 w-auto object-contain" />
@@ -77,6 +84,7 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
-    </header>
+      </header>
+    </>
   );
 }

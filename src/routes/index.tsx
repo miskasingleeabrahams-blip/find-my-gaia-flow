@@ -358,12 +358,13 @@ function Home() {
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
                 {testimonials.map((t) => (
-                  <figure key={t.name} className="rounded-3xl bg-cream/95 backdrop-blur-sm p-8 shadow-[var(--shadow-soft)]">
-                    <div className="text-sage-deep font-serif text-4xl leading-none">"</div>
+                  <figure key={t.name} className="rounded-3xl bg-cream/95 backdrop-blur-sm p-8 shadow-[var(--shadow-plum)] border border-plum/15 relative overflow-hidden">
+                    <span aria-hidden className="absolute left-0 top-0 h-full w-1 bg-[var(--gradient-plum)]" />
+                    <div className="text-plum-deep font-serif text-4xl leading-none">"</div>
                     <blockquote className="mt-2 text-ink/90 leading-relaxed">{t.quote}</blockquote>
                     <figcaption className="mt-6 text-sm">
                       <div className="font-medium text-ink">{t.name}</div>
-                      <div className="text-muted-foreground">{t.role}</div>
+                      <div className="text-plum-deep/80">{t.role}</div>
                     </figcaption>
                   </figure>
                 ))}
