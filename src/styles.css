@@ -134,23 +134,23 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     font-weight: 400;
-    letter-spacing: -0.015em;
-    line-height: 1.15;
+    letter-spacing: -0.022em;
+    line-height: 1.08;
     color: var(--ink);
   }
 
-  h1 { font-weight: 400; }
-  h2 { font-weight: 400; }
-  h3 { font-weight: 500; letter-spacing: -0.01em; }
+  h1 { font-weight: 400; letter-spacing: -0.028em; }
+  h2 { font-weight: 400; letter-spacing: -0.022em; }
+  h3 { font-weight: 500; letter-spacing: -0.014em; }
 
   /* Subheadings: refined sans option */
   .subheading {
     font-family: var(--font-sans);
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-size: 0.75rem;
-    color: var(--sage-deep);
+    font-size: 0.72rem;
+    color: var(--plum-deep);
   }
 
   strong, b {
