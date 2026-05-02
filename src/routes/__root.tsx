@@ -108,6 +108,7 @@ function RootComponent() {
   return (
     <>
       <Outlet />
+      <CookieConsent />
       <Toaster position="top-center" richColors />
     </>
   );
