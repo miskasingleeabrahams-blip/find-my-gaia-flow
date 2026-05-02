@@ -19,6 +19,7 @@ import { Route as ConsultationRouteImport } from './routes/consultation'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as AgentPortalRouteImport } from './routes/agent-portal'
 import { Route as AgentRouteImport } from './routes/agent'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 import { Route as LegalTermsRouteImport } from './routes/legal.terms'
@@ -82,6 +83,11 @@ const AgentPortalRoute = AgentPortalRouteImport.update({
 const AgentRoute = AgentRouteImport.update({
   id: '/agent',
   path: '/agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -161,6 +167,7 @@ const ApiPublicBookingsCreateRoute = ApiPublicBookingsCreateRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
   '/book': typeof BookRoute
@@ -187,6 +194,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
   '/book': typeof BookRoute
@@ -214,6 +222,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agent': typeof AgentRouteWithChildren
   '/agent-portal': typeof AgentPortalRoute
   '/book': typeof BookRoute
@@ -242,6 +251,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/agent'
     | '/agent-portal'
     | '/book'
@@ -268,6 +278,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/agent'
     | '/agent-portal'
     | '/book'
@@ -294,6 +305,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/agent'
     | '/agent-portal'
     | '/book'
@@ -321,6 +333,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AgentRoute: typeof AgentRouteWithChildren
   AgentPortalRoute: typeof AgentPortalRoute
   BookRoute: typeof BookRoute
@@ -411,6 +424,13 @@ declare module '@tanstack/react-router' {
       path: '/agent'
       fullPath: '/agent'
       preLoaderRoute: typeof AgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -542,6 +562,7 @@ const LegalRouteWithChildren = LegalRoute._addFileChildren(LegalRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AgentRoute: AgentRouteWithChildren,
   AgentPortalRoute: AgentPortalRoute,
   BookRoute: BookRoute,
