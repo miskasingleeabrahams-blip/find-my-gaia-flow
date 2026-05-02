@@ -1,8 +1,34 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { useCartSync } from "@/hooks/useCartSync";
+import { CookieConsent } from "@/components/CookieConsent";
 
 import appCss from "../styles.css?url";
+
+const ORGANIZATION_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "GaiaBerry",
+  legalName: "GaiaBerry (Pty) Ltd",
+  url: "https://gaiaberry.co.za",
+  logo: "https://gaiaberry.co.za/favicon.png",
+  description:
+    "Nature-led remedies for fertility, hormones and reproductive wellness. Created with care, rooted in tradition, guided by science.",
+  email: "info@gaiaberry.co.za",
+  areaServed: "ZA",
+  sameAs: [
+    "https://www.instagram.com/gaiaberry_fertility",
+    "https://www.tiktok.com/@gaiaberry_fertility",
+  ],
+};
+
+const WEBSITE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "GaiaBerry",
+  url: "https://gaiaberry.co.za",
+  inLanguage: "en-ZA",
+};
 
 function NotFoundComponent() {
   return (
