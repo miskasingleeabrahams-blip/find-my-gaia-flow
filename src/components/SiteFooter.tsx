@@ -45,6 +45,7 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link to="/remedy-finder" className="hover:text-sage-deep">Start My Journey</Link></li>
             <li><Link to="/shop" className="hover:text-sage-deep">Shop Kits</Link></li>
+            <li><Link to="/about" className="hover:text-sage-deep">About</Link></li>
             <li><Link to="/testimonials" className="hover:text-sage-deep">Testimonials</Link></li>
           </ul>
         </div>
