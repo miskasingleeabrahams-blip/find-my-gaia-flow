@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Section, Eyebrow } from "@/components/Section";
 import { HealingStandard } from "@/components/HealingStandard";
 import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
+import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 import heroImg from "@/assets/lifestyle-trio-berries.jpg";
 import lifestyleFlatlay from "@/assets/lifestyle-flatlay-four.jpg";
 import lifestyleTea from "@/assets/lifestyle-tea-pouch.jpg";
@@ -31,11 +33,20 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const kits = [
-  { img: kit1, name: "PCOS Kit 1", desc: "Restore regular cycles, balance blood sugar and support liver detox — for women navigating PCOS naturally.", price: "R845" },
-  { img: kit2, name: "PCOS Kit 2", desc: "Balance hormones while easing anxiety, stress and low libido — PCOS support with a calming edge.", price: "R845" },
-  { img: kit3, name: "Progesterone Kit", desc: "Lift low progesterone gently, ease spotting and lengthen short luteal phases for fertility readiness.", price: "R720" },
-];
+const KIT_HANDLES = ["pcos-kit-1", "pcos-kit-2", "progesterone-kit"] as const;
+
+const kitFallbacks: Record<string, { img: string; name: string; desc: string; price: string }> = {
+  "pcos-kit-1": { img: kit1, name: "PCOS Kit 1", desc: "Restore regular cycles, balance blood sugar and support liver detox — for women navigating PCOS naturally.", price: "R845" },
+  "pcos-kit-2": { img: kit2, name: "PCOS Kit 2", desc: "Balance hormones while easing anxiety, stress and low libido — PCOS support with a calming edge.", price: "R845" },
+  "progesterone-kit": { img: kit3, name: "Progesterone Kit", desc: "Lift low progesterone gently, ease spotting and lengthen short luteal phases for fertility readiness.", price: "R720" },
+};
+
+function formatPrice(amount: string, currencyCode: string) {
+  const symbol = currencyCode === "ZAR" ? "R" : currencyCode + " ";
+  const n = Number(amount);
+  return `${symbol}${Number.isInteger(n) ? n : n.toFixed(2)}`;
+}
+
 
 const testimonials = [
   {
@@ -59,6 +70,38 @@ const testimonials = [
 ];
 
 function Home() {
+  const [livePrices, setLivePrices] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const data = await storefrontApiRequest(STOREFRONT_QUERY, {
+          first: 10,
+          query: KIT_HANDLES.map((h) => `handle:${h}`).join(" OR "),
+        });
+        const edges: ShopifyProduct[] = data?.data?.products?.edges || [];
+        const map: Record<string, string> = {};
+        for (const e of edges) {
+          const p = e.node.priceRange.minVariantPrice;
+          map[e.node.handle] = formatPrice(p.amount, p.currencyCode);
+        }
+        if (!cancelled) setLivePrices(map);
+      } catch (err) {
+        console.error("Failed to fetch live kit prices", err);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const kits = KIT_HANDLES.map((handle) => ({
+    handle,
+    ...kitFallbacks[handle],
+    price: livePrices[handle] ?? kitFallbacks[handle].price,
+  }));
+
   return (
     <div className="min-h-screen bg-cream">
       <SiteHeader />
