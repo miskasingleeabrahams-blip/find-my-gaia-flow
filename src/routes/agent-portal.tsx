@@ -212,14 +212,18 @@ function AgentPortal() {
                     )}
                   </div>
                   <h3 className="mt-5 font-serif text-2xl">{p.node.title}</h3>
-                  <div className="mt-3 flex items-baseline gap-3 flex-wrap">
-                    <span className="text-sage-deep font-medium text-2xl">
-                      {retail.currencyCode} {(retailAmount * (1 - AGENT_DISCOUNT_RATE)).toFixed(2)}
-                    </span>
-                    <span className="text-muted-foreground line-through text-sm">
+                  <div className="mt-3 flex items-center justify-between gap-3 flex-wrap">
+                    <span className="text-ink font-medium text-2xl">
                       {retail.currencyCode} {retailAmount.toFixed(2)}
                     </span>
-                    <span className="text-xs text-sage-deep/80">agent price</span>
+                    <div className="text-right">
+                      <div className="text-sage-deep font-medium text-lg leading-tight">
+                        {retail.currencyCode} {(retailAmount * (1 - AGENT_DISCOUNT_RATE)).toFixed(2)}
+                      </div>
+                      <div className="text-[11px] uppercase tracking-wide text-sage-deep/70">
+                        with 21.45% code
+                      </div>
+                    </div>
                   </div>
                   <div className="mt-5">
                     <AddToCartButton product={p} className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-sage-deep text-cream px-5 py-3 text-sm hover:opacity-90 transition disabled:opacity-50" />
