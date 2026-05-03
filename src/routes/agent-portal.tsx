@@ -140,7 +140,10 @@ function AgentPortal() {
     );
   }
 
-  const agentProducts = products;
+  const agentProducts = products.filter((p: ShopifyProduct) => {
+    const title = p.node.title.toLowerCase();
+    return !title.includes("consultation") && !title.includes("follow-up") && !title.includes("follow up");
+  });
 
   return (
     <div className="min-h-screen bg-cream">
