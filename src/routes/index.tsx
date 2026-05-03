@@ -70,6 +70,38 @@ const testimonials = [
 ];
 
 function Home() {
+  const [livePrices, setLivePrices] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const data = await storefrontApiRequest(STOREFRONT_QUERY, {
+          first: 10,
+          query: KIT_HANDLES.map((h) => `handle:${h}`).join(" OR "),
+        });
+        const edges: ShopifyProduct[] = data?.data?.products?.edges || [];
+        const map: Record<string, string> = {};
+        for (const e of edges) {
+          const p = e.node.priceRange.minVariantPrice;
+          map[e.node.handle] = formatPrice(p.amount, p.currencyCode);
+        }
+        if (!cancelled) setLivePrices(map);
+      } catch (err) {
+        console.error("Failed to fetch live kit prices", err);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const kits = KIT_HANDLES.map((handle) => ({
+    handle,
+    ...kitFallbacks[handle],
+    price: livePrices[handle] ?? kitFallbacks[handle].price,
+  }));
+
   return (
     <div className="min-h-screen bg-cream">
       <SiteHeader />
