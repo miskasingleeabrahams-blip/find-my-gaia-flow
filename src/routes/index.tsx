@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Section, Eyebrow } from "@/components/Section";
 import { HealingStandard } from "@/components/HealingStandard";
 import { RemedyFinderCallout } from "@/components/RemedyFinderCallout";
+import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 import heroImg from "@/assets/lifestyle-trio-berries.jpg";
 import lifestyleFlatlay from "@/assets/lifestyle-flatlay-four.jpg";
 import lifestyleTea from "@/assets/lifestyle-tea-pouch.jpg";
@@ -31,11 +33,20 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const kits = [
-  { img: kit1, name: "PCOS Kit 1", desc: "Restore regular cycles, balance blood sugar and support liver detox — for women navigating PCOS naturally.", price: "R845" },
-  { img: kit2, name: "PCOS Kit 2", desc: "Balance hormones while easing anxiety, stress and low libido — PCOS support with a calming edge.", price: "R845" },
-  { img: kit3, name: "Progesterone Kit", desc: "Lift low progesterone gently, ease spotting and lengthen short luteal phases for fertility readiness.", price: "R720" },
-];
+const KIT_HANDLES = ["pcos-kit-1", "pcos-kit-2", "progesterone-kit"] as const;
+
+const kitFallbacks: Record<string, { img: string; name: string; desc: string; price: string }> = {
+  "pcos-kit-1": { img: kit1, name: "PCOS Kit 1", desc: "Restore regular cycles, balance blood sugar and support liver detox — for women navigating PCOS naturally.", price: "R845" },
+  "pcos-kit-2": { img: kit2, name: "PCOS Kit 2", desc: "Balance hormones while easing anxiety, stress and low libido — PCOS support with a calming edge.", price: "R845" },
+  "progesterone-kit": { img: kit3, name: "Progesterone Kit", desc: "Lift low progesterone gently, ease spotting and lengthen short luteal phases for fertility readiness.", price: "R720" },
+};
+
+function formatPrice(amount: string, currencyCode: string) {
+  const symbol = currencyCode === "ZAR" ? "R" : currencyCode + " ";
+  const n = Number(amount);
+  return `${symbol}${Number.isInteger(n) ? n : n.toFixed(2)}`;
+}
+
 
 const testimonials = [
   {
