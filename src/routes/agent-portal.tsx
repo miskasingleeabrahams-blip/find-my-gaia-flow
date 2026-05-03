@@ -12,19 +12,7 @@ const AGENT_PASSWORD = "AGENT-GAIA-2145";
 const AGENT_DISCOUNT_CODE = "AGENT-GAIA-2145";
 const STORAGE_KEY = "gaiaberry_agent_auth";
 
-// Products agents are NOT allowed to purchase
-const EXCLUDED_KEYWORDS = [
-  "progesterone",
-  "pcos",
-  "anaemia",
-  "anemia",
-  "anaemia & fertility",
-];
-
-function isExcluded(title: string): boolean {
-  const t = title.toLowerCase();
-  return EXCLUDED_KEYWORDS.some((k) => t.includes(k));
-}
+const AGENT_DISCOUNT_RATE = 0.2145;
 
 export const Route = createFileRoute("/agent-portal")({
   head: () => ({
@@ -152,10 +140,7 @@ function AgentPortal() {
     );
   }
 
-  // Show all products except excluded ones
-  const agentProducts = products.filter(
-    (p: ShopifyProduct) => !isExcluded(p.node.title),
-  );
+  const agentProducts = products;
 
   return (
     <div className="min-h-screen bg-cream">
@@ -227,10 +212,14 @@ function AgentPortal() {
                     )}
                   </div>
                   <h3 className="mt-5 font-serif text-2xl">{p.node.title}</h3>
-                  <div className="mt-3">
+                  <div className="mt-3 flex items-baseline gap-3 flex-wrap">
                     <span className="text-sage-deep font-medium text-2xl">
+                      {retail.currencyCode} {(retailAmount * (1 - AGENT_DISCOUNT_RATE)).toFixed(2)}
+                    </span>
+                    <span className="text-muted-foreground line-through text-sm">
                       {retail.currencyCode} {retailAmount.toFixed(2)}
                     </span>
+                    <span className="text-xs text-sage-deep/80">agent price</span>
                   </div>
                   <div className="mt-5">
                     <AddToCartButton product={p} className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-sage-deep text-cream px-5 py-3 text-sm hover:opacity-90 transition disabled:opacity-50" />
