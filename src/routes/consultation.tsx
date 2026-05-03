@@ -30,22 +30,6 @@ const consultants = [
   { name: "Rhodanthe", role: "GaiaBerry Fertility Consultant", photo: rhodanthePhoto },
 ];
 
-const sessions = [
-  {
-    duration: "15-Minute",
-    title: "15-Minute Follow-Up Consultation",
-    blurb: "Quick reassessment",
-    description: "Ideal for progress check-ins.",
-    price: "R100",
-  },
-  {
-    duration: "30-Minute",
-    title: "30-Minute Follow-Up Consultation",
-    blurb: "In-depth support",
-    description: "Ideal for complex cases.",
-    price: "R200",
-  },
-];
 
 function Consultation() {
   return (
