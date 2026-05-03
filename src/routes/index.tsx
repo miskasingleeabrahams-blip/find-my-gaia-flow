@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
 
 const kits = [
   { img: kit1, name: "PCOS Kit 1", desc: "Restore regular cycles, balance blood sugar and support liver detox — for women navigating PCOS naturally.", price: "R845" },
-  { img: kit2, name: "PCOS Kit 2", desc: "Balance hormones while easing anxiety, stress and low libido — PCOS support with a calming edge.", price: "R895" },
+  { img: kit2, name: "PCOS Kit 2", desc: "Balance hormones while easing anxiety, stress and low libido — PCOS support with a calming edge.", price: "R845" },
   { img: kit3, name: "Progesterone Kit", desc: "Lift low progesterone gently, ease spotting and lengthen short luteal phases for fertility readiness.", price: "R720" },
 ];
 
