@@ -30,6 +30,23 @@ const consultants = [
   { name: "Rhodanthe", role: "GaiaBerry Fertility Consultant", photo: rhodanthePhoto },
 ];
 
+const sessions = [
+  {
+    duration: "15-Minute",
+    title: "15-Minute Follow-Up Consultation",
+    blurb: "Quick reassessment",
+    description: "Ideal for progress check-ins.",
+    price: "R100",
+  },
+  {
+    duration: "30-Minute",
+    title: "30-Minute Follow-Up Consultation",
+    blurb: "In-depth support",
+    description: "Ideal for complex cases.",
+    price: "R200",
+  },
+];
+
 
 function Consultation() {
   return (
@@ -99,6 +116,47 @@ function Consultation() {
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* SESSION OPTIONS */}
+      <section className="mx-auto max-w-5xl px-6 md:px-10 pb-20">
+        <div className="text-center">
+          <Eyebrow>Session Options</Eyebrow>
+          <h2 className="mt-3 font-serif text-3xl md:text-5xl">Choose Your Session</h2>
+          <p className="mt-4 text-body max-w-xl mx-auto">
+            Secure online checkout. Payflex and major payment methods supported.
+          </p>
+        </div>
+        <div className="mt-12 grid md:grid-cols-2 gap-6 md:gap-8">
+          {sessions.map((s) => (
+            <article
+              key={s.title}
+              className="relative overflow-hidden rounded-[2rem] bg-card border border-border p-8 md:p-10 shadow-[var(--shadow-soft)] flex flex-col"
+            >
+              <div className="inline-flex items-center gap-2 self-start rounded-full bg-blush/40 text-blush-deep px-3 py-1 text-xs">
+                <Clock className="h-3.5 w-3.5" />
+                {s.duration}
+              </div>
+              <h3 className="mt-5 font-serif text-2xl md:text-3xl text-ink">{s.title}</h3>
+              <p className="mt-2 text-sage-deep text-sm uppercase tracking-[0.18em]">{s.blurb}</p>
+              <p className="mt-3 text-body">{s.description}</p>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="font-serif text-4xl text-sage-deep">{s.price}</span>
+                <span className="text-sm text-muted-foreground">once-off</span>
+              </div>
+              <button
+                type="button"
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-4 hover:opacity-90 transition shadow-[var(--shadow-soft)]"
+              >
+                <CreditCard className="h-4 w-4" />
+                Book & Pay
+              </button>
+              <p className="mt-3 text-xs text-muted-foreground text-center">
+                Secure checkout · Payflex available
+              </p>
+            </article>
+          ))}
+        </div>
       </section>
 
       {/* MEET YOUR CONSULTANTS */}
