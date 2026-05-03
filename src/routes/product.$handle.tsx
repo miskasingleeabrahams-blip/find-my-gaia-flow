@@ -25,6 +25,28 @@ export const Route = createFileRoute("/product/$handle")({
     const description = product?.description?.slice(0, 160) ?? "GaiaBerry natural wellness product.";
     const image = product?.images.edges[0]?.node.url ?? "https://gaiaberry.co.za/og-shop.jpg";
     const url = `https://gaiaberry.co.za/product/${params.handle}`;
+    const price = product?.priceRange.minVariantPrice;
+    const variant = product?.variants.edges[0]?.node;
+    const productJsonLd = product
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.title,
+          description: product.description,
+          image: [image],
+          sku: variant?.id,
+          brand: { "@type": "Brand", name: "GaiaBerry" },
+          offers: {
+            "@type": "Offer",
+            url,
+            priceCurrency: price?.currencyCode ?? "ZAR",
+            price: price?.amount ?? "0",
+            availability: variant?.availableForSale
+              ? "https://schema.org/InStock"
+              : "https://schema.org/OutOfStock",
+          },
+        }
+      : null;
     return {
       meta: [
         { title },
@@ -37,6 +59,9 @@ export const Route = createFileRoute("/product/$handle")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:image", content: image },
       ],
+      scripts: productJsonLd
+        ? [{ type: "application/ld+json", children: JSON.stringify(productJsonLd) }]
+        : [],
     };
   },
   notFoundComponent: () => (
