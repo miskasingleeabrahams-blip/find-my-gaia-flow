@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Eyebrow } from "@/components/Section";
+import { AddToCartButton } from "@/components/AddToCartButton";
+import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 import { AlertTriangle, Clock, MessageCircle, CheckCircle2, XCircle, CalendarClock, Leaf, CreditCard, FileText, Sparkles } from "lucide-react";
 import samiyaPhoto from "@/assets/consultants/samiya.jpg";
 import nafeesahPhoto from "@/assets/consultants/nafeesah.jpg";
@@ -20,6 +22,11 @@ export const Route = createFileRoute("/consultation")({
       { name: "twitter:image", content: "https://gaiaberry.co.za/og-consultation.jpg" },
     ],
   }),
+  loader: async (): Promise<{ consultationProducts: ShopifyProduct[] }> => {
+    const data = await storefrontApiRequest(STOREFRONT_QUERY, { first: 100, query: "product_type:Consultation" });
+    const consultationProducts: ShopifyProduct[] = data?.data?.products?.edges ?? [];
+    return { consultationProducts };
+  },
   component: Consultation,
 });
 
