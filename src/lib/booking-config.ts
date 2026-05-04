@@ -54,12 +54,12 @@ export function getSession(id: string) {
 }
 
 // Mon=1..Sat=6 are open; Sun=0 closed.
-// Mon-Fri: 9am-6pm. Sat: 9am-1pm.
+// Mon-Fri: 9am-6pm. Sat: 9am-12pm.
 export function getAvailableTimes(date: Date, slotMinutes: 15 | 30): string[] {
   const day = date.getDay()
   if (day === 0) return []
   const startHour = 9
-  const endHour = day === 6 ? 13 : 18
+  const endHour = day === 6 ? 12 : 18
   const slots: string[] = []
   for (let h = startHour; h < endHour; h++) {
     for (let m = 0; m < 60; m += slotMinutes) {
