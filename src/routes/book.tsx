@@ -13,6 +13,8 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
+import { zodValidator, fallback } from '@tanstack/zod-adapter'
+import { z } from 'zod'
 import {
   AGENTS,
   SESSION_OPTIONS,
@@ -21,7 +23,13 @@ import {
   type SessionId,
 } from '@/lib/booking-config'
 
+const bookSearchSchema = z.object({
+  session: fallback(z.enum(['15min', '30min']), '30min').default('30min'),
+  agent: fallback(z.string(), '').default(''),
+})
+
 export const Route = createFileRoute('/book')({
+  validateSearch: zodValidator(bookSearchSchema),
   head: () => ({
     meta: [
       { title: 'Book a Consultation — GaiaBerry' },
@@ -35,8 +43,9 @@ export const Route = createFileRoute('/book')({
 })
 
 function BookPage() {
-  const [agentId, setAgentId] = useState<string>('')
-  const [sessionId, setSessionId] = useState<SessionId>('30min')
+  const search = Route.useSearch()
+  const [agentId, setAgentId] = useState<string>(search.agent && AGENTS.some(a => a.id === search.agent) ? search.agent : '')
+  const [sessionId, setSessionId] = useState<SessionId>(search.session)
   const [date, setDate] = useState<Date | undefined>()
   const [time, setTime] = useState<string>('')
   const [name, setName] = useState('')
