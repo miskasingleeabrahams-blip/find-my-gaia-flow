@@ -114,7 +114,7 @@ function BookPage() {
       <main className="mx-auto max-w-2xl px-4 py-12">
         <h1 className="text-3xl font-semibold tracking-tight">Book your consultation</h1>
         <p className="mt-2 text-muted-foreground">
-          Mon-Fri 9am-6pm · Sat 9am-1pm · Closed Sundays
+          Mon-Fri 9am-6pm · Sat 9am-12pm · Closed Sundays
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-7">
