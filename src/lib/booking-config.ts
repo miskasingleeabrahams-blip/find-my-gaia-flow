@@ -21,18 +21,23 @@ export const SESSION_OPTIONS = [
     label: '15 minutes',
     priceCents: 10000,
     priceFormatted: 'R100',
-    shopifyVariantId: 'gid://shopify/ProductVariant/45494375907382',
-    shopifyVariantNumericId: '45494375907382',
+    shopifyVariantId: 'gid://shopify/ProductVariant/45645917290550',
+    shopifyVariantNumericId: '45645917290550',
   },
   {
     id: '30min',
     label: '30 minutes',
     priceCents: 20000,
     priceFormatted: 'R200',
-    shopifyVariantId: 'gid://shopify/ProductVariant/45494376136758',
-    shopifyVariantNumericId: '45494376136758',
+    shopifyVariantId: 'gid://shopify/ProductVariant/45645918011446',
+    shopifyVariantNumericId: '45645918011446',
   },
 ] as const
+
+// Map session label (as stored in DB) back to a session option
+export function getSessionByLabel(label: string) {
+  return SESSION_OPTIONS.find((s) => s.label === label)
+}
 
 export type SessionId = typeof SESSION_OPTIONS[number]['id']
 
