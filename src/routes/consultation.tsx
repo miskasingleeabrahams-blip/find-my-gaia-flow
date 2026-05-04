@@ -56,6 +56,13 @@ const sessions = [
 
 
 function Consultation() {
+  const { consultationProducts } = Route.useLoaderData();
+  const findProduct = (minutes: 15 | 30) =>
+    consultationProducts.find((p) => p.node.title.toLowerCase().includes(`${minutes}-minute`));
+  const sessionsWithProducts = sessions.map((s) => ({
+    ...s,
+    product: findProduct(s.duration === "15-Minute" ? 15 : 30),
+  }));
   return (
     <div className="min-h-screen bg-cream">
       <SiteHeader />
