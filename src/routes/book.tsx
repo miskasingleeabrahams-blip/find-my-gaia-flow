@@ -27,7 +27,7 @@ export const Route = createFileRoute('/book')({
       { title: 'Book a Consultation — GaiaBerry' },
       {
         name: 'description',
-        content: 'Book a 15 or 30 minute follow-up consultation with a GaiaBerry consultant. Mon-Fri 9am-6pm, Sat 9am-1pm.',
+        content: 'Book a 15 or 30 minute follow-up consultation with a GaiaBerry consultant. Mon-Fri 9am-6pm, Sat 9am-12pm.',
       },
     ],
   }),
