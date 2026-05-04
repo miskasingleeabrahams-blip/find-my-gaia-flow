@@ -142,7 +142,7 @@ function Consultation() {
           </p>
         </div>
         <div className="mt-12 grid md:grid-cols-2 gap-6 md:gap-8">
-          {sessions.map((s) => (
+          {sessionsWithProducts.map((s) => (
             <article
               key={s.title}
               className="relative overflow-hidden rounded-[2rem] bg-card border border-border p-8 md:p-10 shadow-[var(--shadow-soft)] flex flex-col"
@@ -158,13 +158,22 @@ function Consultation() {
                 <span className="font-serif text-4xl text-sage-deep">{s.price}</span>
                 <span className="text-sm text-muted-foreground">once-off</span>
               </div>
-              <button
-                type="button"
-                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-4 hover:opacity-90 transition shadow-[var(--shadow-soft)]"
-              >
-                <CreditCard className="h-4 w-4" />
-                Book & Pay
-              </button>
+              {s.product ? (
+                <AddToCartButton
+                  product={s.product}
+                  label="Book & Pay"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-4 hover:opacity-90 transition shadow-[var(--shadow-soft)] disabled:opacity-50"
+                />
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary/60 text-primary-foreground px-7 py-4 cursor-not-allowed"
+                >
+                  <CreditCard className="h-4 w-4" />
+                  Unavailable
+                </button>
+              )}
               <p className="mt-3 text-xs text-muted-foreground text-center">
                 Secure checkout · Payflex available
               </p>
